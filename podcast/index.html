@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podcast · AI 懶人祕技 · 穗稻忠武的專欄</title>
+<meta name="description" content="每日 AI 落地懶人包,最近 14 集可線上收聽。">
+<link rel="canonical" href="https://polarbear0827.github.io/columns/podcast/">
+<style>:root{
+  --bg:#faf8f3; --surface:#fffdf8; --ink:#1c1b18; --soft:#6f6a60; --faint:#9a9388;
+  --line:#e9e3d7; --accent:#9c3024; --accent-soft:#f3e7e3;
+  --serif:"Noto Serif CJK TC","Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",Georgia,serif;
+  --sans:system-ui,-apple-system,"PingFang TC","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.85;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+a{color:inherit;text-decoration:none}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding:.9rem 1.5rem}
+.topbar .brand{font-family:var(--serif);font-weight:700;letter-spacing:.12em;font-size:1.02rem}
+.nav{display:flex;gap:1.3rem;font-size:.92rem}
+.nav a{color:var(--soft);padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+.masthead{text-align:center;padding:3.4rem 1.5rem 2.4rem;border-bottom:1px solid var(--line)}
+.masthead h1{font-family:var(--serif);font-weight:900;font-size:2.5rem;letter-spacing:.06em;margin:0}
+.masthead .tagline{color:var(--soft);max-width:560px;margin:1rem auto 0;font-size:1rem}
+.masthead .rss{display:inline-block;margin-top:1.2rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
+.masthead .rss:hover{background:var(--accent);color:#fff}
+
+.feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
+.lead-slot{margin-bottom:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(40,30,20,.10)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .thumb.noimg{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#f6efe6,#efe6da)}
+.card .thumb.noimg span{font-family:var(--serif);color:var(--faint);font-size:1.4rem;letter-spacing:.3em}
+.card-body{padding:1.1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card-body h2{font-family:var(--serif);font-weight:700;font-size:1.2rem;line-height:1.45;margin:.1rem 0}
+.card .excerpt{color:var(--soft);font-size:.9rem;line-height:1.7;flex:1}
+.kicker{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{font-size:.72rem;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);
+  border-radius:999px;padding:.12rem .6rem}
+.byline{color:var(--faint);font-size:.8rem;margin:.2rem 0 0;letter-spacing:.05em}
+.card.featured{flex-direction:row;align-items:stretch}
+.card.featured .thumb{flex:1.15;aspect-ratio:auto;min-height:300px}
+.card.featured .card-body{flex:1;justify-content:center;padding:2rem 2.2rem}
+.card.featured h2{font-size:1.85rem;line-height:1.4}
+.card.featured .excerpt{font-size:1rem;flex:none;margin-top:.4rem}
+@media(max-width:680px){.card.featured{flex-direction:column}.card.featured .thumb{min-height:200px}}
+
+.post{max-width:700px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
+.post-head{text-align:center;margin-bottom:2.4rem}
+.post-head .kicker{justify-content:center;margin-bottom:1rem}
+.post-head h1{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.45;margin:.3rem 0}
+.post-head .byline{margin-top:.9rem}
+.post p{margin:1.25rem 0;font-size:1.07rem;letter-spacing:.01em}
+.post p.lead{font-size:1.18rem;line-height:1.9;color:#2c2a26}
+.post p.lead::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:3.4rem;
+  line-height:.82;margin:.34rem .55rem 0 0;color:var(--accent)}
+.post h2{font-family:var(--serif);font-weight:700;font-size:1.45rem;margin:2.6rem 0 .8rem;
+  padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
+.post h2.refs-head{font-size:1.12rem;color:var(--soft);border-bottom:1px solid var(--line)}
+.post h3{font-family:var(--serif);font-size:1.18rem;margin:1.8rem 0 .5rem}
+.post figure{margin:2.2rem 0}
+.post figure img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figcaption{color:var(--soft);font-size:.85rem;text-align:center;margin-top:.7rem;font-style:italic;line-height:1.6}
+.post .ref{font-size:.84rem;line-height:1.7;color:#56524a;margin:.4rem 0;padding-left:.9rem;
+  border-left:2px solid var(--line);word-break:break-all}
+.post .ref a{color:var(--accent)}
+.post hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+.onesent{font-family:var(--serif);font-size:1.15rem;color:var(--accent);border-left:3px solid var(--accent);
+  margin:1.5rem 0;padding:.4rem 0 .4rem 1rem;line-height:1.8}
+.rem3{padding-left:1.2rem}.rem3 li{margin:.6rem 0;line-height:1.8}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.paper h3{margin:.1rem 0 .3rem;font-size:1.18rem}
+.paper .role{color:var(--accent);font-size:.85rem;margin:.1rem 0 .7rem;letter-spacing:.05em}
+.paper p{margin:.4rem 0;font-size:.98rem;line-height:1.75}
+.also{margin:3rem 0 1rem;padding:1.1rem 1.3rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;color:var(--soft);font-size:.95rem}
+.also a{color:var(--accent);font-weight:500}
+.foot{max-width:900px;margin:3rem auto 0;padding:1.6rem 1.5rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:var(--faint);font-size:.85rem}
+.foot a{color:var(--accent)}
+@media(max-width:680px){.masthead h1{font-size:2rem}.post-head h1{font-size:1.7rem}.post p.lead{font-size:1.08rem}}
+</style>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="https://polarbear0827.github.io/columns/">穗稻忠武的專欄</a><nav class="nav"><a href="https://polarbear0827.github.io/columns/">專欄</a><a href="https://polarbear0827.github.io/columns/radar/">AI Radar</a><a href="https://polarbear0827.github.io/columns/papers/">HF 速讀</a><a href="https://polarbear0827.github.io/columns/podcast/">Podcast</a><a href="https://polarbear0827.github.io/Daily-briefing/">早報 ↗</a></nav></header>
+<header class="masthead">
+<h1>Podcast · AI 懶人祕技</h1>
+<p class="tagline">每日 AI 落地懶人包,最近 14 集可線上收聽。</p>
+<a class="rss" href="https://polarbear0827.github.io/columns/podcast/rss.xml">訂閱 RSS</a>
+</header>
+<main class="feed">
+<section class="lead-slot"><a class="card featured" href="https://polarbear0827.github.io/columns/podcast/2026-06-25/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天的共同主題，是 AI 工具正在從『能展示』走向『能落地』：真正決勝的，不只是模型誰更會講，而是誰能穩穩接進工作流程、撐過真實世界的限制，最後真的幫人省時間。</h2><p class="excerpt">你有沒有發現，這一波 AI 新聞越來越像同一場耐力賽？不是誰喊得最大聲，而是誰能把能力接進產品、接進團隊、接進每天都會發生的工作現場。今天就用五則新聞，一起看看 AI 是怎麼從『很酷』變成『真的能用』。</p>
+<p class="byline"><time>2026-06-25</time></p></div></a></section>
+<section class="grid"><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-24/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天的共同主題，是 AI 工具正在從『能展示』走向『能落地』：真正決勝的，不只是模型誰更會講，而是誰能穩穩接進工作流程、撐過真實世界的限制，最後真的幫人省時間。</h2><p class="excerpt">你有沒有發現，這一波 AI 新聞越來越像同一場耐力賽？不是誰喊得最大聲，而是誰能把能力接進產品、接進團隊、接進每天都會發生的工作現場。今天就用五則新聞，一起看看 AI 是怎麼從『很酷』變成『真的能用』。</p>
+<p class="byline"><time>2026-06-24</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-23/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天是 AI 從工具箱衝進工廠線的一天：代理自動跑、算力拼命燒、創意和資安一起被重寫</h2><p class="excerpt">AI 已經不是坐在旁邊等你發問的實習生了，它正在變成半夜不睡覺的自動工廠！今天這 5 則新聞，就是一台 AI 引擎從辦公桌一路轟進資料中心、片場和程式碼裡。</p>
+<p class="byline"><time>2026-06-23</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-22/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>AI 正從實驗室衝進你的手機、創作工具、版權戰場與雲端成本中心</h2><p class="excerpt">今天的 AI 世界像一台全速前進的高鐵：前面是超好用的新功能，後面卻拖著監管、版權和算力帳單一起狂奔！🔥</p>
+<p class="byline"><time>2026-06-22</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-21/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天的統一主題是：AI 正從好用工具，衝進算力、版權、管制與信任的現實戰場</h2><p class="excerpt">AI 現在不是坐在實驗室裡乖乖回答問題的小助手了，它像一台開上高速公路的超跑，速度爆炸，但前面同時出現紅燈、測速照相和版權警察 🚦🔥</p>
+<p class="byline"><time>2026-06-21</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-20/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>AI 不只在變聰明，正在衝進你的工作流、基礎建設與政策紅線</h2><p class="excerpt">AI 現在不是一台放在實驗室裡的超跑，而是一整支車隊，直接開進辦公室、資料中心、手機通話，甚至政府監管的大門口！🔥</p>
+<p class="byline"><time>2026-06-20</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-19/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天全是 AI 落地搶道日：算力、電力、工作流、監管一起重排</h2><p class="excerpt">AI 現在不只是模型變聰明，而是整條高速公路都在改建：晶片在搶、電力在搶、工作流也在搶。誰先拿到路權，誰就先把 AI 變成真正的生產力引擎！🚀</p>
+<p class="byline"><time>2026-06-19</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-18/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>AI 落地壓力測試日：從模型主權、成本帳單，到世界模型與機器人資料，大家都在問 AI 怎麼真的用得穩！</h2><p class="excerpt">今天的 AI 新聞像一台超跑突然開進公司停車場：馬力爆棚，但油錢、鑰匙、駕照，全部都要重算。AI 不只是在變強，而是在被現實世界全面驗車！🔥</p>
+<p class="byline"><time>2026-06-18</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-17/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天的統一主題：AI 不只是模型變強，而是正式衝進制度、資安、手機與會議室，開始重寫工作的底層規則</h2><p class="excerpt">AI 現在不是一台放在角落的超跑，而是直接開進你公司的會議室、手機、資安戰情室，甚至白宮辦公室。今天這 5 則新聞，像五個警報同時響起：機會超大，但風險也超真實！</p>
+<p class="byline"><time>2026-06-17</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-16/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天全是 AI 從工具變成基礎設施，權限、客服、搜尋、太空感知一次升級</h2><p class="excerpt">AI 現在不只是坐在螢幕裡回答你問題，它開始像員工、像客服主管、像搜尋引擎，甚至像太空中的偵察兵。真正的戰場，不是誰會聊天，而是誰能被信任、被管理、被放進關鍵流程。</p>
+<p class="byline"><time>2026-06-16</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-15/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>AI 正在從炫技衝刺，進入安全、信任與真實落地的大考場</h2><p class="excerpt">AI 這兩天像一台飆到紅線的超跑：引擎超猛，但前面突然出現海關、警察、驗車廠，全部都在喊停一下！🚦🔥</p>
+<p class="byline"><time>2026-06-15</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-14/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天的共同主題，是 AI 工具正在從『能展示』走向『能落地』：真正決勝的，不只是模型誰更會講，而是誰能穩穩接進工作流程、撐過真實世界的限制，最後真的幫人省時間。</h2><p class="excerpt">你有沒有發現，這一波 AI 新聞越來越像同一場耐力賽？不是誰喊得最大聲，而是誰能把能力接進產品、接進團隊、接進每天都會發生的工作現場。今天就用五則新聞，一起看看 AI 是怎麼從『很酷』變成『真的能用』。</p>
+<p class="byline"><time>2026-06-14</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-13/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天的共同主題，是 AI 工具正在從『能展示』走向『能落地』：真正決勝的，不只是模型誰更會講，而是誰能穩穩接進工作流程、撐過真實世界的限制，最後真的幫人省時間。</h2><p class="excerpt">你有沒有發現，這一波 AI 新聞越來越像同一場耐力賽？不是誰喊得最大聲，而是誰能把能力接進產品、接進團隊、接進每天都會發生的工作現場。今天就用五則新聞，一起看看 AI 是怎麼從『很酷』變成『真的能用』。</p>
+<p class="byline"><time>2026-06-13</time></p></div></a><a class="card" href="https://polarbear0827.github.io/columns/podcast/2026-06-10/">
+<div class="thumb noimg"><span>專欄</span></div>
+<div class="card-body"><div class="kicker"><span class="tag">Podcast</span></div>
+<h2>今天的共同主題，是 AI 工具正在從『能展示』走向『能落地』：真正決勝的，不只是模型誰更會講，而是誰能穩穩接進工作流程、撐過真實世界的限制，最後真的幫人省時間。</h2><p class="excerpt">你有沒有發現，這一波 AI 新聞越來越像同一場耐力賽？不是誰喊得最大聲，而是誰能把能力接進產品、接進團隊、接進每天都會發生的工作現場。今天就用五則新聞，一起看看 AI 是怎麼從『很酷』變成『真的能用』。</p>
+<p class="byline"><time>2026-06-10</time></p></div></a></section>
+</main>
+<footer class="foot"><span>© 穗稻忠武的專欄</span></footer>
+<script>
+(function(){
+  var stop=function(e){e.preventDefault();return false;};
+  document.addEventListener('contextmenu',stop);
+  document.addEventListener('selectstart',stop);
+  document.addEventListener('copy',stop);
+  document.addEventListener('cut',stop);
+  document.addEventListener('dragstart',stop);
+  document.addEventListener('keydown',function(e){
+    var k=(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['c','x','s','u','a','p'].indexOf(k)>-1){e.preventDefault();return false;}
+  });
+})();
+</script>
+</body>
+</html>
