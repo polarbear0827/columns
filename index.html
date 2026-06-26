@@ -34,6 +34,36 @@ a{color:inherit;text-decoration:none}
   color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
 .masthead .rss:hover{background:var(--accent);color:#fff}
 
+/* 首頁動態封面(純 CSS 動畫) */
+.cover{border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% 0%,#fffdf8 0%,var(--bg) 58%,#f1e9db 100%)}
+.cover-inner{position:relative;max-width:900px;margin:0 auto;
+  padding:4.4rem 1.5rem 3.8rem;text-align:center}
+.cover .cc{position:absolute;width:22px;height:22px;border:3px solid var(--accent);
+  opacity:0;animation:cc-in .5s ease-out forwards}
+.cover .cc-tl{top:1.4rem;left:1.4rem;border-right:none;border-bottom:none;animation-delay:.1s}
+.cover .cc-tr{top:1.4rem;right:1.4rem;border-left:none;border-bottom:none;animation-delay:.18s}
+.cover .cc-bl{bottom:1.4rem;left:1.4rem;border-right:none;border-top:none;animation-delay:.26s}
+.cover .cc-br{bottom:1.4rem;right:1.4rem;border-left:none;border-top:none;animation-delay:.34s}
+.cover-kicker{font-family:var(--sans);letter-spacing:.55em;text-indent:.55em;color:var(--accent);
+  font-size:.82rem;font-weight:600;opacity:0;animation:fade-up .6s ease-out .3s forwards}
+.cover-bar{width:0;height:5px;background:var(--accent);margin:1rem auto 1.4rem;
+  animation:bar-in .6s ease-out .5s forwards}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:3rem;letter-spacing:.05em;
+  margin:0;color:var(--ink);opacity:0;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .7s forwards}
+.cover-sub{font-family:var(--sans);color:var(--soft);max-width:600px;margin:1.1rem auto 0;
+  font-size:1rem;opacity:0;animation:fade-up .75s ease-out 1.15s forwards}
+.cover .rss{display:inline-block;margin-top:1.6rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem;
+  opacity:0;animation:fade-up .7s ease-out 1.5s forwards}
+.cover .rss:hover{background:var(--accent);color:#fff}
+@keyframes cc-in{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes bar-in{from{width:0}to{width:150px}}
+@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cover *{animation:none!important;opacity:1!important;width:auto}
+  .cover-bar{width:150px}}
+@media(max-width:680px){.cover-title{font-size:2.1rem}}
+
 .feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
 .lead-slot{margin-bottom:2.2rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
@@ -99,10 +129,16 @@ a{color:inherit;text-decoration:none}
 </head>
 <body>
 <header class="topbar"><a class="brand" href="https://polarbear0827.github.io/My-Way/">穗稻忠武的專欄</a><nav class="nav"><a href="https://polarbear0827.github.io/My-Way/">專欄</a><a href="https://polarbear0827.github.io/My-Way/radar/">AI Radar</a><a href="https://polarbear0827.github.io/My-Way/papers/">HF 速讀</a><a href="https://polarbear0827.github.io/My-Way/podcast/">Podcast</a><a href="https://polarbear0827.github.io/Daily-briefing/">早報 ↗</a></nav></header>
-<header class="masthead">
-<h1>穗稻忠武的專欄</h1>
-<p class="tagline">科技人文、生活日常與藝術長篇專欄,加上每日 AI Radar、HF 論文速讀與 Podcast。</p>
-<a class="rss" href="https://polarbear0827.github.io/My-Way/rss.xml">訂閱 RSS</a>
+<header class="cover">
+  <div class="cover-inner">
+    <span class="cc cc-tl"></span><span class="cc cc-tr"></span>
+    <span class="cc cc-bl"></span><span class="cc cc-br"></span>
+    <div class="cover-kicker">每 日 觀 察</div>
+    <div class="cover-bar"></div>
+    <h1 class="cover-title">穗稻忠武的專欄</h1>
+    <p class="cover-sub">科技人文、生活日常與藝術長篇專欄,加上每日 AI Radar、HF 論文速讀與 Podcast。</p>
+    <a class="rss" href="https://polarbear0827.github.io/My-Way/rss.xml">訂閱 RSS</a>
+  </div>
 </header>
 <main class="feed">
 <section class="lead-slot"><a class="card featured" href="https://polarbear0827.github.io/My-Way/p/2026-06-26-work-screen-training-data/">
@@ -110,7 +146,11 @@ a{color:inherit;text-decoration:none}
 <div class="card-body"><div class="kicker"><span class="tag">專欄</span><span class="tag">深度報導</span></div>
 <h2>工作螢幕被記錄時</h2><p class="excerpt">Meta 在 6 月下旬暫停一項內部計畫：把美國員工在公司電腦上的滑鼠移動、點擊、鍵盤輸入與部分螢幕內容，轉成訓練 AI 代理人的資料。這不是一則只屬於矽谷公司的內部人事新聞；它把一個更貼近日常的問題推到桌面上：當我們工</p>
 <p class="byline"><time>2026-06-26</time></p></div></a></section>
-<section class="grid"><a class="card" href="https://polarbear0827.github.io/My-Way/p/2026-06-25-seal-esignature-taiwan-trust/">
+<section class="grid"><a class="card" href="https://polarbear0827.github.io/My-Way/p/2026-06-26-temple-loudspeakers-taiwan-soundscape/">
+<div class="thumb"><img src="https://imgcdn.cna.com.tw/Eng/WebEngPhotos/WebCover/800/2026/20260427/1020x765_906042978863.jpg" alt="" loading="lazy"></div>
+<div class="card-body"><div class="kicker"><span class="tag">台灣文化</span><span class="tag">台灣</span><span class="tag">社會觀察</span></div>
+<h2>廟口的擴音器</h2><p class="excerpt">夜裡的廟口，不只是一個宗教場所。它可能是一條街的集合點、一場遶境的終點、一群孩子第一次看見八家將的舞台，也可能是樓上住戶在凌晨仍無法入睡的聲音來源。台灣民間信仰的「熱鬧」，長期靠鑼鼓、哨角、鞭炮、擴音器與人群撐起；但當城</p>
+<p class="byline"><time>2026-06-26</time></p></div></a><a class="card" href="https://polarbear0827.github.io/My-Way/p/2026-06-25-seal-esignature-taiwan-trust/">
 <div class="thumb"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Round_seal_and_red_ink_pad.jpg" alt="" loading="lazy"></div>
 <div class="card-body"><div class="kicker"><span class="tag">台灣文化</span><span class="tag">台灣</span><span class="tag">專欄</span></div>
 <h2>印章還在嗎：台灣信任技術的紅色邊界</h2><p class="excerpt">一個人走進銀行、戶政事務所或代書辦公室時，常常不是先拿出簽字筆，而是從包裡摸出一枚小小的印章。紅色印泥落在紙上，方寸之間像是一句無聲的保證：這是我，這是我的意思，這份文件可以往下一關走。</p>

@@ -34,6 +34,36 @@ a{color:inherit;text-decoration:none}
   color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
 .masthead .rss:hover{background:var(--accent);color:#fff}
 
+/* 首頁動態封面(純 CSS 動畫) */
+.cover{border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% 0%,#fffdf8 0%,var(--bg) 58%,#f1e9db 100%)}
+.cover-inner{position:relative;max-width:900px;margin:0 auto;
+  padding:4.4rem 1.5rem 3.8rem;text-align:center}
+.cover .cc{position:absolute;width:22px;height:22px;border:3px solid var(--accent);
+  opacity:0;animation:cc-in .5s ease-out forwards}
+.cover .cc-tl{top:1.4rem;left:1.4rem;border-right:none;border-bottom:none;animation-delay:.1s}
+.cover .cc-tr{top:1.4rem;right:1.4rem;border-left:none;border-bottom:none;animation-delay:.18s}
+.cover .cc-bl{bottom:1.4rem;left:1.4rem;border-right:none;border-top:none;animation-delay:.26s}
+.cover .cc-br{bottom:1.4rem;right:1.4rem;border-left:none;border-top:none;animation-delay:.34s}
+.cover-kicker{font-family:var(--sans);letter-spacing:.55em;text-indent:.55em;color:var(--accent);
+  font-size:.82rem;font-weight:600;opacity:0;animation:fade-up .6s ease-out .3s forwards}
+.cover-bar{width:0;height:5px;background:var(--accent);margin:1rem auto 1.4rem;
+  animation:bar-in .6s ease-out .5s forwards}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:3rem;letter-spacing:.05em;
+  margin:0;color:var(--ink);opacity:0;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .7s forwards}
+.cover-sub{font-family:var(--sans);color:var(--soft);max-width:600px;margin:1.1rem auto 0;
+  font-size:1rem;opacity:0;animation:fade-up .75s ease-out 1.15s forwards}
+.cover .rss{display:inline-block;margin-top:1.6rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem;
+  opacity:0;animation:fade-up .7s ease-out 1.5s forwards}
+.cover .rss:hover{background:var(--accent);color:#fff}
+@keyframes cc-in{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes bar-in{from{width:0}to{width:150px}}
+@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cover *{animation:none!important;opacity:1!important;width:auto}
+  .cover-bar{width:150px}}
+@media(max-width:680px){.cover-title{font-size:2.1rem}}
+
 .feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
 .lead-slot{margin-bottom:2.2rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
@@ -105,12 +135,16 @@ a{color:inherit;text-decoration:none}
 
 </header>
 <main class="feed">
-<section class="lead-slot"><a class="card featured" href="https://polarbear0827.github.io/My-Way/papers/2026-06-25/">
+<section class="lead-slot"><a class="card featured" href="https://polarbear0827.github.io/My-Way/papers/2026-06-26/">
+<div class="thumb"><img src="https://polarbear0827.github.io/My-Way/papers/2026-06-26/cover.png" alt="" loading="lazy"></div>
+<div class="card-body"><div class="kicker"><span class="tag">HF 速讀</span></div>
+<h2>HF 論文速讀 2026-06-26</h2><p class="excerpt">電腦使用 Agent 與跨域影片生成同步突破</p>
+<p class="byline"><time>2026-06-26</time></p></div></a></section>
+<section class="grid"><a class="card" href="https://polarbear0827.github.io/My-Way/papers/2026-06-25/">
 <div class="thumb"><img src="https://polarbear0827.github.io/My-Way/papers/2026-06-25/cover.png" alt="" loading="lazy"></div>
 <div class="card-body"><div class="kicker"><span class="tag">HF 速讀</span></div>
 <h2>HF 論文速讀 2026-06-25</h2><p class="excerpt">今天的共同趨勢：AI 研究正在從模型能力本身，推進到長任務、長上下文、空間感知與可驗證環境。</p>
-<p class="byline"><time>2026-06-25</time></p></div></a></section>
-<section class="grid"><a class="card" href="https://polarbear0827.github.io/My-Way/papers/2026-06-24/">
+<p class="byline"><time>2026-06-25</time></p></div></a><a class="card" href="https://polarbear0827.github.io/My-Way/papers/2026-06-24/">
 <div class="thumb"><img src="https://polarbear0827.github.io/My-Way/papers/2026-06-24/cover.png" alt="" loading="lazy"></div>
 <div class="card-body"><div class="kicker"><span class="tag">HF 速讀</span></div>
 <h2>HF 論文速讀 2026-06-24</h2><p class="excerpt">今天的共同趨勢：AI 研究正在從模型能力本身，推進到長任務、長上下文、空間感知與可驗證環境。</p>

@@ -33,6 +33,36 @@ a{color:inherit;text-decoration:none}
   color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
 .masthead .rss:hover{background:var(--accent);color:#fff}
 
+/* 首頁動態封面(純 CSS 動畫) */
+.cover{border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% 0%,#fffdf8 0%,var(--bg) 58%,#f1e9db 100%)}
+.cover-inner{position:relative;max-width:900px;margin:0 auto;
+  padding:4.4rem 1.5rem 3.8rem;text-align:center}
+.cover .cc{position:absolute;width:22px;height:22px;border:3px solid var(--accent);
+  opacity:0;animation:cc-in .5s ease-out forwards}
+.cover .cc-tl{top:1.4rem;left:1.4rem;border-right:none;border-bottom:none;animation-delay:.1s}
+.cover .cc-tr{top:1.4rem;right:1.4rem;border-left:none;border-bottom:none;animation-delay:.18s}
+.cover .cc-bl{bottom:1.4rem;left:1.4rem;border-right:none;border-top:none;animation-delay:.26s}
+.cover .cc-br{bottom:1.4rem;right:1.4rem;border-left:none;border-top:none;animation-delay:.34s}
+.cover-kicker{font-family:var(--sans);letter-spacing:.55em;text-indent:.55em;color:var(--accent);
+  font-size:.82rem;font-weight:600;opacity:0;animation:fade-up .6s ease-out .3s forwards}
+.cover-bar{width:0;height:5px;background:var(--accent);margin:1rem auto 1.4rem;
+  animation:bar-in .6s ease-out .5s forwards}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:3rem;letter-spacing:.05em;
+  margin:0;color:var(--ink);opacity:0;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .7s forwards}
+.cover-sub{font-family:var(--sans);color:var(--soft);max-width:600px;margin:1.1rem auto 0;
+  font-size:1rem;opacity:0;animation:fade-up .75s ease-out 1.15s forwards}
+.cover .rss{display:inline-block;margin-top:1.6rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem;
+  opacity:0;animation:fade-up .7s ease-out 1.5s forwards}
+.cover .rss:hover{background:var(--accent);color:#fff}
+@keyframes cc-in{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes bar-in{from{width:0}to{width:150px}}
+@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cover *{animation:none!important;opacity:1!important;width:auto}
+  .cover-bar{width:150px}}
+@media(max-width:680px){.cover-title{font-size:2.1rem}}
+
 .feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
 .lead-slot{margin-bottom:2.2rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
@@ -161,7 +191,48 @@ https://polarbear0827.github.io/My-Way/p/2026-06-26-work-screen-training-data/</
 #工作 #AI #勞動權益 #科技觀察
 https://maruamru777.substack.com/p/c16
 
-https://polarbear0827.github.io/My-Way/p/2026-06-26-work-screen-training-data/</textarea></div></section><section class="sc-item"><h2>印章還在嗎：台灣信任技術的紅色邊界</h2><p class="byline">2026-06-25 ・ <a href="https://polarbear0827.github.io/My-Way/p/2026-06-25-seal-esignature-taiwan-trust/" target="_blank">看文章</a></p><div class="cp"><div class="cp-h"><b>Threads</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>你上次用印章是什麼時候？
+https://polarbear0827.github.io/My-Way/p/2026-06-26-work-screen-training-data/</textarea></div></section><section class="sc-item"><h2>廟口的擴音器</h2><p class="byline">2026-06-26 ・ <a href="https://polarbear0827.github.io/My-Way/p/2026-06-26-temple-loudspeakers-taiwan-soundscape/" target="_blank">看文章</a></p><div class="cp"><div class="cp-h"><b>Threads</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>你有沒有半夜被廟口的鑼鼓或擴音器聲音驚醒，卻又知道這可能是某個遶境的終點，或孩子第一次看見八家將的時刻？
+
+居民不是反對信仰，而是想在自己的生活時間裡安靜。媽祖出巡的熱鬧背後，是移民路徑、公共事件，還有如今被量測的香火與爆竹。
+
+文化資產化之後，這些聲音成了國家文化的一部分。問題是，當聲音也帶有政治意涵，我們還能怎麼談公共信任？
+
+未來的安靜，真的不該是沒有廟會的城市嗎？
+
+#台灣文化 #社會觀察
+https://maruamru777.substack.com/p/81a
+
+https://polarbear0827.github.io/My-Way/p/2026-06-26-temple-loudspeakers-taiwan-soundscape/</textarea></div><div class="cp"><div class="cp-h"><b>Facebook</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>夜裡的廟口，擴音器響起時，那不只是宗教場所的聲音。它可能是一條街的集合點、一場遶境的終點、一群孩子第一次看見八家將的舞台，也可能是樓上住戶在凌晨仍無法入睡的理由。
+
+台灣民間信仰的熱鬧，長期靠鑼鼓、哨角、鞭炮、擴音器與人群撐起。但當城市越來越密，這些聲音被放進環境法規、空氣污染、地方治理與居民生活品質的框架裡。
+
+本文把聲音當作主角：它既是信仰的語言，也是公共空間裡最難協商的邊界。從媽祖出巡的移民路徑，到噪音法規如何替安靜劃線；從安平居民的生活時間，到文化資產化後的國家文化；從聲音的政治意涵，到未來安靜的城市該不該留廟會。
+
+這不是簡單的吵或不吵，而是我們怎麼一起活在同一個空間的問題。
+
+#台灣文化 #社會觀察 #專欄
+https://maruamru777.substack.com/p/81a
+
+https://polarbear0827.github.io/My-Way/p/2026-06-26-temple-loudspeakers-taiwan-soundscape/</textarea></div><div class="cp"><div class="cp-h"><b>X / Twitter</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>夜裡的廟口，擴音器響起時，不只神明在聽。那是整條街的聚會信號，也可能是有人輾轉難眠的開始。當信仰的熱鬧遇上城市的安靜需求，聲音成了最難談的公共邊界。
+https://maruamru777.substack.com/p/81a
+
+https://polarbear0827.github.io/My-Way/p/2026-06-26-temple-loudspeakers-taiwan-soundscape/</textarea></div><div class="cp"><div class="cp-h"><b>Bluesky</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>夜裡的廟口，擴音器一響，不只神明在說話。
+
+那是整條街的集合信號，也可能是樓上有人輾轉難眠的開始。當城市越來越密，信仰的熱鬧聲音被放進法規框架，這場對話才剛開始。
+https://maruamru777.substack.com/p/81a
+
+https://polarbear0827.github.io/My-Way/p/2026-06-26-temple-loudspeakers-taiwan-soundscape/</textarea></div><div class="cp"><div class="cp-h"><b>LinkedIn</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>夜裡的廟口，擴音器一響，提醒我們：公共空間的聲音從來不是單一議題。
+
+它可能是社區凝聚的技術，也可能是居民生活品質的衝突點。台灣民間信仰的熱鬧，靠鑼鼓、擴音器與人群支撐，卻在城市密度上升後，進入環境法規與治理框架。
+
+從媽祖出巡如何從移民路徑變大型公共事件，到香火與爆竹如何被量測為污染；從噪音法規如何替安靜劃線，到居民強調「不是反信仰」而是爭取生活時間；從文化資產化到聲音帶有的政治意涵，這篇專欄把聲音當主角，探討公共信任與未來城市的可能樣貌。
+
+對文化工作者、城市規劃者或關心台灣社會的人來說，這是把傳統與現代生活並置的觀察。未來的安靜，不該是沒有廟會的城市。
+
+#台灣文化 #社會觀察
+https://maruamru777.substack.com/p/81a
+
+https://polarbear0827.github.io/My-Way/p/2026-06-26-temple-loudspeakers-taiwan-soundscape/</textarea></div></section><section class="sc-item"><h2>印章還在嗎：台灣信任技術的紅色邊界</h2><p class="byline">2026-06-25 ・ <a href="https://polarbear0827.github.io/My-Way/p/2026-06-25-seal-esignature-taiwan-trust/" target="_blank">看文章</a></p><div class="cp"><div class="cp-h"><b>Threads</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>你上次用印章是什麼時候？
 
 走進銀行或戶政事務所，很多人不是先拿筆，而是從包裡掏出一枚小印章。紅色印泥蓋下去，那一刻像是在說：「這是我，這是我的意思。」
 
@@ -1977,60 +2048,7 @@ https://polarbear0827.github.io/My-Way/p/2026-06-18-betel-nut-taiwan-roadside-cu
 #產業觀察 #勞動社會學 #台灣文化 #道路經濟學 #政策制定
 https://maruamru777.substack.com/p/c7f
 
-https://polarbear0827.github.io/My-Way/p/2026-06-18-betel-nut-taiwan-roadside-culture/</textarea></div></section><section class="sc-item"><h2>找鑰匙的白色小圓片：AirTag 如何把便利變成反跟蹤的日常課題</h2><p class="byline">2026-06-18 ・ <a href="https://polarbear0827.github.io/My-Way/p/2026-06-18-airtag-bluetooth-tracker-everyday-safety/" target="_blank">看文章</a></p><div class="cp"><div class="cp-h"><b>Threads</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>你曾遇過這種情況嗎？半夜回家路上，手機突然跳出通知，顯示有不明的 AirTag 正隨你移動。
-
-這種恐懼感非常真實。你開始摸口袋、翻包包，甚至檢查機車底盤，卻可能什麼也找不到。原本用來幫人對抗健忘的貼心發明，如今卻成了最容易被濫用的平價跟蹤工具。
-
-這裡面有幾個值得深思的現實：
-第一，防範跟蹤的責任，無形中被轉移到了受害者身上。收到警報後，你得自己翻找、自己研究怎麼拔電池，甚至還要向可能不太懂這項技術的警方報案。
-第二，這也曾是科技巨頭的生態系戰爭。在 Apple 與 Google 坐下來合作之前，Android 用戶如果被 AirTag 跟蹤，根本收不到任何主動警報。
-
-當我們用幾百元台幣買到便利的同時，是不是也悄悄讓渡了對行蹤隱私的掌控權？
-
-#科技與生活 #隱私安全 #AirTag #防跟蹤
-https://maruamru777.substack.com/p/airtag
-
-https://polarbear0827.github.io/My-Way/p/2026-06-18-airtag-bluetooth-tracker-everyday-safety/</textarea></div><div class="cp"><div class="cp-h"><b>Facebook</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>科技帶來的便利，有時會以我們意想不到的方式，轉化為日常的安全課題。
-
-很多人的手機都曾收到過「AirTag Found Moving With You」的通知。這個原本定位在幫忙找鑰匙、找行李的白色小圓片，因為定價便宜、定位精準且體積小巧，上市後很快就成為許多人生活中的隱形威脅。它讓「知道某人在哪裡」這件事，變得前所未有地廉價。
-
-但最耐人尋味的是，當跟蹤問題發生時，安全的責任到底該由誰來承擔？
-
-科技公司雖然設計了反跟蹤警報，但這本質上是將風險管理的責任轉嫁給了個人。當你收到通知，你必須在深夜獨自翻找包包、檢查車底；就算找到了，你可能還得自行上網搜尋如何拆除電池以停止定位。甚至，當你拿著這個白色小圓片走進派出所，當前的司法體系與執法單位，也未必能第一時間處理這種新型態的數位證據。
-
-甚至這還引發了跨平台競爭的荒謬現象。早期，若 Android 用戶被 iPhone 的 AirTag 跟蹤，因為系統隔閡，受害者根本無法在背景收到通知。這逼得 Apple 與 Google 這兩大競爭對手，不得不坐下來共同制定反追蹤的產業標準。
-
-科技發展的初衷是解決痛點，但當便利被武器化，我們在生活中所付出的隱形代價，或許遠比一顆不到千元的硬體設備還要高昂。
-
-#科技與生活 #隱私安全 #科技倫理 #AirTag #防跟蹤
-https://maruamru777.substack.com/p/airtag
-
-https://polarbear0827.github.io/My-Way/p/2026-06-18-airtag-bluetooth-tracker-everyday-safety/</textarea></div><div class="cp"><div class="cp-h"><b>X / Twitter</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>手機螢幕跳出不明 AirTag 隨行通知的那一刻，原本熟悉的回家路，突然變得令人防備與窒息。這個單價不到千元台幣的白色小圓片，本意是幫人找回鑰匙，如今卻成了跟蹤與窺探行蹤最廉價的工具。
-
-當精準定位的技術變得無處不在且極易隱蔽，隱私安全的防護就不再只是科技巨頭更新作業系統的責任，而是每個人在日常生活中都必須重新面對的必修課。我們該如何在享受科技便利的同時，奪回對自己行蹤的掌控權？
-https://maruamru777.substack.com/p/airtag
-
-https://polarbear0827.github.io/My-Way/p/2026-06-18-airtag-bluetooth-tracker-everyday-safety/</textarea></div><div class="cp"><div class="cp-h"><b>Bluesky</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>半夜走在回家的路上，手機突然跳出通知，顯示有不明的 AirTag 正跟著你移動。那一刻，你開始懷疑身邊的所有物品，是外套口袋、後背包，還是車底被貼了什麼？
-
-這個本來用來找鑰匙的白色小圓片，以極低的成本把定位變得無比精準，卻也讓個人的行蹤防線在一瞬間崩解。
-
-當原本用來對抗遺忘的便利科技，轉眼變成窺探隱私的工具，科技巨頭與我們，真的準備好面對這種防不勝防的日常了嗎？
-https://maruamru777.substack.com/p/airtag
-
-https://polarbear0827.github.io/My-Way/p/2026-06-18-airtag-bluetooth-tracker-everyday-safety/</textarea></div><div class="cp"><div class="cp-h"><b>LinkedIn</b><button onclick="cp(this)">複製文案＋連結</button></div><textarea readonly>當一款極具創意且熱銷的消費性科技產品，在市場上引發了意料之外的隱私與安全危機，企業與開發者該如何應對？
-
-Apple 推出 AirTag 的初衷，是為了解決「尋找遺失物」的日常痛點。然而，當這項技術以極低的成本（單顆僅 29 美元）提供精準的定位能力時，它也迅速被轉化為騷擾與跟蹤的工具。這項設計上的矛盾，為整個科技產業帶來了深刻的啟發。
-
-這不僅僅是一個單一產品的設計瑕疵，而是關於科技倫理與平台責任的根本問題。首先，當產品的便利性被武器化時，防範風險的責任究竟該由誰來扛？Apple 雖然推出了反跟蹤警報，但這卻將搜尋定位源、拆卸電池的負擔推給了終端使用者，甚至給執法部門帶來了全新的數位取證難題。
-
-其次，這個案例促成了罕見的跨平台合作。因為系統不互通，Android 使用者一度無法防範 iOS 裝置的追蹤。這最終逼得兩大競爭巨頭 Apple 與 Google 走向合作，共同制定反追蹤的產業標準。這證明在當前的數位時代，任何單一企業都無法獨自解決生態系交會處所產生的安全漏洞。
-
-這給產品經理與科技從業者的啟示是：在設計產品時，我們不能只設想「最佳使用場景」（Happy Path），更必須在產品規劃初期，就將「惡意使用場景」（Abuse Cases）納入核心考量。當便利與安全發生衝突，如何維持兩者的平衡，將是未來所有科技創新都無法迴避的課題。
-
-#產品設計 #科技倫理 #隱私安全 #跨平台標準 #AirTag
-https://maruamru777.substack.com/p/airtag
-
-https://polarbear0827.github.io/My-Way/p/2026-06-18-airtag-bluetooth-tracker-everyday-safety/</textarea></div></section>
+https://polarbear0827.github.io/My-Way/p/2026-06-18-betel-nut-taiwan-roadside-culture/</textarea></div></section>
 </main>
 <footer class="foot"><span>© 穗稻忠武的專欄 ・ 此頁僅供手動發布,未公開連結、不被搜尋收錄</span></footer>
 <script>
