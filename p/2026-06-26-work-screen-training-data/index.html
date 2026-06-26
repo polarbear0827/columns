@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>工作螢幕被記錄時 · 穗稻忠武的專欄</title>
+<meta name="description" content="Meta 在 6 月下旬暫停一項內部計畫：把美國員工在公司電腦上的滑鼠移動、點擊、鍵盤輸入與部分螢幕內容，轉成訓練 AI 代理人的資料。這不是一則只屬於矽谷公司的內部人事新聞；它把一個更貼近日常的問題推到桌面上：當我們工作時，究竟是在完成任務，還是在替未來的自動化系統留下動作樣本？">
+<link rel="canonical" href="https://polarbear0827.github.io/My-Way/p/2026-06-26-work-screen-training-data/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工作螢幕被記錄時">
+<meta property="og:description" content="Meta 在 6 月下旬暫停一項內部計畫：把美國員工在公司電腦上的滑鼠移動、點擊、鍵盤輸入與部分螢幕內容，轉成訓練 AI 代理人的資料。這不是一則只屬於矽谷公司的內部人事新聞；它把一個更貼近日常的問題推到桌面上：當我們工作時，究竟是在完成任務，還是在替未來的自動化系統留下動作樣本？">
+<meta property="og:url" content="https://polarbear0827.github.io/My-Way/p/2026-06-26-work-screen-training-data/">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/4/43/Meta_Headquarters_Sign.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>:root{
+  --bg:#faf8f3; --surface:#fffdf8; --ink:#1c1b18; --soft:#6f6a60; --faint:#9a9388;
+  --line:#e9e3d7; --accent:#9c3024; --accent-soft:#f3e7e3;
+  --serif:"Noto Serif CJK TC","Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",Georgia,serif;
+  --sans:system-ui,-apple-system,"PingFang TC","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.85;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+a{color:inherit;text-decoration:none}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding:.9rem 1.5rem}
+.topbar .brand{font-family:var(--serif);font-weight:700;letter-spacing:.12em;font-size:1.02rem}
+.nav{display:flex;gap:1.3rem;font-size:.92rem}
+.nav a{color:var(--soft);padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+.masthead{text-align:center;padding:3.4rem 1.5rem 2.4rem;border-bottom:1px solid var(--line)}
+.masthead h1{font-family:var(--serif);font-weight:900;font-size:2.5rem;letter-spacing:.06em;margin:0}
+.masthead .tagline{color:var(--soft);max-width:560px;margin:1rem auto 0;font-size:1rem}
+.masthead .rss{display:inline-block;margin-top:1.2rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
+.masthead .rss:hover{background:var(--accent);color:#fff}
+
+.feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
+.lead-slot{margin-bottom:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(40,30,20,.10)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .thumb.noimg{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#f6efe6,#efe6da)}
+.card .thumb.noimg span{font-family:var(--serif);color:var(--faint);font-size:1.4rem;letter-spacing:.3em}
+.card-body{padding:1.1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card-body h2{font-family:var(--serif);font-weight:700;font-size:1.2rem;line-height:1.45;margin:.1rem 0}
+.card .excerpt{color:var(--soft);font-size:.9rem;line-height:1.7;flex:1}
+.kicker{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{font-size:.72rem;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);
+  border-radius:999px;padding:.12rem .6rem}
+.byline{color:var(--faint);font-size:.8rem;margin:.2rem 0 0;letter-spacing:.05em}
+.card.featured{flex-direction:row;align-items:stretch}
+.card.featured .thumb{flex:1.15;aspect-ratio:auto;min-height:300px}
+.card.featured .card-body{flex:1;justify-content:center;padding:2rem 2.2rem}
+.card.featured h2{font-size:1.85rem;line-height:1.4}
+.card.featured .excerpt{font-size:1rem;flex:none;margin-top:.4rem}
+@media(max-width:680px){.card.featured{flex-direction:column}.card.featured .thumb{min-height:200px}}
+
+.post{max-width:700px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
+.post-head{text-align:center;margin-bottom:2.4rem}
+.post-head .kicker{justify-content:center;margin-bottom:1rem}
+.post-head h1{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.45;margin:.3rem 0}
+.post-head .byline{margin-top:.9rem}
+.post p{margin:1.25rem 0;font-size:1.07rem;letter-spacing:.01em}
+.post p.lead{font-size:1.18rem;line-height:1.9;color:#2c2a26}
+.post p.lead::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:3.4rem;
+  line-height:.82;margin:.34rem .55rem 0 0;color:var(--accent)}
+.post h2{font-family:var(--serif);font-weight:700;font-size:1.45rem;margin:2.6rem 0 .8rem;
+  padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
+.post h2.refs-head{font-size:1.12rem;color:var(--soft);border-bottom:1px solid var(--line)}
+.post h3{font-family:var(--serif);font-size:1.18rem;margin:1.8rem 0 .5rem}
+.post .hero{margin:0 0 1.8rem}
+.post .hero img{width:100%;max-height:440px;object-fit:cover;border-radius:12px;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figure{margin:2.2rem 0}
+.post figure img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figcaption{color:var(--soft);font-size:.85rem;text-align:center;margin-top:.7rem;font-style:italic;line-height:1.6}
+.post .ref{font-size:.84rem;line-height:1.7;color:#56524a;margin:.4rem 0;padding-left:.9rem;
+  border-left:2px solid var(--line);word-break:break-all}
+.post .ref a{color:var(--accent)}
+.post hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+.onesent{font-family:var(--serif);font-size:1.15rem;color:var(--accent);border-left:3px solid var(--accent);
+  margin:1.5rem 0;padding:.4rem 0 .4rem 1rem;line-height:1.8}
+.rem3{padding-left:1.2rem}.rem3 li{margin:.6rem 0;line-height:1.8}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.paper h3{margin:.1rem 0 .3rem;font-size:1.18rem}
+.paper .role{color:var(--accent);font-size:.85rem;margin:.1rem 0 .7rem;letter-spacing:.05em}
+.paper p{margin:.4rem 0;font-size:.98rem;line-height:1.75}
+.also{margin:3rem 0 1rem;padding:1.1rem 1.3rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;color:var(--soft);font-size:.95rem}
+.also a{color:var(--accent);font-weight:500}
+.foot{max-width:900px;margin:3rem auto 0;padding:1.6rem 1.5rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:var(--faint);font-size:.85rem}
+.foot a{color:var(--accent)}
+@media(max-width:680px){.masthead h1{font-size:2rem}.post-head h1{font-size:1.7rem}.post p.lead{font-size:1.08rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "工作螢幕被記錄時", "description": "Meta 在 6 月下旬暫停一項內部計畫：把美國員工在公司電腦上的滑鼠移動、點擊、鍵盤輸入與部分螢幕內容，轉成訓練 AI 代理人的資料。這不是一則只屬於矽谷公司的內部人事新聞；它把一個更貼近日常的問題推到桌面上：當我們工作時，究竟是在完成任務，還是在替未來的自動化系統留下動作樣本？", "url": "https://polarbear0827.github.io/My-Way/p/2026-06-26-work-screen-training-data/", "datePublished": "2026-06-26", "inLanguage": "zh-Hant-TW", "author": {"@type": "Person", "name": "穗稻忠武的專欄"}, "publisher": {"@type": "Organization", "name": "穗稻忠武的專欄"}, "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Meta_Headquarters_Sign.jpg"}</script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="https://polarbear0827.github.io/My-Way/">穗稻忠武的專欄</a><nav class="nav"><a href="https://polarbear0827.github.io/My-Way/">專欄</a><a href="https://polarbear0827.github.io/My-Way/radar/">AI Radar</a><a href="https://polarbear0827.github.io/My-Way/papers/">HF 速讀</a><a href="https://polarbear0827.github.io/My-Way/podcast/">Podcast</a><a href="https://polarbear0827.github.io/Daily-briefing/">早報 ↗</a></nav></header>
+<article class="post">
+<div class="post-head">
+<div class="kicker"><span class="tag">專欄</span></div>
+<h1>工作螢幕被記錄時</h1>
+<p class="byline"><time>2026-06-26</time></p>
+</div>
+
+<p class="lead">Meta 在 6 月下旬暫停一項內部計畫：把美國員工在公司電腦上的滑鼠移動、點擊、鍵盤輸入與部分螢幕內容，轉成訓練 AI 代理人的資料。這不是一則只屬於矽谷公司的內部人事新聞；它把一個更貼近日常的問題推到桌面上：當我們工作時，究竟是在完成任務，還是在替未來的自動化系統留下動作樣本？¹²</p>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Meta_Headquarters_Sign.jpg" alt="Meta 總部標誌｜來源：Wikimedia Commons / InvadingInvader（CC BY-SA 4.0）" loading="lazy"><figcaption>Meta 的 MCI 爭議發生在公司全面轉向 AI 代理人工作的脈絡中，問題不只是單一工具，而是工作資料能否被重新定義。</figcaption></figure>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Workplace-2303851_1920.jpg" alt="辦公桌與筆電｜來源：LUM3N / Wikimedia Commons（CC0）" loading="lazy"><figcaption>一台辦公筆電看似只是工作工具；在 AI 代理人的訓練語境裡，它也可能變成行為紀錄器。</figcaption></figure>
+<h2>一個被暫停的內部實驗</h2>
+<p>Reuters 4 月率先報導，Meta 正在美國員工電腦安裝名為 Model Capability Initiative（MCI）的工具，用於捕捉滑鼠移動、點擊、鍵盤輸入，並偶爾擷取螢幕內容；內部備忘錄稱，目標是讓模型學會人類如何操作下拉選單、快捷鍵與日常軟體介面。¹ Meta 說，這些資料不會用於績效評估，並設有保護敏感內容的措施。¹ 到 5 月，Reuters 又報導，該工具牽涉超過 200 個 app 與網站，且可能捕捉美國員工與非美國同事往來的郵件或即時訊息內容。² 6 月 22 日後，Business Insider、BBC 與 The Guardian 陸續報導，Meta 因資料保護疑慮與員工反彈而暫停 MCI；Meta 對 BBC 表示，計畫「目前暫停」，公司調查中，暫無跡象顯示資料遭不當存取。³⁴⁵</p>
+<p>這個時間線說明，MCI 不是一次外部駭客事件造成的單點新聞，而是一項從設計、部署、員工反彈、法規疑慮到權限事故逐步累積的職場治理案例。若只把它看成「Meta 又出隱私爭議」，會漏掉更重要的轉折：資料不再只是工作成果、郵件或文件，而是人操作電腦的微小過程。</p>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Unidentified_female_office_worker_using_a_computer_keyboard_-_DPLA_-_880d2d5a8469b57c338100a4be92ca5c.jpg" alt="辦公室鍵盤操作｜來源：David Lucas / Wikimedia Commons（Public Domain）" loading="lazy"><figcaption>MCI 的核心不是抽象的「資料」，而是鍵盤、滑鼠、視窗與訊息往返構成的白領工作微動作。</figcaption></figure>
+<h2>從監控績效到訓練代理人</h2>
+<p>傳統職場監控多半被包裝成生產力管理、資安稽核或合規需求；MCI 的特殊之處，在於 Meta 將監控目的明確連到 AI 模型訓練。Reuters 引述 Meta 內部說法：如果要打造能完成電腦工作的代理人，模型需要真實的人類操作例子。¹ 這讓職場監控從「看你有沒有工作」移向「學你怎麼工作」。 Meta 官方領導頁也把 CTO Andrew Bosworth 的角色放在這個脈絡中：他領導新成立的 Agent Transformation Accelerator，目標是透過 AI agents 轉變 Meta 內部工作方式並加速核心模型改進。⁸ 也就是說，MCI 不是孤立工程；它與公司把工作流程交給 AI 代理人的組織重整相連。 這裡的關鍵差異在於用途。若資料只是用來偵測惡意行為，公司仍須面對比例原則；若資料被拿去訓練能替代或重組工作的系統，員工的日常動作就成了未來自動化的原料。這並不等於所有訓練都違法，但它改變了勞動關係中的資料權力。 許多雇主長期主張，公司配發的電腦與網路本來就可被管理。這個說法在資安與法遵上有一定基礎：公司必須防止機密外洩、勒索軟體、帳號濫用與客戶資料事故。但 MCI 使「公司裝置」的邏輯跨到另一層：不是只保護裝置與資料，而是把員工如何使用裝置，轉成公司模型能力的一部分。 這種轉換會產生利益分配問題。員工的操作習慣、錯誤修正、搜尋路徑、視窗切換與提示語調，都是多年工作經驗累積出的 tacit knowledge；若被系統化地蒐集並用於訓練代理人，公司取得的是流程知識，員工失去的可能是原本讓自己不可替代的工作脈絡。這並不表示企業不能利用內部資料改善工具，而是需要明確說明：哪些資料只是用來改善個人輔助，哪些資料會進入全公司模型，哪些資料會被保留到員工離職後仍持續產生價值。</p>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/1099_14th_Street_%E2%80%93_National_Labor_Relations_Board_-_sign.JPG" alt="美國國家勞資關係委員會標誌｜來源：Geraldshields11 / Wikimedia Commons（CC BY-SA 3.0）" loading="lazy"><figcaption>美國聯邦層級對雇主電子監控的限制相對分散，勞動權利常透過個別機關與州法補洞。</figcaption></figure>
+<h2>同意、邊界與美國灰色地帶</h2>
+<p>BBC 報導，員工反彈不只是反對 AI，也包含對資料流向與保護方式的不安；一名 Meta 員工告訴 BBC，許多技術人員願意讓模型進步，但追蹤「被強加、沒有同意」引發憤怒。⁴ The Guardian 報導，約 1,600 名員工簽署請願，要求公司不要採集「employee computer use」資料；請願文字指出，蒐集與再利用這類資料會引發隱私、同意與職場信任疑慮。⁵ Meta 曾試圖加入短暫暫停選項。BBC 6 月 3 日報導，員工可將資料蒐集暫停最多 30 分鐘，並可申請豁免；但這種設計也突顯了問題：如果一個人需要在工作日裡不斷按下暫停鍵，才能避免私人訊息、健康資訊或財務資料被工作電腦上的系統看見，監控的預設狀態已經改變。⁶ Reuters 4 月報導引用 Yale 法學者 Ifeoma Ajunwa 的說法：美國聯邦層級對雇主監控幾乎沒有總量限制，多數州法最多要求廣泛告知。¹ 這使美國白領員工在公司裝置上留下的大量行為資料，往往落在雇主政策、員工手冊與個別州法之間。 NLRB 2022 年備忘錄則從集體勞動權角度提出警訊：電子監控與自動化管理可能妨礙員工行使 National Labor Relations Act 第 7 條權利，包括祕密討論工會或共同改善工作條件。NLRB 列舉的技術包括鍵盤紀錄器、截圖軟體、webcam 照片與錄音。¹² 這份文件不是針對 Meta，但它說明：問題不只在個人隱私，也在員工是否仍能不被管理者看見地組織、抱怨或協商。</p>
+<h3>歐洲法規把問題推向跨境資料</h3>
+<p>Reuters 5 月報導，MCI 雖部署於美國員工裝置，仍可能捕捉與歐洲同事或外部人士往來的通訊內容；隱私團體 NOYB 法律專家 Kleanthi Sardeli 對 Reuters 表示，即使是有限或間接捕捉歐洲員工資料，也可能涉及 GDPR 問題。² Meta 則向愛爾蘭資料保護委員會表示，歐盟員工資料或螢幕內容紀錄並非工具「主要目的」。² 歐盟的 AI Act 將部分就業、勞工管理與自僱接近領域的 AI 用途列入高風險範圍；European Commission 說，AI Act 採風險基礎規則，要求部署者與提供者在特定用途上遵守人類監督、紀錄與風險管理等義務。⁹ EUR-Lex 的 AI Act 文本也指出，用於監測或評估工作關係中人員表現與行為的 AI 系統，可能影響職涯、生活與勞工權利，並可能削弱資料保護與隱私基本權。¹⁰ 但規則仍有時間差。AI Act 的不同義務分階段適用，且職場演算法管理仍有缺口。European Parliament Research Service 2025 年研究估計，歐洲勞工接觸演算法管理的比例中期可能從 42.3% 升至 55.5%，並建議歐盟層級補強共同規範。¹¹ 這提醒所有跨國公司：資料邊界不會自動跟著辦公室地址停下來。美國裝置上的資料蒐集，可能捕捉歐洲員工、客戶或外部合作對象；一個被公司定義為「內部工具」的系統，實際上可能跨越多個司法管轄區。</p>
+<figure><img src="https://images.unsplash.com/photo-1709536777126-238639005f7a?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Facebook 總部內的開發者交流場景｜來源：Jakub Żerdzicki / Unsplash" loading="lazy"><figcaption>白領科技工作過去常被想像成高度自主；AI 代理人訓練把這種自主重新放進可量測與可複製的架構。</figcaption></figure>
+<h2>「Bossware」早已把工作變成資料</h2>
+<p>MCI 的新聞之所以引發共鳴，是因為它不是第一個把工作資料化的案例。Vanderbilt Law School 2026 年介紹一項 bossware 研究：研究者檢查 9 款職場監控平台，發現全部都直接向第三方分享可識別的員工資料，例如姓名、電子郵件與公司資訊；9 款工具也向 145 個第三方網域分享線上活動資料。¹⁴ 澳洲 University of Technology Sydney Human Technology Institute 的《Surveillance Creep》報告則指出，技術化員工監控被用於管理與影響員工行為、做出工作場所決策，常見理由包括效率、紀律、資安、財產保護、訓練與法遵；報告也提醒，監控資料可能被二次使用於訓練雇主或科技公司的 AI 模型。¹⁵ Eurofound 對歐洲員工監控的分析同樣強調，當監控變得系統性、連續且細緻，越可能侵害隱私與資料保護權；GDPR 的資料最小化與透明原則，在大量、複雜、黑箱式數位工具面前執行困難。¹⁶ 這些資料顯示，Meta 事件是更大趨勢的高能見度案例，而不是孤立偏差。 Springer Nature 2025 年開放論文討論電腦視覺職場監控倫理，指出高度細緻的視覺與個人資訊可能比傳統電子通訊監控更侵入，評估時需納入隱私、資料安全、公平、透明、自主、尊嚴與可靠性等面向。¹⁷ Frontiers 2026 年研究則把 AI 型監控描述為自動、不中斷且常不透明的追蹤，可能成為壓力源，導致焦慮、無力感與控制感下降。¹⁸</p>
+<h3>遠距工作讓私人邊界更難守住</h3>
+<p>MCI 爭議中特別值得注意的一點，是它發生在混合辦公已成日常之後。Reuters 5 月報導提到，部分 Meta 員工抱怨 MCI 造成住家網路用量暴增，甚至幾天內用掉一整月流量配額。² 這個細節讓職場監控跨出辦公室：資料蒐集雖然發生在公司電腦上，成本與干擾卻可能落到員工家中的網路、電池、注意力與私人空間。 居家工作原本模糊了工作與生活的邊界；AI 訓練式監控又把這條邊界往後推。員工若在公司筆電上開啟私人信箱、醫療文件、報稅資料或家庭訊息，是否就等於同意這些內容被工作系統「看見」？Meta 對外說工具焦點是人如何與電腦互動，而不是螢幕內容本身。² 但 Reuters 同篇報導指出，內部文件與 Q&amp;A 顯示通訊內容仍可能被捕捉。² 這正是「目的」與「技術能力」之間的裂縫：公司可以宣稱不打算讀內容，工具卻可能具備讀到內容的能力。 北卡羅來納大學 Journal of Law &amp; Technology 2025 年文章也把遠距工作與新型監控連在一起：鍵盤紀錄、電郵追蹤、webcam 與 GPS 讓雇主能蒐集遠超生產力指標的資料；文章主張修法要求雇主揭露正當商業目的，並為居家工作與個人裝置提供更明確保護。¹⁹</p>
+<p>（分析）在這種場景下，員工很難用一般消費者隱私的方式保護自己。一般 app 追蹤至少可以刪除 app、換帳號、改裝置；雇主提供的工作電腦則是工作條件的一部分。當拒絕追蹤可能等於拒絕工作流程，所謂「同意」就不是單純按下同意鍵，而是勞動權力關係中的選擇。</p>
+<figure><img src="https://images.unsplash.com/photo-1715670108090-1f7d371f31d6?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Facebook 總部外觀｜來源：Jakub Żerdzicki / Unsplash" loading="lazy"><figcaption>當大型平台公司把內部工作流程視為可訓練資料，園區內的勞動秩序也成了 AI 發展的一部分。</figcaption></figure>
+<h2>信任，是這類系統最脆弱的控制項</h2>
+<p><strong>（以下為本文分析，非事實陳述）</strong> MCI 事件的核心不只是 Meta 是否修好權限設定，而是員工是否相信公司有能力、也有意願把資料邊界固定住。Computerworld 引述分析人士指出，若員工行為資料被用於 AI 訓練，就應被視為「預設敏感」，不能當成普通 analytics exhaust。⁷ 這句話點出許多企業容易忽略的事：資料一旦被收集，後續的匿名化、聚合、存放、權限與再利用，都會變成新的風險面。</p>
+<p>Platformer 在 4 月把這個現象稱為員工成為訓練資料的一週：MCI 不是碼表，而是把知識工作變得可供 AI 系統讀取、擷取、最佳化與自動化的衝動。²⁰ 這是評論，不是事實結論；但它提供了一個有用框架。當雇主說「我們不是在評分你，只是在學你怎麼做事」，員工仍可能合理追問：今天不是績效評分，不代表明天不會變成任務分配、裁員模型或代理人替代的基礎。 Data &amp; Society 2025 年《The Privacy Trap》政策簡報提醒，企業常以隱私保護技術、合成資料或多方計算來包裝監控資料的再利用，但問題不只在資料被如何處理，也在資料被生成與蒐集的那一刻。該簡報主張，政策應為 worker datafication 本身設下明確界線，而不是只在資料事後處理階段要求安全。²²</p>
+<p>有效制度至少需要明確目的、資料最小化、員工代表參與、可審計的存取紀錄、刪除與申訴機制，以及對「模型訓練」和「績效管理」之間防火牆的外部驗證。否則，工作螢幕不只是工作場所的一部分，也會變成員工難以看見、難以拒絕的資料礦場。</p>
+<h3>監控資料的「二次用途」才是核心</h3>
+<p>從員工角度看，最難接受的通常不是單一紀錄本身，而是紀錄在未來被重新解釋。今天的滑鼠移動可能只是模型訓練樣本；明天若被接到流程分析、工時估算或團隊重整，員工很難證明當初的承諾仍然有效。MCI 事件因此讓「目的限制」成為日常語彙。目的限制不是法律教科書裡的抽象概念，而是員工能否相信公司不會把原本為 A 目的蒐集的資料，轉去服務 B 目的。 這也是為何去識別或匿名化不是萬靈丹。Meta 曾向員工表示資料會與可識別資訊分離，不能依個人查詢或刪除。² 但若員工無法查詢自己的資料，也可能失去確認、修正或刪除的途徑。若模型訓練需要足夠細緻的行為脈絡，資料又可能仍保留時間、工具、任務與互動模式。這些脈絡未必直接寫著姓名，卻可能足以讓組織推論出某種角色、團隊或工作方式。</p>
+<h3>合理企業需求仍需要制度邊界</h3>
+<p>公平地說，企業確實有正當需求。若 AI 代理人要幫助員工處理表單、排程、程式碼審查或內部系統操作，真實工作流程資料比實驗室範例更有價值。Reuters 4 月報導中的 Meta 說法，就是模型需要真實例子才能學會電腦工作。¹ 在資安方面，企業也需要記錄異常登入、資料外洩、惡意軟體與內部濫用；完全沒有監測，對使用者、客戶與員工都可能不安全。 但合理需求不會自動導出無限制資料蒐集。較嚴謹的做法應區分三件事：一是資安必要紀錄，二是工作效率分析，三是 AI 訓練資料。三者的目的、保存期限、存取權限與員工權利應不同。若把它們包進同一個工具與同一套授權文字，就會讓員工無法知道自己正在接受哪一種監控。</p>
+<p>（分析）MCI 事件最值得其他公司學習的地方，或許不是「不要做 AI 代理人訓練」，而是「不要把最敏感的職場資料當成工程資料管線」。若系統一開始就假設可以大規模記錄，再用權限設定補救，失敗時就會傷及信任；若一開始就先問哪些資料不該被創造、哪些場景只能在合成或自願環境中收集，風險會不同。</p>
+<h3>台灣讀者可以觀察什麼</h3>
+<p>這篇文章聚焦 Meta 與歐美法規，並非直接斷言台灣公司正在採用同等工具。台灣讀者仍可從中看到三個日常問題。第一，公司筆電不應被視為私人裝置；若必須處理私人文件，最好使用個人裝置與個人網路。第二，員工可以要求公司說明監控目的、資料類型、保存時間、誰能存取，以及資料是否會用於 AI 訓練。第三，工會、員工代表或內部治理機制，應把 AI 工具導入納入勞資溝通，而不是等工具上線後才補一份告知。 這不是反科技立場。真正的問題是：便利、效率與自動化能否在可理解、可拒絕、可審計的條件下發生。如果答案是否定的，AI 代理人越能替人工作，員工越可能失去對自己工作痕跡的控制。對多數人來說，這不是遙遠的矽谷新聞，而是下一次公司要求安裝「效率工具」時應該提出的問題。</p>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Workplace-2303851_1920.jpg" alt="辦公桌上的筆電與工作物件｜來源：LUM3N / Wikimedia Commons（CC0）" loading="lazy"><figcaption>再次回到桌面場景，尚未確定的問題正是每位知識工作者面前的工作邊界。</figcaption></figure>
+<h2>尚無定論的部分</h2>
+<p>目前仍有幾個問題無法從公開資料完全確認。第一，MCI 暫停後是否會永久終止、重啟或改版，Meta 尚未提出公開時程。第二，內部資料是否曾被員工實際不當使用；Meta 的公開說法是目前沒有跡象顯示不當存取，媒體報導則指出資料曾可被更廣泛地看見。第三，歐洲監管機關是否會正式調查，以及若調查成立，會如何界定「附帶捕捉」與「監控」之間的差別。²⁴ 因此，本文可以確認的是事件流程、工具設計的公開描述、員工反彈與監管疑點；不能確認的是 Meta 內部權限事故的完整範圍，也不能把單一事件推論成所有 AI 工作助理都必然以監控為代價。中立地說，企業需要資料讓工具變好，員工也需要邊界讓工作仍保有尊嚴。真正的公共議題，是這兩者之間是否能被制度化，而不是靠員工在每個工作日裡自己猜測下一次點擊會流向哪裡。</p>
+<h3>四個可驗證的最低要求</h3>
+<p>若企業未來要導入類似工具，至少應讓員工和外部稽核者能驗證四件事。第一，工具究竟收集哪些事件：滑鼠位置、鍵盤字元、快捷鍵、視窗標題、截圖、剪貼簿、通訊內容，應逐項列出。第二，哪些場景被排除：私人信箱、醫療與財務資料、工會或法律諮詢、休息時間與非工作網站，不應只靠員工自己記得避開。第三，誰能看見原始資料與處理後資料，存取紀錄是否可查。第四，資料是否會進入模型訓練、評測或產品功能；若會，模型輸出是否可能回頭影響同一批員工。</p>
+<p>這些要求看似繁瑣，卻是把「信任我」改成「請讓制度證明」。MCI 爭議之所以值得記錄，正因它把這套最低要求具體化：職場 AI 不只是買一套工具，也是在重新設定工作可被觀看、可被學習、可被複製的範圍。</p>
+<h3>一個小工具背後的工作想像</h3>
+<p>把 MCI 放在更長的歷史裡看，辦公室技術常以「讓工作更有效率」之名出現：電子郵件、協作文件、即時通訊、專案管理看板、工時系統，最初都承諾減少摩擦。但每一層工具也都留下更多可被分析的痕跡。AI 代理人的差異在於，它不只分析痕跡，而是試圖把痕跡變成行動能力。換言之，系統不只知道你何時完成一項任務，也可能學會完成任務的步驟。</p>
+<p>這使工作者面對新的談判題目：哪些知識屬於公司，哪些知識屬於個人經驗？公司可以要求員工交付成果，能否要求員工交出完成成果的每一次微操作？如果答案是可以，員工是否也應該獲得相應的通知、補償、限制權與集體協商空間？這些問題目前沒有單一答案，但 MCI 的暫停讓它們不再只是未來學想像，而是已經發生在大型科技公司內部的治理現場。</p>
+<p>最保守的結論是：企業若想讓 AI 學習工作，就必須先讓員工看懂這個學習過程。看不懂的監控，很難稱為合作；無法拒絕的同意，也很難稱為自願。這是 MCI 留下的日常科技課題。</p>
+<figure><img src="https://images.unsplash.com/photo-1756830242843-7642e98ab5a3?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Facebook 總部，Menlo Park｜來源：Rahul Mishra / Unsplash" loading="lazy"><figcaption>回到大型平台公司的物理場景，職場 AI 監控的核心仍是人、組織與信任。</figcaption></figure>
+<h2>結語：下一個日常問題</h2>
+<p>Meta 暫停 MCI，並不代表職場 AI 監控的問題告一段落。相反地，這件事顯示，當 AI 代理人需要「看見」人類如何操作電腦，白領工作的細節就可能成為新資料來源。過去被外送員、倉儲員工或客服人員熟悉的量化管理，正在進入工程師、設計師、產品經理與辦公室工作者的桌面。</p>
+<p>對一般讀者而言，這件事的日常提醒很簡單：公司電腦從來不完全私人，但 AI 訓練把「不私人」推向新的層級。問題不再只是雇主能不能看到你去了哪個網站，而是你的每一次點擊、每一段文字、每一個介入工作流程的瞬間，是否會被拿去訓練一個未來能代替你操作軟體的系統。 目前仍有幾個問題無法從公開資料完全確認。第一，MCI 暫停後是否會永久終止、重啟或改版，Meta 尚未提出公開時程。第二，內部資料是否曾被員工實際不當使用；Meta 的公開說法是目前沒有跡象顯示不當存取，媒體報導則指出資料曾可被更廣泛地看見。第三，歐洲監管機關是否會正式調查，以及若調查成立，會如何界定「附帶捕捉」與「監控」之間的差別。²⁴ Meta 目前說 MCI 暫停調查，並稱沒有跡象顯示資料被不當存取。這是現階段可確認的公司立場。真正仍待回答的是：如果工作資料已成為 AI 競賽的燃料，企業、員工與監管者要如何重新畫出一條線，讓效率不必以不可逆的職場監控作為代價。</p>
+<hr>
+<p>最保守的結論是：企業若想讓 AI 學習工作，就必須先讓員工看懂這個學習過程。看不懂的監控，很難稱為合作；無法拒絕的同意，也很難稱為自願。這是 MCI 留下的日常科技課題。</p>
+<hr>
+<h2 class="refs-head">引用來源</h2>
+<p class="ref">¹ Reuters（2026-04-21）— "Meta to start capturing employee mouse movements, keystrokes for AI training data"
+<a href="https://www.reuters.com/sustainability/boards-policy-regulation/meta-start-capturing-employee-mouse-movements-keystrokes-ai-training-data-2026-04-21/" rel="noopener" target="_blank">https://www.reuters.com/sustainability/boards-policy-regulation/meta-start-capturing-employee-mouse-movements-keystrokes-ai-training-data-2026-04-21/</a></p>
+<p class="ref">² Reuters（2026-05-29）— "Meta tool to track employee mouse clicks on collision course with EU privacy rules"
+<a href="https://www.reuters.com/business/meta-tool-track-employee-mouse-clicks-collision-course-eu-privacy-rules-2026-05-29/" rel="noopener" target="_blank">https://www.reuters.com/business/meta-tool-track-employee-mouse-clicks-collision-course-eu-privacy-rules-2026-05-29/</a></p>
+<p class="ref">³ Business Insider（2026-06-22）— "Meta Pauses an AI Training Program After Data Leak Sparks Employee Ire"
+<a href="https://www.businessinsider.com/meta-ai-training-data-leak-exposed-employee-activity-across-company-2026-6" rel="noopener" target="_blank">https://www.businessinsider.com/meta-ai-training-data-leak-exposed-employee-activity-across-company-2026-6</a></p>
+<p class="ref">⁴ BBC News（2026-06-23）— "Meta halts worker tracking for AI training due to privacy fears"
+<a href="https://www.bbc.com/news/articles/cq615g3z36po" rel="noopener" target="_blank">https://www.bbc.com/news/articles/cq615g3z36po</a></p>
+<p class="ref">⁵ The Guardian（</p>
+<p>2026-06-24）— "Meta pauses employee tracker for AI training amid privacy concerns" <a href="https://www.theguardian.com/technology/2026/jun/24/meta-pauses-employee-tracker-for-ai-training-amid-privacy-concerns" rel="noopener" target="_blank">https://www.theguardian.com/technology/2026/jun/24/meta-pauses-employee-tracker-for-ai-training-amid-privacy-concerns</a></p>
+<p class="ref">⁶ BBC News（2026-06-03）— "Meta scales back plan to track workers' clicks and keystrokes to train AI"
+<a href="https://www.bbc.com/news/articles/c93x0k194yno" rel="noopener" target="_blank">https://www.bbc.com/news/articles/c93x0k194yno</a></p>
+<p class="ref">⁷ Computerworld（2026-06-24）— "Meta pauses employee monitoring program after data protections fail"
+<a href="https://www.computerworld.com/article/4188640/meta-pauses-employee-monitoring-program-after-data-protections-fail-2.html" rel="noopener" target="_blank">https://www.computerworld.com/article/4188640/meta-pauses-employee-monitoring-program-after-data-protections-fail-2.html</a></p>
+<p class="ref">⁸ Meta（官方）— "Andrew ‘Boz’ Bosworth, Chief Technology Officer"
+<a href="https://www.meta.com/about/leadership/andrew-boz-bosworth/" rel="noopener" target="_blank">https://www.meta.com/about/leadership/andrew-boz-bosworth/</a></p>
+<p class="ref">⁹ European Commission（官方）— "AI Act"
+<a href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" rel="noopener" target="_blank">https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai</a></p>
+<p class="ref">¹⁰ EUR-Lex（官方）— "Regulation (EU) 2024/1689 — Ar</p>
+<p>tificial Intelligence Act" <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689" rel="noopener" target="_blank">https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32024R1689</a></p>
+<p class="ref">¹¹ European Parliamentary Research Service（2025）— "Digitalisation, artificial intelligence and algorithmic management in the workplace"
+<a href="https://www.europarl.europa.eu/RegData/etudes/STUD/2025/774670/EPRS_STU%282025%29774670_EN.pdf" rel="noopener" target="_blank">https://www.europarl.europa.eu/RegData/etudes/STUD/2025/774670/EPRS_STU%282025%29774670_EN.pdf</a></p>
+<p class="ref">¹² National Labor Relations Board（2022-10-31）— "NLRB General Counsel Issues Memo on Unlawful Electronic Surveillance and Automated Management Practices"
+<a href="https://www.nlrb.gov/news-outreach/news-story/nlrb-general-counsel-issues-memo-on-unlawful-electronic-surveillance-and" rel="noopener" target="_blank">https://www.nlrb.gov/news-outreach/news-story/nlrb-general-counsel-issues-memo-on-unlawful-electronic-surveillance-and</a></p>
+<p class="ref">¹³ UC Berkeley Labor Center（2025-12-15）— "The Current Landscape of Tech and Work Policy in the U.S."
+<a href="https://laborcenter.berkeley.edu/tech-and-work-policy-guide/" rel="noopener" target="_blank">https://laborcenter.berkeley.edu/tech-and-work-policy-guide/</a></p>
+<p class="ref">¹⁴ Vanderbilt Law School（2026-05-27）— "Bossware Is Spying on Workers and Sharing Th</p>
+<p>eir Data" <a href="https://law.vanderbilt.edu/research-shows-bossware-spying-on-workers-and-sharing-their-data/" rel="noopener" target="_blank">https://law.vanderbilt.edu/research-shows-bossware-spying-on-workers-and-sharing-their-data/</a></p>
+<p class="ref">¹⁵ University of Technology Sydney Human Technology Institute（2026）— "Surveillance Creep"
+<a href="https://www.uts.edu.au/research/centres/human-technology-institute/resources/contentassets/hti-snapshot-report---surveillance-creep-2026.pdf" rel="noopener" target="_blank">https://www.uts.edu.au/research/centres/human-technology-institute/resources/contentassets/hti-snapshot-report---surveillance-creep-2026.pdf</a></p>
+<p class="ref">¹⁶ Eurofound（2024-07-15）— "Employee monitoring: A moving target for regulation"
+<a href="https://www.eurofound.europa.eu/en/publications/all/employee-monitoring-moving-target-regulation" rel="noopener" target="_blank">https://www.eurofound.europa.eu/en/publications/all/employee-monitoring-moving-target-regulation</a></p>
+<p class="ref">¹⁷ AI and Ethics / Springer Nature（2025-04-23）— "Do we need watchful eyes on our workers? Ethics of using computer vision for workplace surveillance"
+<a href="https://link.springer.com/article/10.1007/s43681-025-00726-4" rel="noopener" target="_blank">https://link.springer.com/article/10.1007/s43681-025-00726-4</a></p>
+<p class="ref">¹⁸ Frontiers in Psychology（2026-03-19）— "When resilience backfires: the counterintuitive effect of employee resilience in hi</p>
+<p>gh-tech surveillance environments" <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1790846/full" rel="noopener" target="_blank">https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2026.1790846/full</a></p>
+<p class="ref">¹⁹ North Carolina Journal of Law &amp; Technology（2025）— "Is Your Employer Watching You?: Invasive Employee Surveillance in the Modern Era"
+<a href="https://scholarship.law.unc.edu/cgi/viewcontent.cgi?article=1514&amp;context=ncjolt" rel="noopener" target="_blank">https://scholarship.law.unc.edu/cgi/viewcontent.cgi?article=1514&amp;context=ncjolt</a></p>
+<p class="ref">²⁰ Platformer（2026-04-24）— "The week that Meta employees became training data"
+<a href="https://www.platformer.news/meta-mci-monitoring-layoffs-knowledge-work/" rel="noopener" target="_blank">https://www.platformer.news/meta-mci-monitoring-layoffs-knowledge-work/</a></p>
+<p class="ref">²¹ CNBC（2026-04-23）— "Meta tracks employee usage on Google, LinkedIn AI training project"
+<a href="https://www.cnbc.com/2026/04/22/meta-tracks-employee-usage-on-google-linkedin-ai-training-project.html" rel="noopener" target="_blank">https://www.cnbc.com/2026/04/22/meta-tracks-employee-usage-on-google-linkedin-ai-training-project.html</a></p>
+<p class="ref">²² Data &amp; Society（2025）— "The Privacy Trap"
+<a href="https://datasociety.net/wp-content/uploads/2025/10/The-Privacy-Trap.pdf" rel="noopener" target="_blank">https://datasociety.net/wp-content/uploads/2025/10/The-Privacy-Trap.pdf</a></p>
+<p>補充說明：本文聚焦公開可查證資料與多方報導，未把單一公司內部說法當作最終結論；仍待確認之處已在內文標示。 補記：這場爭議的重點，是讓員工在工具上線前就能理解、質疑並參與資料治理，而不是事後才承擔風險。</p>
+
+</article>
+<footer class="foot"><a href="https://polarbear0827.github.io/My-Way/">← 回首頁</a><span>© 穗稻忠武的專欄</span></footer>
+<script>
+(function(){
+  var stop=function(e){e.preventDefault();return false;};
+  document.addEventListener('contextmenu',stop);
+  document.addEventListener('selectstart',stop);
+  document.addEventListener('copy',stop);
+  document.addEventListener('cut',stop);
+  document.addEventListener('dragstart',stop);
+  document.addEventListener('keydown',function(e){
+    var k=(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['c','x','s','u','a','p'].indexOf(k)>-1){e.preventDefault();return false;}
+  });
+})();
+</script>
+</body>
+</html>
