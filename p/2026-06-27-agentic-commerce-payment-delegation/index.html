@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>代理替你付款時 · 穗稻忠武的專欄</title>
+<meta name="description" content="當一個人對聊天機器人說「幫我找一副 150 美元以下的無線耳機」，過去的系統最多只能列出商品、比較評價、把使用者送到商家頁面。Visa 與 OpenAI 在 2026 年 6 月 10 日宣布的合作，把問題往前推了一格：如果軟體不只推薦，還能在你設定的範圍內完成付款，日常購物的責任邊界會改寫。">
+<link rel="canonical" href="https://polarbear0827.github.io/My-Way/p/2026-06-27-agentic-commerce-payment-delegation/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代理替你付款時">
+<meta property="og:description" content="當一個人對聊天機器人說「幫我找一副 150 美元以下的無線耳機」，過去的系統最多只能列出商品、比較評價、把使用者送到商家頁面。Visa 與 OpenAI 在 2026 年 6 月 10 日宣布的合作，把問題往前推了一格：如果軟體不只推薦，還能在你設定的範圍內完成付款，日常購物的責任邊界會改寫。">
+<meta property="og:url" content="https://polarbear0827.github.io/My-Way/p/2026-06-27-agentic-commerce-payment-delegation/">
+<meta property="og:image" content="https://plus.unsplash.com/premium_photo-1661661374846-23e8f44be169?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>:root{
+  --bg:#faf8f3; --surface:#fffdf8; --ink:#1c1b18; --soft:#6f6a60; --faint:#9a9388;
+  --line:#e9e3d7; --accent:#9c3024; --accent-soft:#f3e7e3;
+  --serif:"Noto Serif CJK TC","Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",Georgia,serif;
+  --sans:system-ui,-apple-system,"PingFang TC","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.85;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+a{color:inherit;text-decoration:none}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding:.9rem 1.5rem}
+.topbar .brand{font-family:var(--serif);font-weight:700;letter-spacing:.12em;font-size:1.02rem}
+.nav{display:flex;gap:1.3rem;font-size:.92rem}
+.nav a{color:var(--soft);padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+.masthead{text-align:center;padding:3.4rem 1.5rem 2.4rem;border-bottom:1px solid var(--line)}
+.masthead h1{font-family:var(--serif);font-weight:900;font-size:2.5rem;letter-spacing:.06em;margin:0}
+.masthead .tagline{color:var(--soft);max-width:560px;margin:1rem auto 0;font-size:1rem}
+.masthead .rss{display:inline-block;margin-top:1.2rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
+.masthead .rss:hover{background:var(--accent);color:#fff}
+
+/* 首頁動態封面(純 CSS 動畫) */
+.cover{border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% 0%,#fffdf8 0%,var(--bg) 58%,#f1e9db 100%)}
+.cover-inner{position:relative;max-width:900px;margin:0 auto;
+  padding:4.4rem 1.5rem 3.8rem;text-align:center}
+.cover .cc{position:absolute;width:22px;height:22px;border:3px solid var(--accent);
+  opacity:0;animation:cc-in .5s ease-out forwards}
+.cover .cc-tl{top:1.4rem;left:1.4rem;border-right:none;border-bottom:none;animation-delay:.1s}
+.cover .cc-tr{top:1.4rem;right:1.4rem;border-left:none;border-bottom:none;animation-delay:.18s}
+.cover .cc-bl{bottom:1.4rem;left:1.4rem;border-right:none;border-top:none;animation-delay:.26s}
+.cover .cc-br{bottom:1.4rem;right:1.4rem;border-left:none;border-top:none;animation-delay:.34s}
+.cover-kicker{font-family:var(--sans);letter-spacing:.55em;text-indent:.55em;color:var(--accent);
+  font-size:.82rem;font-weight:600;opacity:0;animation:fade-up .6s ease-out .3s forwards}
+.cover-bar{width:0;height:5px;background:var(--accent);margin:1rem auto 1.4rem;
+  animation:bar-in .6s ease-out .5s forwards}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:3rem;letter-spacing:.05em;
+  margin:0;color:var(--ink);opacity:0;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .7s forwards}
+.cover-sub{font-family:var(--sans);color:var(--soft);max-width:600px;margin:1.1rem auto 0;
+  font-size:1rem;opacity:0;animation:fade-up .75s ease-out 1.15s forwards}
+.cover .rss{display:inline-block;margin-top:1.6rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem;
+  opacity:0;animation:fade-up .7s ease-out 1.5s forwards}
+.cover .rss:hover{background:var(--accent);color:#fff}
+@keyframes cc-in{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes bar-in{from{width:0}to{width:150px}}
+@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cover *{animation:none!important;opacity:1!important;width:auto}
+  .cover-bar{width:150px}}
+@media(max-width:680px){.cover-title{font-size:2.1rem}}
+
+.feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
+.lead-slot{margin-bottom:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(40,30,20,.10)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .thumb.noimg{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#f6efe6,#efe6da)}
+.card .thumb.noimg span{font-family:var(--serif);color:var(--faint);font-size:1.4rem;letter-spacing:.3em}
+.card-body{padding:1.1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card-body h2{font-family:var(--serif);font-weight:700;font-size:1.2rem;line-height:1.45;margin:.1rem 0}
+.card .excerpt{color:var(--soft);font-size:.9rem;line-height:1.7;flex:1}
+.kicker{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{font-size:.72rem;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);
+  border-radius:999px;padding:.12rem .6rem}
+.byline{color:var(--faint);font-size:.8rem;margin:.2rem 0 0;letter-spacing:.05em}
+.card.featured{flex-direction:row;align-items:stretch}
+.card.featured .thumb{flex:1.15;aspect-ratio:auto;min-height:300px}
+.card.featured .card-body{flex:1;justify-content:center;padding:2rem 2.2rem}
+.card.featured h2{font-size:1.85rem;line-height:1.4}
+.card.featured .excerpt{font-size:1rem;flex:none;margin-top:.4rem}
+@media(max-width:680px){.card.featured{flex-direction:column}.card.featured .thumb{min-height:200px}}
+
+.post{max-width:700px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
+.post-head{text-align:center;margin-bottom:2.4rem}
+.post-head .kicker{justify-content:center;margin-bottom:1rem}
+.post-head h1{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.45;margin:.3rem 0}
+.post-head .byline{margin-top:.9rem}
+.post p{margin:1.25rem 0;font-size:1.07rem;letter-spacing:.01em}
+.post p.lead{font-size:1.18rem;line-height:1.9;color:#2c2a26}
+.post p.lead::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:3.4rem;
+  line-height:.82;margin:.34rem .55rem 0 0;color:var(--accent)}
+.post h2{font-family:var(--serif);font-weight:700;font-size:1.45rem;margin:2.6rem 0 .8rem;
+  padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
+.post h2.refs-head{font-size:1.12rem;color:var(--soft);border-bottom:1px solid var(--line)}
+.post h3{font-family:var(--serif);font-size:1.18rem;margin:1.8rem 0 .5rem}
+.post .hero{margin:0 0 1.8rem}
+.post .hero img{width:100%;max-height:440px;object-fit:cover;border-radius:12px;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figure{margin:2.2rem 0}
+.post figure img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figcaption{color:var(--soft);font-size:.85rem;text-align:center;margin-top:.7rem;font-style:italic;line-height:1.6}
+.post .ref{font-size:.84rem;line-height:1.7;color:#56524a;margin:.4rem 0;padding-left:.9rem;
+  border-left:2px solid var(--line);word-break:break-all}
+.post .ref a{color:var(--accent)}
+.post hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+.onesent{font-family:var(--serif);font-size:1.15rem;color:var(--accent);border-left:3px solid var(--accent);
+  margin:1.5rem 0;padding:.4rem 0 .4rem 1rem;line-height:1.8}
+.rem3{padding-left:1.2rem}.rem3 li{margin:.6rem 0;line-height:1.8}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.paper h3{margin:.1rem 0 .3rem;font-size:1.18rem}
+.paper .role{color:var(--accent);font-size:.85rem;margin:.1rem 0 .7rem;letter-spacing:.05em}
+.paper p{margin:.4rem 0;font-size:.98rem;line-height:1.75}
+.also{margin:3rem 0 1rem;padding:1.1rem 1.3rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;color:var(--soft);font-size:.95rem}
+.also a{color:var(--accent);font-weight:500}
+.foot{max-width:900px;margin:3rem auto 0;padding:1.6rem 1.5rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:var(--faint);font-size:.85rem}
+.foot a{color:var(--accent)}
+@media(max-width:680px){.masthead h1{font-size:2rem}.post-head h1{font-size:1.7rem}.post p.lead{font-size:1.08rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "代理替你付款時", "description": "當一個人對聊天機器人說「幫我找一副 150 美元以下的無線耳機」，過去的系統最多只能列出商品、比較評價、把使用者送到商家頁面。Visa 與 OpenAI 在 2026 年 6 月 10 日宣布的合作，把問題往前推了一格：如果軟體不只推薦，還能在你設定的範圍內完成付款，日常購物的責任邊界會改寫。", "url": "https://polarbear0827.github.io/My-Way/p/2026-06-27-agentic-commerce-payment-delegation/", "datePublished": "2026-06-27", "inLanguage": "zh-Hant-TW", "author": {"@type": "Person", "name": "穗稻忠武的專欄"}, "publisher": {"@type": "Organization", "name": "穗稻忠武的專欄"}, "image": "https://plus.unsplash.com/premium_photo-1661661374846-23e8f44be169?fm=jpg&q=60&w=1200&auto=format&fit=crop"}</script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="https://polarbear0827.github.io/My-Way/">穗稻忠武的專欄</a><nav class="nav"><a href="https://polarbear0827.github.io/My-Way/">專欄</a><a href="https://polarbear0827.github.io/My-Way/radar/">AI Radar</a><a href="https://polarbear0827.github.io/My-Way/papers/">HF 速讀</a><a href="https://polarbear0827.github.io/My-Way/podcast/">Podcast</a><a href="https://polarbear0827.github.io/Daily-briefing/">早報 ↗</a></nav></header>
+<article class="post">
+<div class="post-head">
+<div class="kicker"><span class="tag">專欄</span></div>
+<h1>代理替你付款時</h1>
+<p class="byline"><time>2026-06-27</time></p>
+</div>
+
+<p class="lead">當一個人對聊天機器人說「幫我找一副 150 美元以下的無線耳機」，過去的系統最多只能列出商品、比較評價、把使用者送到商家頁面。Visa 與 OpenAI 在 2026 年 6 月 10 日宣布的合作，把問題往前推了一格：如果軟體不只推薦，還能在你設定的範圍內完成付款，日常購物的責任邊界會改寫。¹²</p>
+<p>這篇文章不討論哪個模型比較聰明，而是追問一個更生活化的問題：當「買」這個動作從手指按下確認鍵，變成代理程式依照你的話行動，誰證明你同意了？誰辨認商家是真的？如果買錯、買貴、沒送到，誰負責？</p>
+<figure><img src="https://plus.unsplash.com/premium_photo-1661661374846-23e8f44be169?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="線上購物時查看信用卡的消費者｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>這張圖仍是今日多數網購的基本場景：人看著卡片、人輸入資料、人確認付款。代理支付要改變的，正是這個「人最後按一下」的位置。</figcaption></figure>
+<h2>一、新聞點不是「AI 會購物」，而是付款權開始被委託</h2>
+<figure><img src="https://images.unsplash.com/photo-1750263160599-53c7974bc79d?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="OpenAI 標誌與放大鏡｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>代理購物先從搜尋與比較開始，但一旦接上付款網路，聊天介面就不只是搜尋框，而可能成為新的結帳入口。</figcaption></figure>
+<p>AP 報導指出，Visa 把支付網路接入 ChatGPT 的構想，是讓 AI 代理不只推薦商品，也能代表使用者完成交易；AP 引述 Visa 主管在舊金山活動上的例子：使用者可要求 ChatGPT 尋找 150 美元以下的無線耳機，系統在條件內找到商品並代表消費者購買。¹</p>
+<p>Visa 自己的新聞稿把這稱為 agentic commerce，並說交易會在使用者明確設定的權限、政策與控制內運作，例如消費上限、商家類別或必要批准；支付憑證則採 tokenized Visa credentials，搭配即時授權與詐欺監測。² 這些說法來自公司本身，不能當成效果已被獨立驗證的結論；但它們清楚揭示支付業正在設計的下一層基礎設施。</p>
+<p>Bloomberg 也將這次合作描述為 OpenAI 與 Visa 讓 AI 代理在使用者許可後進行線上購買；Axios 則指出，使用者可設定金額上限、商家限制與批准需求，Visa 承擔詐欺偵測、退款與 chargeback 等支付網路角色。³⁴ 目前各方尚未公布完整上線時間、費率、哪些商家參與，以及使用者介面會長什麼樣子。¹⁵</p>
+<h2>二、從「幫我找」到「幫我買」：中間隔著一套信任機器</h2>
+<figure><img src="https://images.unsplash.com/photo-1742238896849-303d74d8a8de?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="無現金支付終端｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>在傳統刷卡或感應付款裡，終端機、銀行與卡網都知道這是一筆由人發起的交易；代理支付則多了一個代表人行動的軟體角色。</figcaption></figure>
+<p>OpenAI 在 2025 年推出 Instant Checkout 與 Agentic Commerce Protocol，當時的定位是讓使用者在 ChatGPT 內完成部分商家的購買；OpenAI 說，商家仍是 merchant of record，支付、履約、客服與退款仍由商家既有系統處理。⁶ 這點很關鍵：OpenAI 想成為購物入口，但不一定要成為賣方或銀行。</p>
+<p>OpenAI 的開發者文件進一步說，checkout session 需要保存商品、履約與付款資訊；若使用 delegated payments，商家或其支付服務供應商處理款項，OpenAI 只是安全地傳遞受限制的支付資料。⁷⁸ Stripe 的說法相近：Shared Payment Token 會被限制在特定商家與籃子總額，讓 ChatGPT 可把 token 交給商家，而不暴露買方完整支付憑證。⁹</p>
+<p>Visa 這次加入後，重點從單一 ChatGPT 內購物流程，移到更廣的支付網路信任層。Visa Perspectives 說，Visa 會提供 tokenization、authorization、agent identification 與 fraud monitoring，並稱這些能力來自其全球支付網路。¹⁰ 對普通人而言，這代表日後「同意」不只是一個按鈕，而可能是一組可被銀行、商家、代理平台讀懂的限制條件。</p>
+<h2>三、付款網路在競賽：Visa 不是唯一一家公司</h2>
+<figure><img src="https://images.unsplash.com/photo-1750263239791-b391b8a85ece?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="感應式付款模型｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>付款不是單一公司完成的動作，而是卡網、銀行、商家、終端與風控共同協作；代理支付也在尋找類似的共同語言。</figcaption></figure>
+<p>Mastercard 在同一天發布 Agent Pay for Machines，主打讓軟體與軟體之間可以在授權規則、金額上限與保證清算下進行高頻、低延遲、小額支付。¹¹ Mastercard 早先也介紹 Agent Pay 與 Verifiable Intent，強調 registered agents、使用者意圖、可追溯憑證與生物辨識同意。¹²¹³</p>
+<p>Google 則在 Agent Payments Protocol（AP2）中提出三個問題：如何驗證使用者授權？商家如何確定代理請求反映真實意圖，而不是錯誤或幻覺？若詐欺或錯誤交易發生，責任由使用者、代理開發者、商家、發卡行、支付服務商，還是編排層承擔？¹⁴ Google Cloud 的說法是，AP2 用加密簽署的 Mandates 作為可稽核證據，讓使用者的購物意圖、購物車與付款授權可被連在一起。¹⁵</p>
+<p>這些協定名稱聽起來抽象，但背後其實是同一件事：AI 代理要買東西，不能只靠一句自然語言「幫我買便宜一點的」。支付系統需要知道便宜是多少、商家是哪一家、商品是否可退、授權何時過期，以及誰留下了可查證紀錄。</p>
+<h2>四、普通人真正會碰到的，是「我有沒有真的授權」</h2>
+<figure><img src="https://images.unsplash.com/photo-1742241107816-349e7f7c0f50?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Ingenico iPP350 付款終端｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>今天的刷卡爭議通常從收據、終端與交易紀錄查起；代理支付會多出一層「代理是否照著人的意圖行動」的證據。</figcaption></figure>
+<p>Bloomberg Law 在 6 月 24 日報導，銀行、AI 公司與零售商正在面對新的責任問題：如果聊天機器人自動替消費者購物時犯錯或遭詐騙，誰負責？該文引述法律人士指出，既有規則可提供線索，但要看付款工具、揭露內容與使用者如何授權代理做決定；監管機關與法院可能還要決定如何把既有標準套到 AI 購物生態。¹⁶</p>
+<p>美國 CFPB 對 Regulation E 的說明指出，未授權電子資金轉帳涉及消費者帳戶被非本人、且無實際權限的人發起；金融機構在錯誤處理與未授權轉帳責任上有義務。¹⁷ FTC 也提醒，信用卡與簽帳金融卡在未收到商品、金額錯誤或未授權時的保護不同，信用卡帳單錯誤通常須在帳單寄出 60 日內書面爭議。¹⁸</p>
+<p>代理支付讓「授權」變得不再二分。若你說「週五前幫我訂一盒尿布，別超過 40 美元」，代理買了 39 美元但品牌不對，這是未授權、履約不符，還是你授權範圍內的選擇？Goodwin 的法律評論指出，現行法律未完全解決使用者與代理支付平台之間、代理是否超出授權範圍的問題，答案往往取決於使用者說了什麼、代理如何理解、紀錄如何保存。¹⁹</p>
+<h2>五、商家也有風險：新的入口可能帶來新的退單與詐欺</h2>
+<figure><img src="https://images.unsplash.com/photo-1742836531256-87aa58fd35a9?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="防範提款機側錄的安全裝置｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>支付史上每一次便利化，都伴隨新的詐欺技術；代理購物的詐欺不只偷卡號，也可能偽裝成代理可理解的商家或商品頁。</figcaption></figure>
+<p>AP 報導提到，讓代理代表消費者購物會引發銀行與零售商擔憂：消費者可能超支，代理可能買錯，或消費者事後主張未授權；銀行則擔心代理使用客戶信用卡或簽帳金融卡時衍生詐欺爭議。¹ Visa 的回應是用消費上限、批准步驟與可購買商家限制降低風險。²</p>
+<p>但風險不只在消費者。Bloomberg Law 指出，若聊天機器人被假商家誘導付款、或商品根本不存在，詐欺可能增加；同時，若 AI 推薦因商業安排偏向特定商品，也需要在使用者輸入提示前揭露。¹⁶ 這讓「搜尋結果廣告」的老問題搬進代理購物：當你請代理找最適合的尿布、耳機或機票時，它究竟為你最佳化，還是為某個商業排序最佳化？</p>
+<p>Mastercard 的 Verifiable Intent 與 Google AP2 都把「可證明的意圖」放在核心，正是因為商家與銀行需要辨認交易是人授權的代理行動，而不是惡意 bot 或錯誤請求。¹³¹⁴ 若這些紀錄無法被退單流程讀懂，支付網路可能會出現新的灰區：交易在技術上有效，但消費者主觀上不認為自己買了那個東西。</p>
+<h2>六、平台說「你仍在控制」，但控制權長什麼樣子仍未公開</h2>
+<figure><img src="https://plus.unsplash.com/premium_photo-1745612944411-3e2299a59909?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="加鎖的加油站設備防止被裝側錄器｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>安全常被設計成看不見的背景機制；代理支付能否讓人信任，取決於使用者是否看得懂限制、撤銷與爭議流程。</figcaption></figure>
+<p>Visa 說交易會在使用者設定的權限內進行，包含金額、商家類別與批准要求。² OpenAI 的 Delegated Payment Spec 也說 delegated payment 是 single-use，且設有最大金額與期限；OpenAI 不是 merchant of record，商家與支付服務商仍處理付款、退款、chargeback 與合規。⁸</p>
+<p>這些設計方向看似合理，但目前仍缺關鍵細節。AP 指出，Visa 與 OpenAI 未揭露合作財務條件，也未說明商家或消費者要付的費用。¹ Digital Commerce 360 也指出，兩家公司尚未說明完整推出時間、哪些商家參與，或結帳體驗實際樣貌。⁵ 因此，本文不能斷言這套系統已經安全或會被廣泛採用，只能說支付業正試圖把代理交易變成可辨認、可限制、可追蹤的支付類型。</p>
+<p>對消費者來說，真正重要的介面可能不是「AI 幫你省了幾分鐘」，而是它能否清楚回答四件事：代理可以在哪些商家買？最多花多少？每次都要我確認嗎？我何時可以撤銷授權並追回款項？如果這些答案藏在服務條款裡，代理支付的便利很快會變成新的不安。</p>
+<h2>七、銀行與商家的關係可能被重新排序</h2>
+<figure><img src="https://plus.unsplash.com/premium_photo-1661592933016-6e4ccabcf36d?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Visa 簽帳金融卡背面｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>卡片上的網路標誌曾代表消費者、銀行與商家之間的信任鏈；代理支付會把 AI 平台也放進這條鏈裡。</figcaption></figure>
+<p>American Banker 報導，Visa 與 OpenAI 的合作、Mastercard 的 machine payments，以及 Coinbase、Robinhood 等金融科技平台開放代理操作，意味著銀行可能面臨客戶關係被大型語言模型介面中介化的風險；報導引述顧問觀點指出，若使用者預設打開 AI 代理而不是銀行 App 處理交易，銀行要思考如何治理進入自身系統的代理。²⁰</p>
+<p>這不是銀行第一次面對介面被奪走。行動支付、第三方錢包與開放銀行都曾把銀行從「使用者每天打開的地方」變成背景管線；代理支付的差別在於，介面不只是呈現帳戶，而可能替使用者做選擇。Axios 引述 Visa 成長主管說，超過五分之一交易已受到使用者從大型語言模型取得資訊的影響；這是 Visa 方說法，仍需獨立驗證，但它說明卡網為何急於卡位。⁴</p>
+<p>（以下為分析，非事實陳述）如果代理成為新的購物入口，銀行、商家與平台的核心競爭可能不再只是誰手續費低，而是誰能提出最可信的授權紀錄。能證明「這筆交易符合使用者意圖」的一方，會在退單、詐欺、客服與監管上取得優勢。</p>
+<h2>八、這不是「讓 AI 花你的錢」那麼簡單，而是日常委託制度的測試</h2>
+<figure><img src="https://images.unsplash.com/photo-1758874385215-c86fe62b446f?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="日本可攜式無現金支付終端｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>支付工具進入日常後，人們常先感受到方便，之後才逐步意識到資料、責任與爭議處理的代價。</figcaption></figure>
+<p>代理支付最容易被包裝成懶人功能：不用比價、不用找優惠、不用重複輸入地址與卡號。但從資料看，它更像一場「委託制度」的壓力測試。OpenAI/Stripe 的 ACP、Google 的 AP2、Mastercard 的 Verifiable Intent、Visa 的 Intelligent Commerce，都在解同一個問題：人如何把有限權力交給軟體，同時保留撤回、查核與追責能力。⁶⁹¹³¹⁵</p>
+<p>這也解釋為什麼初期多數交易仍可能保留人類批准。AP 報導引述 Visa 主管說，建立使用者對 AI 代理購物的信任需要時間，初期多數交易仍會讓人收到通知並批准實際購買。¹ 這不是保守，而是現實：若代理支付一開始就把「授權」設計得太寬，第一波錯買與詐騙案例就可能摧毀信任。</p>
+<p>結論不是拒絕代理購物，而是把問題問清楚。未來我們也許真的會讓代理補貨、訂票、繳費、幫公司採購 API 或雲端服務。但每一次「幫我買」都不該只是交出卡號，而應該是一份清楚、可讀、可撤回、可爭議的委託。技術若要進入錢包，就必須先學會把人的意圖寫成證據。</p>
+<h2>九、從使用者角度看，最重要的是「可撤回」</h2>
+<figure><img src="https://images.unsplash.com/photo-1758522484646-c8694d1784fa?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="超市購物車｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>代理購物常用「日用品補貨」當例子，但日用品也有品牌、價格、數量與家庭偏好；委託若不能撤回，方便會變成失控。</figcaption></figure>
+<p>若代理只是替你比較商品，錯了頂多浪費時間；若代理直接付款，錯誤會進入銀行帳戶、商家履約與客服流程。OpenAI 的文件把 delegated payment 設計為 one-time、max amount 與 expiry，目的就是讓支付憑證不能被無限制重用。⁸ Stripe 對 Shared Payment Token 的描述也強調 token 被限制在特定商家與籃子總額。⁹</p>
+<p>但「技術上不能重用」不等於「使用者感覺能控制」。一個可信介面至少應讓人看到：授權剩餘時間、已花金額、代理可接觸的商家、可買商品類別、撤銷按鈕，以及代理完成任務前的通知紀錄。若這些資訊散落在設定頁與電子郵件裡，普通人不會把它當成控制，只會在出錯時才發現自己曾經同意。</p>
+<h2>十、從商家角度看，代理不是新顧客，而是新的交易對手</h2>
+<figure><img src="https://plus.unsplash.com/premium_photo-1661724956616-c22bed3bd857?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="1904 年製造的收銀機｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>收銀機把交易變成可記帳的事件；代理商務也需要把自然語言委託變成可被商家與支付網路記錄的事件。</figcaption></figure>
+<p>商家若接入代理購物，得到的不只是新流量，也是一種新型交易對手。它必須判斷來訪的是可信代理、惡意爬蟲，還是假冒代理的自動化程式；還要確認商品、庫存、運費、稅額與退貨政策在代理介面中沒有被錯誤呈現。OpenAI 的 checkout spec 要求商家建立、更新並完成 checkout session，並用 authoritative webhooks 讓狀態在重試與例外狀況下保持一致。⁷</p>
+<p>Google AP2 也把「商家如何確定代理請求準確反映使用者真實意圖」列為核心問題。¹⁴ 若商家只看到一張 token，卻看不到使用者原本授權的限制，出事時很難判斷責任。這也是 Mastercard 與 Visa 都強調 registered agents、agent identification、Agentic Directory 的原因：在代理時代，商家要先知道「誰」在替人買，才談得上是否接受付款。¹⁰¹²</p>
+<h2>十一、從監管角度看，最難的是把舊法套進新委託</h2>
+<figure><img src="https://plus.unsplash.com/premium_photo-1661351492024-ccc8570926bf?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="1915 年 National Cash Register 廣告｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>消費法與支付規則多半是在舊式交易環境中逐步形成；代理付款把「誰按下交易」這件事變得不再直觀。</figcaption></figure>
+<p>CFPB 的 Regulation E 資料將未授權 EFT 與錯誤處理分開討論，並規定金融機構在收到錯誤通知時有調查義務。¹⁷ 但代理交易的灰區在於：使用者可能確實把支付憑證或限定授權交給代理，只是不認同代理最後選的商品、價格或商家。Bloomberg Law 因此說，規則雖提供線索，仍可能需要監管機關與法院進一步判斷。¹⁶</p>
+<p>法律評論也提醒，信用卡、簽帳金融卡與穩定幣的保護差異會被放大。Bloomberg Law 引述律師指出，信用卡仍有 TILA、EFTA 與 chargeback/退貨規則，簽帳金融卡保護相對少，穩定幣往往沒有退款或 chargeback。¹⁶ 這意味著同一句「幫我買」，若背後接的是信用卡、銀行帳戶或鏈上資產，消費者面對的後果可能完全不同。</p>
+<h2>十二、接下來該觀察什麼</h2>
+<figure><img src="https://plus.unsplash.com/premium_photo-1661667145914-b6608478cbeb?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Publix 超市購物車｜來源：Unsplash（Unsplash License）" loading="lazy"><figcaption>代理購物若真的普及，第一波影響不一定是昂貴商品，而可能是最平凡的補貨、訂閱與日常服務。</figcaption></figure>
+<p>第一個觀察點是實際推出範圍。Visa、OpenAI 與多家媒體均未給出完整商家名單、上線時間與費率；若早期只在少數商家與少數商品類別中測試，代理支付短期更像基礎設施展示，而非人人可用的購物方式。¹⁵</p>
+<p>第二個觀察點是爭議處理。若第一批案例集中在「代理買錯」而不是「卡號被偷」，現有客服與退單流程是否有 reason code、交易紀錄與證據欄位可以處理？若沒有，商家、銀行與平台可能互相推責。¹⁶²⁰</p>
+<p>第三個觀察點是推薦透明度。當代理同時負責搜尋、排序、比較與付款，它掌握的不只是 checkout，而是整條購物路徑。未來最該被要求揭露的，也許不是「AI 是否參與」，而是代理為何選這個商品、是否收取商家費用、是否排除了某些商家，以及使用者能否要求代理只查不買。</p>
+<p>最後，代理支付的成熟不應以「人類完全不必確認」為終點。更好的終點，是人可以把明確、有限、可撤回的權力交給軟體，並在出錯時有足夠證據取回自己的選擇權。這才是日常科技進入金錢世界時，真正需要通過的信任考試。</p>
+<p>另一個必須觀察的，是家庭與小型商家的落差。大型商家有法務、風控、支付服務商與工程團隊，可以把代理請求接進既有系統；小商家若只靠平台外掛或收單服務，很可能不知道代理如何讀取商品資訊、如何處理缺貨、如何回應「同價替代」這類模糊指令。若代理把「500 元內的晚餐」解讀成某個套餐，店家卻因庫存改配另一項商品，爭議會落在誰身上？這些不是模型能力問題，而是商業流程與責任文件問題。</p>
+<p>家庭端也一樣。父母可能願意讓代理每週補買尿布、牛奶或貓砂，卻不願讓它碰玩具、保健食品或訂閱服務；上班族可能願意讓代理在公司核准預算內購買會議軟體外掛，卻不願它自動續訂未使用服務。代理支付若要成為日常，權限必須比今天的「儲存信用卡」更細：可用商家、商品類別、單次上限、每月上限、可否替代、是否需要收貨地址變更確認，都應該像家庭備忘錄一樣清楚。</p>
+<p>還有一個被低估的問題是記憶。代理若要買得「像你」，它必須記住品牌偏好、價格敏感度、退貨經驗、過敏資訊、家庭成員、旅行日期與工作需求。這些資料比一筆卡號更貼近日常生活。Visa、OpenAI、Stripe 與 Google 的文件都強調 token、mandate、permission，但真正會影響信任的，是代理平台如何保存、使用與刪除這些偏好資料。支付安全只保護交易；生活安全還要保護偏好、弱點與習慣。</p>
+<p>因此，代理購物的評估標準不能只看成功率。它至少應被問五個問題：第一，是否能清楚顯示授權範圍；第二，是否能讓使用者在付款前或付款後迅速撤銷；第三，是否能把推薦理由與商業利益分開揭露；第四，是否保留足夠紀錄讓銀行、商家與使用者解決爭議；第五，是否讓不同支付工具的保護差異變得可理解。若這五件事做不到，代理支付就算技術上能運作，也只是把結帳摩擦轉移到事後客服。</p>
+<p>從更長的時間線看，信用卡、感應付款、行動支付都曾把「付錢」這件事變得更快；每一次加速後，社會才補上新的安全習慣與規則。代理支付的差異在於，它不只加速付款，還把選擇商品的一部分交給軟體。這就是為什麼今天的新聞不該只被看成 OpenAI 又多一個商業化入口，或 Visa 又多一個支付場景。它更像是在問：當我們把日常判斷委託給機器，錢包裡的同意還能不能保持人的形狀。</p>
+<p>還要觀察的是跨國差異。美國法規討論常以信用卡、簽帳金融卡、Regulation E、Regulation Z 與 chargeback 為基礎；歐洲、亞洲或台灣消費者使用的支付工具與爭議程序不一定相同。若代理購物變成全球平台功能，平台不能只把美國式卡網邏輯複製到所有市場。不同市場有不同退貨文化、收單環境、發票制度、稅務責任與消費者保護語言；代理若不能在地化，出錯時很可能讓消費者看不懂自己該找平台、銀行、商家還是支付服務商。</p>
+<p>這也是為什麼本文把 Visa 與 OpenAI 的合作放在更大的支付生態裡看。Google、Mastercard、Stripe、OpenAI、Visa 都在談「開放標準」與「可驗證意圖」，但標準能否真正保護普通人，取決於它們是否被寫進實際產品、客服流程、商家合約與監管要求。若標準只服務大型平台之間的互通，卻沒有讓消費者看見自己授權了什麼，那它仍只是基礎設施語言，不是日常權利。</p>
+<p>最後，代理支付會迫使人重新區分「方便」與「信任」。方便是少按幾個按鈕；信任是你知道按鈕少了之後，責任沒有一起消失。真正值得期待的代理，不是永遠替人省略確認，而是在該快的地方快、該慢的地方慢：補買固定日用品可以自動，第一次購買高價商品要停下來；低風險商家可簡化，高風險類別要要求明確批准。代理若學會這種節奏，才有可能從新奇功能變成可靠的日常工具。</p>
+<p>短期內，最好的使用者教育也許不是教人「相信 AI」，而是教人用更精確的委託語言。與其說「幫我買最便宜的」，不如說「只查詢我過去買過的品牌、單次不超過 1000 元、若缺貨就通知我、不要替代」。與其讓代理自由搜尋整個網路，不如限定在已知商家與可退貨商品。這些聽起來像麻煩，但它們正是把人的判斷保留下來的方式。代理支付若要成功，不是讓人更少思考，而是讓人把重要限制想清楚，再把重複動作交出去。</p>
+<p>對新聞讀者而言，下一次看到「AI 可以幫你買東西」時，可以先不急著問它省下幾秒，而是問三個更基本的問題：我是否看得到授權紀錄？我是否能在交易前後取消？若商品不符或代理被誘導，平台是否有清楚的責任承擔？這些問題沒有產品發表會上的示範那麼華麗，卻決定代理購物會是可信任的助手，還是另一個把風險藏進便利裡的黑盒子。</p>
+<p>如果答案仍停留在「我們有風控」或「使用者可以設定上限」，那還不夠。真正的門檻，是讓一般人不用讀完工程文件，也能在付款前理解自己交出了什麼權力、權力會持續多久、誰可以執行，以及出事時誰先回應。</p>
+<hr>
+<h2 class="refs-head">引用來源</h2>
+<p class="ref">¹ AP News（2026-06-10）— "Visa brings payments to ChatGPT as AI agents start buying for you"
+<a href="https://apnews.com/article/visa-chatgpt-openai-shopping-mastercard-d769dec86344cb4977c98789e8ec492f" rel="noopener" target="_blank">https://apnews.com/article/visa-chatgpt-openai-shopping-mastercard-d769dec86344cb4977c98789e8ec492f</a></p>
+<p class="ref">² Visa（2026-06-10）— "Visa Partners with OpenAI to Power the Next Generation of AI Commerce"
+<a href="https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22496.html" rel="noopener" target="_blank">https://usa.visa.com/about-visa/newsroom/press-releases.releaseId.22496.html</a></p>
+<p class="ref">³ Bloomberg（2026-06-10）— "OpenAI, Visa Team Up to Let AI Agents Make Purchases Online"
+<a href="https://www.bloomberg.com/news/articles/2026-06-10/openai-visa-team-up-to-let-ai-agents-make-purchases-online" rel="noopener" target="_blank">https://www.bloomberg.com/news/articles/2026-06-10/openai-visa-team-up-to-let-ai-agents-make-purchases-online</a></p>
+<p class="ref">⁴ Axios（2026-06-10）— "Visa, OpenAI bring agentic commerce to ChatGPT"
+<a href="https://www.axios.com/2026/06/10/visa-chatgpt-agents-commerce" rel="noopener" target="_blank">https://www.axios.com/2026/06/10/visa-chatgpt-agents-commerce</a></p>
+<p class="ref">⁵ Digital Commerce 360（2026-06-12）— "Visa, OpenAI work together to support agent-led payments"
+<a href="https://www.digitalcommerce360.com/2026/06/12/visa-openai-agent-led-payments/" rel="noopener" target="_blank">https://www.digitalcommerce360.com/2026/06/12/visa-openai-agent-led-payments/</a></p>
+<p class="ref">⁶ OpenAI（2025-09-29）— "Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol"
+<a href="https://openai.com/index/buy-it-in-chatgpt/" rel="noopener" target="_blank">https://openai.com/index/buy-it-in-chatgpt/</a></p>
+<p class="ref">⁷ OpenAI Developers（n.d.）— "Agentic Checkout Spec"
+<a href="https://developers.openai.com/commerce/specs/checkout" rel="noopener" target="_blank">https://developers.openai.com/commerce/specs/checkout</a></p>
+<p class="ref">⁸ OpenAI Developers（n.d.）— "Delegated Payment Spec"
+<a href="https://developers.openai.com/commerce/specs/payment" rel="noopener" target="_blank">https://developers.openai.com/commerce/specs/payment</a></p>
+<p class="ref">⁹ Stripe（2025-09-29）— "Stripe powers Instant Checkout in ChatGPT and releases Agentic Commerce Protocol"
+<a href="https://stripe.com/newsroom/news/stripe-openai-instant-checkout" rel="noopener" target="_blank">https://stripe.com/newsroom/news/stripe-openai-instant-checkout</a></p>
+<p class="ref">¹⁰ Visa Perspectives（2026-06-10）— "How Visa is Partnering with OpenAI to Build the Future of Agentic Commerce"
+<a href="https://corporate.visa.com/en/sites/visa-perspectives/innovation/visa-openai-partnership.html" rel="noopener" target="_blank">https://corporate.visa.com/en/sites/visa-perspectives/innovation/visa-openai-partnership.html</a></p>
+<p class="ref">¹¹ Mastercard（2026-06-10）— "Mastercard launches Agent Pay for Machines to unlock super-fast, always-on payments"
+<a href="https://www.mastercard.com/us/en/news-and-trends/press/2026/june/mastercard-launches-agent-pay-for-machines.html" rel="noopener" target="_blank">https://www.mastercard.com/us/en/news-and-trends/press/2026/june/mastercard-launches-agent-pay-for-machines.html</a></p>
+<p class="ref">¹² Mastercard（n.d.）— "Mastercard Agent Pay: secure, scalable and trusted agentic AI"
+<a href="https://www.mastercard.com/global/en/business/artificial-intelligence/mastercard-agent-pay.html" rel="noopener" target="_blank">https://www.mastercard.com/global/en/business/artificial-intelligence/mastercard-agent-pay.html</a></p>
+<p class="ref">¹³ Mastercard（2026-03-05）— "How Verifiable Intent builds trust in agentic AI commerce"
+<a href="https://www.mastercard.com/us/en/news-and-trends/stories/2026/verifiable-intent.html" rel="noopener" target="_blank">https://www.mastercard.com/us/en/news-and-trends/stories/2026/verifiable-intent.html</a></p>
+<p class="ref">¹⁴ AP2 Protocol（2025-09-16）— "Agent Payments Protocol Documentation"
+<a href="https://ap2-protocol.org/" rel="noopener" target="_blank">https://ap2-protocol.org/</a></p>
+<p class="ref">¹⁵ Google Cloud Blog（2025-09-16）— "Announcing Agent Payments Protocol (AP2)"
+<a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol" rel="noopener" target="_blank">https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol</a></p>
+<p class="ref">¹⁶ Bloomberg Law（2026-06-24）— "AI Shopping Agents Pose Novel Liability, Authorization Risks"
+<a href="https://news.bloomberglaw.com/banking-law/ai-shopping-agents-pose-novel-liability-authorization-risks" rel="noopener" target="_blank">https://news.bloomberglaw.com/banking-law/ai-shopping-agents-pose-novel-liability-authorization-risks</a></p>
+<p class="ref">¹⁷ Consumer Financial Protection Bureau（n.d.）— "Electronic Fund Transfers FAQs"
+<a href="https://www.consumerfinance.gov/compliance/compliance-resources/deposit-accounts-resources/electronic-fund-transfers/electronic-fund-transfers-faqs/" rel="noopener" target="_blank">https://www.consumerfinance.gov/compliance/compliance-resources/deposit-accounts-resources/electronic-fund-transfers/electronic-fund-transfers-faqs/</a></p>
+<p class="ref">¹⁸ Federal Trade Commission（2022-08-09）— "What To Do if You’re Billed for Things You Never Got, or You Get Unordered Products"
+<a href="https://consumer.ftc.gov/what-do-if-youre-billed-things-you-never-got-or-you-get-unordered-products" rel="noopener" target="_blank">https://consumer.ftc.gov/what-do-if-youre-billed-things-you-never-got-or-you-get-unordered-products</a></p>
+<p class="ref">¹⁹ Goodwin（2026-06-11）— "Authorizing Agentic Payments"
+<a href="https://www.goodwinlaw.com/en/insights/publications/2026/06/insights-technology-aiml-authorizing-agentic-payments" rel="noopener" target="_blank">https://www.goodwinlaw.com/en/insights/publications/2026/06/insights-technology-aiml-authorizing-agentic-payments</a></p>
+<p class="ref">²⁰ American Banker（2026-06-12）— "Visa partners with OpenAI, Mastercard pushes machine payments"
+<a href="https://www.americanbanker.com/payments/news/visa-partners-with-openai-mastercard-pushes-machine-payments" rel="noopener" target="_blank">https://www.americanbanker.com/payments/news/visa-partners-with-openai-mastercard-pushes-machine-payments</a></p>
+
+</article>
+<footer class="foot"><a href="https://polarbear0827.github.io/My-Way/">← 回首頁</a><span>© 穗稻忠武的專欄</span></footer>
+<script>
+(function(){
+  var stop=function(e){e.preventDefault();return false;};
+  document.addEventListener('contextmenu',stop);
+  document.addEventListener('selectstart',stop);
+  document.addEventListener('copy',stop);
+  document.addEventListener('cut',stop);
+  document.addEventListener('dragstart',stop);
+  document.addEventListener('keydown',function(e){
+    var k=(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['c','x','s','u','a','p'].indexOf(k)>-1){e.preventDefault();return false;}
+  });
+})();
+</script>
+</body>
+</html>
