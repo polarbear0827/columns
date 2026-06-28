@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>手機收不到訊號時 · 穗稻忠武的專欄</title>
+<meta name="description" content="山路、海岸、離島、颱風夜，手機最令人不安的時刻，往往不是電池見底，而是訊號格突然歸零。過去兩年，Apple、Google、TMobile、SpaceX、Globalstar、AST SpaceMobile 與美國 FCC，把「手機直連衛星」從專用衛星電話的世界，推進一般手機的設定頁與訊息 App。這篇…">
+<link rel="canonical" href="https://polarbear0827.github.io/My-Way/p/2026-06-28-satellite-phone-dead-zones/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手機收不到訊號時">
+<meta property="og:description" content="山路、海岸、離島、颱風夜，手機最令人不安的時刻，往往不是電池見底，而是訊號格突然歸零。過去兩年，Apple、Google、TMobile、SpaceX、Globalstar、AST SpaceMobile 與美國 FCC，把「手機直連衛星」從專用衛星電話的世界，推進一般手機的設定頁與訊息 App。這篇…">
+<meta property="og:url" content="https://polarbear0827.github.io/My-Way/p/2026-06-28-satellite-phone-dead-zones/">
+<meta property="og:image" content="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-Emergency-SOS-report-emergency_inline.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>:root{
+  --bg:#faf8f3; --surface:#fffdf8; --ink:#1c1b18; --soft:#6f6a60; --faint:#9a9388;
+  --line:#e9e3d7; --accent:#9c3024; --accent-soft:#f3e7e3;
+  --serif:"Noto Serif CJK TC","Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",Georgia,serif;
+  --sans:system-ui,-apple-system,"PingFang TC","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.85;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+a{color:inherit;text-decoration:none}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding:.9rem 1.5rem}
+.topbar .brand{font-family:var(--serif);font-weight:700;letter-spacing:.12em;font-size:1.02rem}
+.nav{display:flex;gap:1.3rem;font-size:.92rem}
+.nav a{color:var(--soft);padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+.masthead{text-align:center;padding:3.4rem 1.5rem 2.4rem;border-bottom:1px solid var(--line)}
+.masthead h1{font-family:var(--serif);font-weight:900;font-size:2.5rem;letter-spacing:.06em;margin:0}
+.masthead .tagline{color:var(--soft);max-width:560px;margin:1rem auto 0;font-size:1rem}
+.masthead .rss{display:inline-block;margin-top:1.2rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
+.masthead .rss:hover{background:var(--accent);color:#fff}
+
+/* 首頁動態封面(純 CSS 動畫) */
+.cover{border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% 0%,#fffdf8 0%,var(--bg) 58%,#f1e9db 100%)}
+.cover-inner{position:relative;max-width:900px;margin:0 auto;
+  padding:4.4rem 1.5rem 3.8rem;text-align:center}
+.cover .cc{position:absolute;width:22px;height:22px;border:3px solid var(--accent);
+  opacity:0;animation:cc-in .5s ease-out forwards}
+.cover .cc-tl{top:1.4rem;left:1.4rem;border-right:none;border-bottom:none;animation-delay:.1s}
+.cover .cc-tr{top:1.4rem;right:1.4rem;border-left:none;border-bottom:none;animation-delay:.18s}
+.cover .cc-bl{bottom:1.4rem;left:1.4rem;border-right:none;border-top:none;animation-delay:.26s}
+.cover .cc-br{bottom:1.4rem;right:1.4rem;border-left:none;border-top:none;animation-delay:.34s}
+.cover-kicker{font-family:var(--sans);letter-spacing:.55em;text-indent:.55em;color:var(--accent);
+  font-size:.82rem;font-weight:600;opacity:0;animation:fade-up .6s ease-out .3s forwards}
+.cover-bar{width:0;height:5px;background:var(--accent);margin:1rem auto 1.4rem;
+  animation:bar-in .6s ease-out .5s forwards}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:3rem;letter-spacing:.05em;
+  margin:0;color:var(--ink);opacity:0;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .7s forwards}
+.cover-sub{font-family:var(--sans);color:var(--soft);max-width:600px;margin:1.1rem auto 0;
+  font-size:1rem;opacity:0;animation:fade-up .75s ease-out 1.15s forwards}
+.cover .rss{display:inline-block;margin-top:1.6rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem;
+  opacity:0;animation:fade-up .7s ease-out 1.5s forwards}
+.cover .rss:hover{background:var(--accent);color:#fff}
+@keyframes cc-in{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes bar-in{from{width:0}to{width:150px}}
+@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cover *{animation:none!important;opacity:1!important;width:auto}
+  .cover-bar{width:150px}}
+@media(max-width:680px){.cover-title{font-size:2.1rem}}
+
+.feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
+.lead-slot{margin-bottom:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(40,30,20,.10)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .thumb.noimg{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#f6efe6,#efe6da)}
+.card .thumb.noimg span{font-family:var(--serif);color:var(--faint);font-size:1.4rem;letter-spacing:.3em}
+.card-body{padding:1.1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card-body h2{font-family:var(--serif);font-weight:700;font-size:1.2rem;line-height:1.45;margin:.1rem 0}
+.card .excerpt{color:var(--soft);font-size:.9rem;line-height:1.7;flex:1}
+.kicker{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{font-size:.72rem;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);
+  border-radius:999px;padding:.12rem .6rem}
+.byline{color:var(--faint);font-size:.8rem;margin:.2rem 0 0;letter-spacing:.05em}
+.card.featured{flex-direction:row;align-items:stretch}
+.card.featured .thumb{flex:1.15;aspect-ratio:auto;min-height:300px}
+.card.featured .card-body{flex:1;justify-content:center;padding:2rem 2.2rem}
+.card.featured h2{font-size:1.85rem;line-height:1.4}
+.card.featured .excerpt{font-size:1rem;flex:none;margin-top:.4rem}
+@media(max-width:680px){.card.featured{flex-direction:column}.card.featured .thumb{min-height:200px}}
+
+.post{max-width:700px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
+.post-head{text-align:center;margin-bottom:2.4rem}
+.post-head .kicker{justify-content:center;margin-bottom:1rem}
+.post-head h1{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.45;margin:.3rem 0}
+.post-head .byline{margin-top:.9rem}
+.post p{margin:1.25rem 0;font-size:1.07rem;letter-spacing:.01em}
+.post p.lead{font-size:1.18rem;line-height:1.9;color:#2c2a26}
+.post p.lead::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:3.4rem;
+  line-height:.82;margin:.34rem .55rem 0 0;color:var(--accent)}
+.post h2{font-family:var(--serif);font-weight:700;font-size:1.45rem;margin:2.6rem 0 .8rem;
+  padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
+.post h2.refs-head{font-size:1.12rem;color:var(--soft);border-bottom:1px solid var(--line)}
+.post h3{font-family:var(--serif);font-size:1.18rem;margin:1.8rem 0 .5rem}
+.post .hero{margin:0 0 1.8rem}
+.post .hero img{width:100%;max-height:440px;object-fit:cover;border-radius:12px;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figure{margin:2.2rem 0}
+.post figure img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figcaption{color:var(--soft);font-size:.85rem;text-align:center;margin-top:.7rem;font-style:italic;line-height:1.6}
+.post .ref{font-size:.84rem;line-height:1.7;color:#56524a;margin:.4rem 0;padding-left:.9rem;
+  border-left:2px solid var(--line);word-break:break-all}
+.post .ref a{color:var(--accent)}
+.post hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+.onesent{font-family:var(--serif);font-size:1.15rem;color:var(--accent);border-left:3px solid var(--accent);
+  margin:1.5rem 0;padding:.4rem 0 .4rem 1rem;line-height:1.8}
+.rem3{padding-left:1.2rem}.rem3 li{margin:.6rem 0;line-height:1.8}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.paper h3{margin:.1rem 0 .3rem;font-size:1.18rem}
+.paper .role{color:var(--accent);font-size:.85rem;margin:.1rem 0 .7rem;letter-spacing:.05em}
+.paper p{margin:.4rem 0;font-size:.98rem;line-height:1.75}
+.also{margin:3rem 0 1rem;padding:1.1rem 1.3rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;color:var(--soft);font-size:.95rem}
+.also a{color:var(--accent);font-weight:500}
+.foot{max-width:900px;margin:3rem auto 0;padding:1.6rem 1.5rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:var(--faint);font-size:.85rem}
+.foot a{color:var(--accent)}
+@media(max-width:680px){.masthead h1{font-size:2rem}.post-head h1{font-size:1.7rem}.post p.lead{font-size:1.08rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "手機收不到訊號時", "description": "山路、海岸、離島、颱風夜，手機最令人不安的時刻，往往不是電池見底，而是訊號格突然歸零。過去兩年，Apple、Google、TMobile、SpaceX、Globalstar、AST SpaceMobile 與美國 FCC，把「手機直連衛星」從專用衛星電話的世界，推進一般手機的設定頁與訊息 App。這篇…", "url": "https://polarbear0827.github.io/My-Way/p/2026-06-28-satellite-phone-dead-zones/", "datePublished": "2026-06-28", "inLanguage": "zh-Hant-TW", "author": {"@type": "Person", "name": "穗稻忠武的專欄"}, "publisher": {"@type": "Organization", "name": "穗稻忠武的專欄"}, "image": "https://www.apple.com/newsroom/images/product/iphone/standard/Apple-Emergency-SOS-report-emergency_inline.jpg"}</script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="https://polarbear0827.github.io/My-Way/">穗稻忠武的專欄</a><nav class="nav"><a href="https://polarbear0827.github.io/My-Way/">專欄</a><a href="https://polarbear0827.github.io/My-Way/radar/">AI Radar</a><a href="https://polarbear0827.github.io/My-Way/papers/">HF 速讀</a><a href="https://polarbear0827.github.io/My-Way/podcast/">Podcast</a><a href="https://polarbear0827.github.io/Daily-briefing/">早報 ↗</a></nav></header>
+<article class="post">
+<div class="post-head">
+<div class="kicker"><span class="tag">台灣文化</span><span class="tag">台灣</span><span class="tag">科技與生活</span><span class="tag">專欄</span></div>
+<h1>手機收不到訊號時</h1>
+<p class="byline"><time>2026-06-28</time></p>
+</div>
+
+<p class="lead">導言：山路、海岸、離島、颱風夜，手機最令人不安的時刻，往往不是電池見底，而是訊號格突然歸零。過去兩年，Apple、Google、T-Mobile、SpaceX、Globalstar、AST SpaceMobile 與美國 FCC，把「手機直連衛星」從專用衛星電話的世界，推進一般手機的設定頁與訊息 App。這篇文章不是在說太空科技多壯觀，而是追問：當一支普通手機開始能向天空求救、報平安、甚至收發部分 App 訊息時，日常安全、商業訂閱與公共通訊責任會怎麼改變？</p>
+<figure><img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-Emergency-SOS-report-emergency_inline.jpg" alt="iPhone 緊急衛星求救畫面｜來源：Apple Newsroom" loading="lazy"><figcaption>封面圖片顯示 iPhone 的衛星求救流程；這類介面正在把「沒有基地台」的場景，變成一般使用者能理解的一串選項。</figcaption></figure>
+<h2>一、先從「沒有訊號」說起</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/services/standard/AMF-Emergency-SOS-via-satellite-exterior_big.jpg" alt="Globalstar 地面站外觀｜來源：Apple Newsroom" loading="lazy"><figcaption>衛星訊息不是手機單獨完成的魔法；手機、低軌衛星、地面站與緊急服務接線系統都在同一條鏈上。</figcaption></figure>
+<p>Apple 在 2022 年 11 月宣布 Emergency SOS via satellite 於美國與加拿大上線時，把場景定義得很清楚：使用者在沒有行動網路與 Wi-Fi 覆蓋時，可用 iPhone 14 系列傳送文字給緊急服務，也可透過 Find My 分享位置。Apple 當時說，這項服務會先在美國、加拿大提供，12 月再進入法國、德國、愛爾蘭與英國，並免費提供兩年。¹ 這個開端重要，不只因為 Apple 做了新功能，而是它改變了「失聯」的日常想像。以前要在荒野、山區、外海保持通訊，使用者需要買專用衛星電話、租用戶外通訊器，或仰賴無線電與救難隊系統。Apple 的做法則是讓一般手機在極端條件下接上另一張網：不是讓你正常滑社群，而是先把位置、醫療資料、緊急問卷答案與簡短訊息送到能派人救援的地方。¹³ Apple 支援文件後來把限制寫得更白：衛星移動很快、頻寬低、距離地表數百英里；在視野清楚的理想狀況，一則訊息可能約 30 秒送出，在樹蔭或遮蔽下可能超過一分鐘，重度遮蔽則可能無法連線。³ 這不是 5G 的延伸，而是一種「最低限度仍可求助」的備援通道。 對一般人來說，最關鍵的日常變化是：手機開始主動教育你如何與天空對齊。Apple 的介面會要求使用者走到戶外、避開山壁與樹木，並照著畫面轉向衛星；Google Pixel 的 Satellite SOS 也要求使用者面向正確方向、傾斜裝置，透過畫面提示完成連線。³⁷ 這些步驟讓求救不再只是撥號，而變成一段身體動作：站到空曠處、舉著手機、等待那條低頻寬訊息送出去。</p>
+<h2>二、Apple 的路線：從求救到報平安</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/services/standard/AMF-Emergency-SOS-via-satellite-iPhone-14-Pro-pointing_inline.jpg" alt="iPhone 指向衛星的提示畫面｜來源：Apple Newsroom" loading="lazy"><figcaption>手機衛星通訊的第一步，是把複雜天線與軌道問題，轉成「請往這個方向轉」的使用者提示。</figcaption></figure>
+<p>Apple 最早把衛星功能放在「安全」而非「上網」框架裡。2022 年新聞稿說，iPhone 14 透過客製元件與深度整合軟體直接連到衛星；若附近公共安全接聽中心能收文字，訊息直接進入；若不能，Apple 設置受訓的緊急中繼中心代為聯絡。¹ 這種設計把技術問題轉成調度問題：不只是手機送得出去，還要有人能讀懂、轉送並回覆。 Apple 同日另一篇說明揭露了背後基礎設施：其 Advanced Manufacturing Fund 投入 4.5 億美元，主要用於 Globalstar 衛星網路與地面站；Apple 表示 Globalstar 低軌衛星約以每小時 16,000 英里移動，訊息先到衛星，再下傳到地面站。² 這些數字提醒我們，一則短訊背後，其實是衛星頻譜、地面天線、接線中心與手機系統的組合。 到了 iOS 18，Apple 將場景從「求救」往外擴：使用者可在美國、加拿大、日本與墨西哥等地用 Messages via satellite 傳送 iMessage 或 SMS 給親友；Apple 仍明確提醒，真正緊急時應使用 Emergency SOS via satellite，而不是一般訊息。⁴ 這個區隔很重要：求救通道優先處理生命安全，一般訊息則處理「我還好」「我晚點到」「我在這裡」這類日常焦慮。 Apple 平台安全文件也補上一層技術邊界：衛星連線頻寬有限，因此安全協定必須低開銷；Apple 描述其裝置會和 Apple 資料中心建立安全連線，並在衛星服務中使用臨時金鑰與識別碼輪換，以降低被追蹤與重放的風險。⁵ 但同一份文件也顯示，為了把訊息送到緊急服務與中繼中心，系統仍會處理位置與求救內容。換言之，衛星求救是安全技術，也是高度敏感資料流程。</p>
+<h2>三、Android 不再旁觀：Pixel 9 的 Satellite SOS</h2>
+<figure><img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/P9P9PThumbnail_16x9_Opt2_2.width-1300.jpg" alt="Google Pixel 9 產品圖｜來源：Google Blog" loading="lazy"><figcaption>Google 在 Pixel 9 系列加入 Satellite SOS，讓 Android 陣營也開始把衛星求救放進一般手機敘事。</figcaption></figure>
+<p>Google 在 2024 年 8 月發表 Pixel 9 系列時，宣布新機是首批具備 Satellite SOS 的 Android 手機，可在沒有行動網路時聯絡緊急應變單位並分享位置；官方部落格寫明，服務先在美國提供，Pixel 使用者前兩年不另收費。⁶ The Verge 同日報導指出，Google 與 Skylo 合作，並把這項功能描述為 Android 對 Apple 衛星求救功能的回應。²⁴ Google 的支援頁將使用條件列得具體：Satellite SOS 可用於 Pixel 9 以後的多數 Pixel 裝置，但 Pixel 9a 例外；使用者需在沒有 Wi-Fi 或行動網路的緊急狀況下，撥打當地緊急號碼，畫面才會出現衛星選項。⁷ 支援頁還提醒，使用者需要 Google Messages 作為預設訊息 App，否則 Satellite SOS 會失效。⁷ 這些細節讓 Android 版本的限制更可見。衛星功能不是單純「手機有沒有晶片」的問題，還牽涉預設 App、電信商、作業系統、緊急服務合作夥伴與所在國家。9to5Google 報導 Pixel 9 流程時提到，使用者需回答緊急問卷、分享位置與電池資訊，並由 Garmin Response 等合作方協助轉送緊急服務。²⁵ 這意味著手機品牌、軟體平台與救援服務商會共同構成新的公共安全入口。 <strong>（以下為分析，非事實陳述）</strong> Android 的加入，讓衛星求救不再只是 Apple 使用者福利，而開始變成高階手機的基本競爭項目。當功能由單一品牌擴展到平台層，下一個問題會是：哪些地區、哪些機型、哪些電信方案能用？如果衛星求救成為手機賣點，沒有買新機的人是否會被排除在新安全網之外？目前資料顯示，答案仍取決於各公司與監管者的安排。</p>
+<h2>四、T-Mobile 與 Starlink 把「求救」推向「死角覆蓋」</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/services/standard/AMF-Emergency-SOS-via-satellite-field_big.jpg" alt="Globalstar 地面站野外設備｜來源：Apple Newsroom" loading="lazy"><figcaption>直接連手機的衛星服務若要變成日常通訊，必須處理比緊急短訊更多的設備、頻譜與戶外覆蓋問題。</figcaption></figure>
+<p>和 Apple、Google 以緊急求救起步不同，T-Mobile 與 SpaceX 的 Starlink 合作主軸是「消除死角」。AP 在 2022 年報導，兩家公司宣布 Coverage Above and Beyond 計畫，使用 T-Mobile 頻譜與 Starlink 低軌衛星，讓多數既有手機不必換專用硬體即可在偏遠地區收發文字，未來再加入語音與資料。¹¹ T-Mobile 2025 年 2 月宣布公開 beta 時稱，美國超過 500,000 平方英里不在任何地面基地台覆蓋內；T-Mobile Starlink 先提供文字訊息，之後加入圖片、資料與語音。⁸ Reuters 同月報導，T-Mobile 計畫 7 月推出服務，價格為每月 15 美元，premium Go5G Next 方案則包含，且服務開放 AT&amp;T、Verizon 等他網使用者直接訂閱。¹³ 到了 2025 年 6 月，Reuters 引述 T-Mobile 高層稱，T-Satellite 將於 7 月 23 日商用推出，先支援 SMS、MMS、圖片訊息與短音訊；10 月 1 日再啟動資料服務，並已有超過 180 萬使用者加入 beta。¹⁴ T-Mobile 官方支援頁則把使用者體驗描述為自動切換：當手機離開傳統或漫遊訊號範圍，若符合條件，畫面會顯示「T-Mobile SpaceX」或「T-Sat+Starlink」。¹⁰ 這一路線改變了問題的尺度。Apple 和 Google 的衛星求救，重點是「你遇到危險時能不能求助」；T-Mobile Starlink 的商業語言則更接近「你在沒基地台的地方是否仍可維持基本連線」。 Reuters 2025 年 10 月報導，T-Mobile 將 WhatsApp、Google Maps、X、AccuWeather、AllTrails 等常用服務納入衛星資料情境；T-Mobile 主管也說，他們與 Apple、Google 建立 SAT mode 框架，讓 App 可在衛星連線下採用低頻寬模式。¹⁵ 這代表「手機衛星」正在從緊急按鈕，走向 App 生態的一種低速備援狀態。</p>
+<h2>五、頻譜、監管與 911：天空也需要規則</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/services/standard/AMF-Emergency-SOS-via-satellite-technicians_big.jpg" alt="Apple 衛星地面站技術人員｜來源：Apple Newsroom" loading="lazy"><figcaption>衛星直連手機涉及頻譜、地面站、緊急服務路由；監管文件往往比產品廣告更能說明風險。</figcaption></figure>
+<p>手機直連衛星不能只看產品發表會，還要看監管文件。美國 FCC 在 Supplemental Coverage from Space（SCS）框架中表示，這類服務讓衛星與地面行動網路合作，使用原本配置給地面服務的頻譜，讓既有手機在地面網路不足處仍可連線。FCC 同時強調，SCS 的公共安全目標之一，是擴大偏遠、未服務或服務不足地區取得緊急通訊的能力。¹² FCC 2024 年 11 月的 SpaceX/T-Mobile 授權文件，允許 SpaceX 在美國使用 T-Mobile PCS G Block 頻譜提供 Supplemental Coverage from Space，並指出這可增加原本無法透過地面網路撥打或傳送 911 的消費者取得緊急服務的能力。¹⁸ 但文件也帶有條件、限制與干擾管理，因為衛星向手機發訊不是在真空中運作，而是在既有頻譜使用者、地面網路與國際協調中插入新層次。 FCC 的 911 要求頁面則說明，SCS 服務需把 911 語音或文字路由到適當的 Public Safety Answering Point，並傳遞電話號碼與可用位置資訊；若無法直接路由，可使用緊急呼叫中心先確認使用者位置與電話，再轉給適當單位。¹² 這些規範提醒我們：衛星連線真正有公共價值，不只是訊息能不能上天，而是求救能不能抵達正確接線員。 爭議也在這裡展開。Verizon、AT&amp;T 與 AST SpaceMobile 走另一條路，Reuters 2024 年 5 月報導 AT&amp;T 與 AST 簽約提供直連手機的 space-based broadband network；同月 Reuters 又報導 Verizon 對 AST 承諾 1 億美元合作，目標是在美國本土提供從太空補足地理覆蓋。¹⁹²⁰ 這些競爭方案意味著，未來「衛星手機網」可能不是一張網，而是多個電信商、衛星商與頻譜安排並行。 監管者要處理的不是單一功能，而是新市場的互通、干擾、緊急責任與公平接取。</p>
+<h2>六、災害現場的希望與誤解</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-Emergency-SOS-chat_inline.jpg" alt="iPhone 衛星訊息對話畫面｜來源：Apple Newsroom" loading="lazy"><figcaption>災害時最需要的，不一定是完整網路，而是能把位置與狀況傳出去的一小段文字。</figcaption></figure>
+<p>衛星手機功能最容易被想像成災害解方，但它真正能做的事更有限也更具體。Reuters 2025 年 1 月報導，T-Mobile 與 SpaceX 曾在 FCC 2024 年 11 月批准後測試 Starlink direct-to-cell，並提到 FCC 2024 年 10 月曾允許 SpaceX 與 T-Mobile 在 Hurricane Helene 重災區啟用 Starlink 衛星以提供手機覆蓋。¹⁶ FCC 授權文件也把 Helene 與 Milton 期間的緊急 SCS 服務列為公共利益例證之一。¹⁸ 但災害通訊不能只靠一種新功能。AP 2024 年報導 Maui 野火後的通訊問題時指出，Lahaina 服務區的 21 座基地台在火災期間全數失效；Maui 郡在另一件訴訟中主張，警報未能送達手機，若及時知道大規模服務中斷，會使用其他警報方式。²¹ 這不是衛星手機可單獨解決的問題，而是提醒：基地台、警報系統、消防通信、sirens、無線電、衛星備援與現場指揮都要同時存在。 具體救援案例則顯示，低頻寬訊息仍可能成為關鍵。CBS News 2023 年報導，加州 Ventura County Sheriff’s Office 搜救隊接獲一群在 Santa Paula Canyon 迷路健行者透過 iPhone Emergency SOS 發出的訊息，訊息含可能位置；搜救隊步行約四英里，在晚間找到 10 名健行者。²² 9to5Mac 2024 年轉述加拿大 CBC 報導，British Columbia 野火逼近時，四名冰原健行者用 iPhone 衛星求救與分享位置，搜救直升機在濃煙中依手機 ping 找到人。²³ 這些案例值得報導，但也不應被包裝成「有手機就安全」。 Apple 支援文件說明，衛星訊息需空曠視野，樹木、山、建物與緯度都會影響連線；T-Mobile 服務頁也提醒，衛星服務、包含文字到 911，可能延遲、受限或不可用。³⁹ 對使用者而言，衛星功能應被視為備援，而不是取代離線地圖、行前告知、充電、實體避難與在地警報系統。</p>
+<h2>七、價格與平台：免費期後誰買單</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/services/standard/AMF-Emergency-SOS-via-satellite-worker-on-ladder_big.jpg" alt="Apple 衛星地面站維護人員｜來源：Apple Newsroom" loading="lazy"><figcaption>當緊急功能背後是昂貴衛星與地面站，免費期、訂閱費與公共責任會成為下一輪問題。</figcaption></figure>
+<p>目前多數消費者看到的是免費期。Apple 早期承諾 iPhone 14 啟用後兩年免費；Apple 後續支援文件仍說，Apple 衛星功能隨 iPhone 14 或更新機型啟用後免費兩年。¹³ Google 也說 Pixel 9 的 Satellite SOS 前兩年不另收費。⁶ 但 Reuters 2024 年 11 月報導，Apple 將投入最高 15 億美元給 Globalstar，其中 11 億美元為現金承諾，另以 4 億美元購買 Globalstar 20% 股權；Globalstar 同時將 85% 網路容量分配給 Apple。¹⁷ 這些投資說明，免費期不是成本不存在，而是成本被手機售價、平台策略、電信方案或未來訂閱吸收。T-Mobile 的路線更直接把服務放進方案與加購：Reuters 2025 年 6 月報導，T-Satellite 會包含於 Experience Beyond 方案，其他人、包含 AT&amp;T 與 Verizon 用戶，可每月 10 美元加購。¹⁴ T-Mobile 官網也以方案包含或月費方式說明服務，並提醒自動續訂。⁹ 公共安全功能一旦和訂閱綁在一起，便會出現分配問題。若衛星 911 最低能力免費、但一般訊息、圖片、App、定位分享或國際漫遊需要方案，使用者在災害前不一定理解自己買到的是哪一層服務。 T-Mobile 表示即使不是 T-Satellite 用戶，只要相容手機也可透過 T-Mobile Text to 911 via satellite 免費聯絡緊急服務。⁹ 這樣的區隔值得肯定，但仍需各地監管者與電信商清楚公告。 <strong>（以下為分析，非事實陳述）</strong> 這裡的核心不是「衛星服務該不該收費」，而是哪些能力屬於公共安全底線，哪些能力屬於商業加值。當一家公司控制手機作業系統，另一家公司控制衛星星座，第三家公司控制用戶方案，使用者在真正沒有訊號時，很難再閱讀細則。政策設計若不能把 911、求救位置、家人通知、一般 App 資料清楚分層，衛星手機可能同時帶來安全感與新的不透明。</p>
+<h2>八、台灣讀者該怎麼看</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-Emergency-SOS-Find-My_inline.jpg" alt="iPhone 透過 Find My 分享衛星位置｜來源：Apple Newsroom" loading="lazy"><figcaption>對島嶼、山區與颱風經驗豐富的讀者而言，衛星定位與報平安功能比「太空上網」更貼近日常。</figcaption></figure>
+<p>台灣讀者看到手機衛星功能，很容易想到登山、海釣、離島、颱風、地震與基地台受損。但從現有官方資料看，Apple、Google、T-Mobile 等服務的可用國家、機型、電信合作與緊急路由都有限制；Apple 支援頁列出不同國家版本與 iOS 版本門檻，Google Pixel 支援頁也列出可用區域與政府、電信條件。³⁷ 因此，把美國服務經驗直接套用到台灣，目前並不準確。 真正值得台灣提前討論的，是制度與習慣。第一，登山與戶外活動仍應以離線地圖、實體電源、行程留守、氣象判讀與在地救援資訊為主；衛星手機只是備援。第二，災害通訊不能只靠消費手機，政府警報、公共廣播、消防與警政通訊、基地台備援、地方避難所資訊都仍是主體。第三，當手機可以從天空送位置，資料保護、緊急分享、家人通知與跨境中繼中心的規範也需透明。 手機直連衛星的日常意義，或許不在於讓每個人都變成戶外探險者，而在於讓「收不到訊號」這件事多一個層級。過去手機失去訊號，螢幕上只剩無力的叉號；未來某些地區、某些機型、某些方案裡，手機可能會問你：要不要報平安、分享位置、傳簡短訊息、或聯絡緊急服務？ 結語：這不是一條通往「永遠在線」的直線。衛星訊息慢、貴、受天候與遮蔽限制，也牽涉公共安全、頻譜與商業訂閱。可是當人站在沒有基地台的山谷、海岸或災後街道，只要一則文字能把位置送出去，日常科技的尺度就改變了。它不再只是更快的網路，而是在最慢、最窄、最不方便的通道裡，保留一點求助與等待回覆的可能。</p>
+<h2>九、不是衛星電話，而是新的失聯禮儀</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-Emergency-SOS-me_inline.jpg" alt="iPhone 在 Find My 中送出衛星位置｜來源：Apple Newsroom" loading="lazy"><figcaption>衛星功能進入手機後，最先改變的可能不是災難劇本，而是家人之間對「報平安」的期待。</figcaption></figure>
+<p>手機衛星訊息真正進入日常後，最微妙的變化可能發生在家人與朋友之間。Apple 的一般 Messages via satellite 要求，若希望對方能在你離線時先傳 SMS 給你，對方需是 Family Sharing 成員或 emergency contacts；其他人通常要等你先從衛星送出 SMS，才可回覆。⁴ 這個設計不像社群 App 那樣開放，而是把低頻寬資源留給最可能重要的人。 這也會創造新的「失聯禮儀」。以前登山或自駕去偏遠地區，家人可能只能等你回到有訊號處；未來若手機支援衛星訊息，親友可能期待你在山屋、海邊或災後停電時仍能傳一句「我安全」。可是 Apple 與 T-Mobile 文件都反覆提醒，衛星連線會受天空視野、遮蔽物與網路狀況影響。³⁹ 若社會把備援功能誤解成保證通訊，使用者反而可能背上新的心理壓力：不是因為不安全，而是因為沒有及時回覆。 企業也會學習使用這種低速通道。Reuters 報導 T-Mobile 10 月資料服務時提到，衛星模式不是完整行動網路，而是讓特定 App 採用適合高延遲、低頻寬的經驗。¹⁵ 這意味著未來旅行、戶外、物流、保險、地圖、天氣與救援服務都可能設計「衛星可用模式」：刪掉圖片與自動播放，只留下位置、狀態、簡短文字與關鍵按鈕。這是另一種產品設計倫理：當通道變窄，哪些資訊值得留下？</p>
+<h2>十、結論之前：三個仍未解的問題</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-Emergency-SOS-injured_inline.jpg" alt="iPhone 衛星訊息報告受傷情境｜來源：Apple Newsroom" loading="lazy"><figcaption>緊急衛星通訊把生命安全、平台商業模式與公共治理放在同一個畫面裡。</figcaption></figure>
+<p>第一個問題是可近性。Apple、Google 與 T-Mobile 目前都把服務綁在特定機型、地區、軟體版本或方案上。¹³⁶⁷⁹ 若這項能力真的能降低偏遠地區求救風險，未來各國監管者可能會問：最低限度的衛星 911 是否應像緊急電話一樣，不因電信商、方案或品牌不同而差異太大？</p>
+<p>第二個問題是資料治理。衛星求救需要位置、醫療 ID、緊急問卷、電量、訊息內容與中繼轉送。Apple 的安全文件提出加密與識別碼輪換，但也承認為路由與救援目的，位置與內容會被送往 Apple、緊急服務或中繼提供者。⁵ 對使用者而言，這些資料在緊急時必要；對制度而言，仍需要保存期限、跨境處理、第三方合作與事後稽核。 第三個問題是災害敘事。Maui 野火案例提醒，當基地台、警報與現場指揮同時失靈，任何單一商業服務都不能被稱為完整解方。²¹ 手機衛星訊息可以補一塊空缺，但公共通訊韌性仍必須建立在多層系統：地面基地台備援、衛星回傳、簡訊警報、sirens、廣播、無線電、地方避難資訊與訓練。若把所有期待壓在一支手機上，科技承諾反而會遮住真正的制度工作。 <strong>（以下為分析，非事實陳述）</strong> 因此，手機直連衛星最值得期待的地方，並不是讓都市生活永遠不中斷；那樣的期待既昂貴也不現實。它比較像安全帶：平常不該鼓勵人開得更快，但在意外發生時，多一個保命機會。當手機螢幕從「無服務」變成「可嘗試衛星」時，真正的問題不是我們能不能從山谷發一張照片，而是能不能用一則足夠短、足夠準確、足夠可信的訊息，把人帶回可被救援的世界。</p>
+<h2>十一、使用者清單：出門前仍該做的事</h2>
+<figure><img src="https://www.apple.com/newsroom/images/product/iphone/standard/Apple-Emergency-SOS-steep-terrain_inline.jpg" alt="iPhone 失聯時的衛星求救地形畫面｜來源：Apple Newsroom" loading="lazy"><figcaption>科技功能越像保命工具，越需要在真正出事以前先理解它的限制。</figcaption></figure>
+<p>把這些來源放在一起，對一般使用者最實際的結論反而很樸素。第一，出門前先知道自己的手機、地區與電信方案是否支援；Apple 與 Google 都把可用國家、機型與軟體版本列為必要條件，T-Mobile 也要求相容裝置與衛星最佳化設定。³⁷⁹ 第二，先試 demo，而不是等到危急時才學；Apple 與 Google 均提供衛星連線示範，讓使用者在不聯絡緊急服務的前提下熟悉操作。³⁷ 第三，仍要保留低科技備援。衛星訊息可能延遲、受限或不可用，這是 Apple、Google、T-Mobile 與 FCC 文件共同顯示的現實。³⁷⁹¹² 旅行與登山仍應先下載離線地圖、告知路線、帶行動電源、確認天氣、設定緊急聯絡人，並知道當地救援電話。第四，不要把衛星訊息當成一般上網。即使 T-Mobile 開始把部分 App 放進衛星資料服務，Reuters 報導也指出，這些服務會是關鍵、低頻寬經驗，而不是完整影音與社群瀏覽。¹⁵ 第五，社會溝通需要避免過度行銷。產品頁常用「死角消失」或「保持連線」這類語言，但支援文件與監管文件會把條件寫得更保守。對記者、政府與使用者教育而言，比起重複公司口號，更重要的是把條件說清楚：要看得到天空、要有相容機型、要有支援地區、訊息可能慢、資料會被轉送、緊急路由可能經過中繼。這些限制不會讓技術失去價值；相反地，只有在限制被理解時，衛星手機才可能成為真正可靠的備援，而不是下一個被誤解的安全神話。</p>
+<p>最後還有一個容易被忽略的面向：緊急功能需要練習，也需要共同語言。若家人不知道你手機有衛星模式，或不知道你把誰設為 emergency contact，功能在關鍵時刻就只完成了一半。若公司、學校、戶外社團或地方政府把衛星手機視為新的安全備援，也應該把操作限制寫進行前說明，而不是只說「有支援」。這是一種新的數位素養：知道何時該撥緊急電話、何時傳位置、何時停止嘗試並尋找遮蔽物外的開闊處，也知道這個功能救不了所有情境。科技真正進入日常，不是大家都會談論衛星，而是大家在無訊號時，知道下一步該怎麼做。</p>
+<p>補記：如果把衛星手機看成「永不失聯」的承諾，讀者會失望；如果把它看成「在最壞時刻多一次嘗試」的工具，它才接近目前資料能支持的真實位置。這也是本文選擇從日常場景出發的原因：科技的價值，不只在規格表，而在普通人能否在恐慌時按對那一個鍵。</p>
+<hr>
+<h2 class="refs-head">引用來源</h2>
+<p class="ref">¹ Apple Newsroom（2022-11-15）— "Emergency SOS via satellite available today on iPhone 14 lineup"
+<a href="https://www.apple.com/newsroom/2022/11/emergency-sos-via-satellite-available-today-on-iphone-14-lineup/" rel="noopener" target="_blank">https://www.apple.com/newsroom/2022/11/emergency-sos-via-satellite-available-today-on-iphone-14-lineup/</a></p>
+<p class="ref">² Apple Newsroom（2022-11-10）— "Emergency SOS via satellite made possible by $450M Apple investment"
+<a href="https://www.apple.com/newsroom/2022/11/emergency-sos-via-satellite-made-possible-by-450m-apple-investment/" rel="noopener" target="_blank">https://www.apple.com/newsroom/2022/11/emergency-sos-via-satellite-made-possible-by-450m-apple-investment/</a></p>
+<p class="ref">³ Apple Support（2025-09-15）— "Connect to a satellite with your iPhone"
+<a href="https://support.apple.com/en-us/105097" rel="noopener" target="_blank">https://support.apple.com/en-us/105097</a></p>
+<p class="ref">⁴ Apple Support（無日期）— "About Messages via satellite on your iPhone"
+<a href="https://support.apple.com/en-us/120930" rel="noopener" target="_blank">https://support.apple.com/en-us/120930</a></p>
+<p class="ref">⁵ Apple Platform Security（無日期）— "Communicating emergency information using satellites"
+<a href="https://support.apple.com/guide/security/communicating-emergency-information-sec18a3be52a/web" rel="noopener" target="_blank">https://support.apple.com/guide/security/communicating-emergency-information-sec18a3be52a/web</a></p>
+<p class="ref">⁶ Google Blog（2024-08-13）— "The new Pixel 9 phones bring you the best of Google AI"
+<a href="https://blog.google/products-and-platforms/devices/pixel/google-pixel-9-pro-xl/" rel="noopener" target="_blank">https://blog.google/products-and-platforms/devices/pixel/google-pixel-9-pro-xl/</a></p>
+<p class="ref">⁷ Google Pixel Help（無日期）— "Get emergency help through satellite with your Pixel phone"
+<a href="https://support.google.com/pixelphone/answer/15254448?hl=en" rel="noopener" target="_blank">https://support.google.com/pixelphone/answer/15254448?hl=en</a></p>
+<p class="ref">⁸ T-Mobile Newsroom（2025-02-09）— "T-Mobile Starlink Beta Takes Off"
+<a href="https://www.t-mobile.com/news/network/t-mobile-starlink-beta-open-for-all-carriers" rel="noopener" target="_blank">https://www.t-mobile.com/news/network/t-mobile-starlink-beta-open-for-all-carriers</a></p>
+<p class="ref">⁹ T-Mobile（無日期）— "T-Satellite with Starlink: Direct to Cell Satellite Phone Service"
+<a href="https://www.t-mobile.com/coverage/satellite-phone-service" rel="noopener" target="_blank">https://www.t-mobile.com/coverage/satellite-phone-service</a></p>
+<p class="ref">¹⁰ T-Mobile Support（無日期）— "T-Satellite support"
+<a href="https://www.t-mobile.com/support/coverage/satellite-support" rel="noopener" target="_blank">https://www.t-mobile.com/support/coverage/satellite-support</a></p>
+<p class="ref">¹¹ AP News（2022-08-26）— "SpaceX, T-Mobile try to connect remote areas with satellites"
+<a href="https://apnews.com/article/elon-musk-spacex-technology-4c4a2460a6511bdc0e97802d2a981d38" rel="noopener" target="_blank">https://apnews.com/article/elon-musk-spacex-technology-4c4a2460a6511bdc0e97802d2a981d38</a></p>
+<p class="ref">¹² Federal Communications Commission（2024-03-14）— "Interim 911 Requirements for Supplemental Coverage from Space"
+<a href="https://www.fcc.gov/Interim911Requirments-SupplementalCoveragefromSpace" rel="noopener" target="_blank">https://www.fcc.gov/Interim911Requirments-SupplementalCoveragefromSpace</a></p>
+<p class="ref">¹³ Reuters（2025-02-10）— "T-Mobile, Starlink to launch satellite-based connectivity in July for $15 per month"
+<a href="https://www.reuters.com/technology/t-mobile-starlink-start-wide-scale-testing-satellite-based-connectivity-2025-02-10/" rel="noopener" target="_blank">https://www.reuters.com/technology/t-mobile-starlink-start-wide-scale-testing-satellite-based-connectivity-2025-02-10/</a></p>
+<p class="ref">¹⁴ Reuters（2025-06-23）— "T-Mobile to launch data service on satellite-based network in October"
+<a href="https://www.reuters.com/business/media-telecom/t-mobile-launch-data-service-satellite-based-network-october-2025-06-23/" rel="noopener" target="_blank">https://www.reuters.com/business/media-telecom/t-mobile-launch-data-service-satellite-based-network-october-2025-06-23/</a></p>
+<p class="ref">¹⁵ Reuters（2025-10-01）— "T-Mobile expands satellite-based network to support WhatsApp, X in mobile dead zones"
+<a href="https://www.reuters.com/business/media-telecom/t-mobile-expands-satellite-based-network-support-whatsapp-x-mobile-dead-zones-2025-10-01/" rel="noopener" target="_blank">https://www.reuters.com/business/media-telecom/t-mobile-expands-satellite-based-network-support-whatsapp-x-mobile-dead-zones-2025-10-01/</a></p>
+<p class="ref">¹⁶ Reuters（2025-01-29）— "Apple's iPhones to support Starlink direct-to-cell coverage in US"
+<a href="https://www.reuters.com/business/media-telecom/apples-iphones-su" rel="noopener" target="_blank">https://www.reuters.com/business/media-telecom/apples-iphones-su</a></p>
+<p>pport-starlink-direct-to-cell-coverage-us-2025-01-29/</p>
+<p class="ref">¹⁷ Reuters（2024-11-01）— "Apple to invest up to $1.5 bln in Globalstar for satellite coverage expansion"
+<a href="https://www.reuters.com/technology/apple-invest-up-15-bln-globalstar-satellite-coverage-expansion-2024-11-01/" rel="noopener" target="_blank">https://www.reuters.com/technology/apple-invest-up-15-bln-globalstar-satellite-coverage-expansion-2024-11-01/</a></p>
+<p class="ref">¹⁸ Federal Communications Commission（2024-11）— "DA 24-1193"
+<a href="https://docs.fcc.gov/public/attachments/DA-24-1193A1.pdf" rel="noopener" target="_blank">https://docs.fcc.gov/public/attachments/DA-24-1193A1.pdf</a></p>
+<p class="ref">¹⁹ Reuters（2024-05-15）— "AT&amp;T, AST SpaceMobile tie up to provide space-based broadband network to cell phones"
+<a href="https://www.reuters.com/business/media-telecom/att-ast-spacemobile-tie-up-provide-space-based-broadband-network-2024-05-15/" rel="noopener" target="_blank">https://www.reuters.com/business/media-telecom/att-ast-spacemobile-tie-up-provide-space-based-broadband-network-2024-05-15/</a></p>
+<p class="ref">²⁰ Reuters（2024-05-29）— "AST SpaceMobile shares take off after it announces Verizon partnership"
+<a href="https://www.reuters.com/markets/deals/ast-spacemobile-shares-take-off-after-it-announces-verizon-partnership-2024-05-29/" rel="noopener" target="_blank">https://www.reuters.com/markets/deals/ast-spacemobile-shares-take-off-after-it-announces-verizon-partnership-2024-05-29/</a></p>
+<p class="ref">²¹ AP News（2024-05-02）— "Maui sues cell carriers over wildfire wa</p>
+<p>rning alerts that were never received during service outages" <a href="https://apnews.com/article/hawaii-maui-wildfire-cell-phones-lawsuit-7133f9c5aa956f7f9c5f40084b94491b" rel="noopener" target="_blank">https://apnews.com/article/hawaii-maui-wildfire-cell-phones-lawsuit-7133f9c5aa956f7f9c5f40084b94491b</a></p>
+<p class="ref">²² CBS News（2023-05-17）— "10 missing hikers rescued from California canyon thanks to Apple SOS feature"
+<a href="https://www.cbsnews.com/news/10-missing-hikers-rescued-from-california-canyon-thanks-to-apple-sos-feature/" rel="noopener" target="_blank">https://www.cbsnews.com/news/10-missing-hikers-rescued-from-california-canyon-thanks-to-apple-sos-feature/</a></p>
+<p class="ref">²³ 9to5Mac（2024-07-29）— "iPhone’s Emergency SOS via satellite feature ‘literally saved their lives,’ rescue team says after wildfire left hikers stranded"
+<a href="https://9to5mac.com/2024/07/29/iphone-emergency-sos-satellite-rescue/" rel="noopener" target="_blank">https://9to5mac.com/2024/07/29/iphone-emergency-sos-satellite-rescue/</a></p>
+<p class="ref">²⁴ The Verge（2024-08-13）— "Google’s Pixel 9 phones are the first to get Satellite SOS for Android"
+<a href="https://www.theverge.com/2024/8/13/24219583/google-pixel-9-satellite-satellite-sos-android" rel="noopener" target="_blank">https://www.theverge.com/2024/8/13/24219583/google-pixel-9-satellite-satellite-sos-android</a></p>
+<p class="ref">²⁵ 9to5Google（2024-08-13）— "Pixel 9 adds Call Notes recording</p>
+<p>&amp; transcription, free Satellite SOS for two years" <a href="https://9to5google.com/2024/08/13/pixel-9-call-notes-satellite-sos/" rel="noopener" target="_blank">https://9to5google.com/2024/08/13/pixel-9-call-notes-satellite-sos/</a></p>
+<aside class="also">本文亦發表於 <a href="https://maruamru777.substack.com/p/0a5" rel="noopener" target="_blank">Substack</a>。</aside>
+</article>
+<footer class="foot"><a href="https://polarbear0827.github.io/My-Way/">← 回首頁</a><span>© 穗稻忠武的專欄</span></footer>
+<script>
+(function(){
+  var stop=function(e){e.preventDefault();return false;};
+  document.addEventListener('contextmenu',stop);
+  document.addEventListener('selectstart',stop);
+  document.addEventListener('copy',stop);
+  document.addEventListener('cut',stop);
+  document.addEventListener('dragstart',stop);
+  document.addEventListener('keydown',function(e){
+    var k=(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['c','x','s','u','a','p'].indexOf(k)>-1){e.preventDefault();return false;}
+  });
+})();
+</script>
+</body>
+</html>
