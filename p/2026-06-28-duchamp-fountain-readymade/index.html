@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小便斗站上展台後 · 穗稻忠武的專欄</title>
+<meta name="description" content="1917 年，一只原本屬於衛浴商店的男性小便斗，被轉向、簽上「R. Mutt 1917」，送進紐約獨立藝術家協會第一屆展覽。它沒有被掛出來，原件也很快消失；但一張 Alfred Stieglitz 拍下的照片，讓《噴泉》（Fountain）成為二十世紀藝術史裡最常被重提、也最常被反問的一件作品。¹³ 今天再…">
+<link rel="canonical" href="https://polarbear0827.github.io/My-Way/p/2026-06-28-duchamp-fountain-readymade/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小便斗站上展台後">
+<meta property="og:description" content="1917 年，一只原本屬於衛浴商店的男性小便斗，被轉向、簽上「R. Mutt 1917」，送進紐約獨立藝術家協會第一屆展覽。它沒有被掛出來，原件也很快消失；但一張 Alfred Stieglitz 拍下的照片，讓《噴泉》（Fountain）成為二十世紀藝術史裡最常被重提、也最常被反問的一件作品。¹³ 今天再…">
+<meta property="og:url" content="https://polarbear0827.github.io/My-Way/p/2026-06-28-duchamp-fountain-readymade/">
+<meta property="og:image" content="https://content.presspage.com/uploads/1935/800_duchampimage2-stieglitz-fountain.jpg?10000">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>:root{
+  --bg:#faf8f3; --surface:#fffdf8; --ink:#1c1b18; --soft:#6f6a60; --faint:#9a9388;
+  --line:#e9e3d7; --accent:#9c3024; --accent-soft:#f3e7e3;
+  --serif:"Noto Serif CJK TC","Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",Georgia,serif;
+  --sans:system-ui,-apple-system,"PingFang TC","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.85;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+a{color:inherit;text-decoration:none}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding:.9rem 1.5rem}
+.topbar .brand{font-family:var(--serif);font-weight:700;letter-spacing:.12em;font-size:1.02rem}
+.nav{display:flex;gap:1.3rem;font-size:.92rem}
+.nav a{color:var(--soft);padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+.masthead{text-align:center;padding:3.4rem 1.5rem 2.4rem;border-bottom:1px solid var(--line)}
+.masthead h1{font-family:var(--serif);font-weight:900;font-size:2.5rem;letter-spacing:.06em;margin:0}
+.masthead .tagline{color:var(--soft);max-width:560px;margin:1rem auto 0;font-size:1rem}
+.masthead .rss{display:inline-block;margin-top:1.2rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
+.masthead .rss:hover{background:var(--accent);color:#fff}
+
+/* 首頁動態封面(純 CSS 動畫) */
+.cover{border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% 0%,#fffdf8 0%,var(--bg) 58%,#f1e9db 100%)}
+.cover-inner{position:relative;max-width:900px;margin:0 auto;
+  padding:4.4rem 1.5rem 3.8rem;text-align:center}
+.cover .cc{position:absolute;width:22px;height:22px;border:3px solid var(--accent);
+  opacity:0;animation:cc-in .5s ease-out forwards}
+.cover .cc-tl{top:1.4rem;left:1.4rem;border-right:none;border-bottom:none;animation-delay:.1s}
+.cover .cc-tr{top:1.4rem;right:1.4rem;border-left:none;border-bottom:none;animation-delay:.18s}
+.cover .cc-bl{bottom:1.4rem;left:1.4rem;border-right:none;border-top:none;animation-delay:.26s}
+.cover .cc-br{bottom:1.4rem;right:1.4rem;border-left:none;border-top:none;animation-delay:.34s}
+.cover-kicker{font-family:var(--sans);letter-spacing:.55em;text-indent:.55em;color:var(--accent);
+  font-size:.82rem;font-weight:600;opacity:0;animation:fade-up .6s ease-out .3s forwards}
+.cover-bar{width:0;height:5px;background:var(--accent);margin:1rem auto 1.4rem;
+  animation:bar-in .6s ease-out .5s forwards}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:3rem;letter-spacing:.05em;
+  margin:0;color:var(--ink);opacity:0;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .7s forwards}
+.cover-sub{font-family:var(--sans);color:var(--soft);max-width:600px;margin:1.1rem auto 0;
+  font-size:1rem;opacity:0;animation:fade-up .75s ease-out 1.15s forwards}
+.cover .rss{display:inline-block;margin-top:1.6rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem;
+  opacity:0;animation:fade-up .7s ease-out 1.5s forwards}
+.cover .rss:hover{background:var(--accent);color:#fff}
+@keyframes cc-in{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes bar-in{from{width:0}to{width:150px}}
+@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cover *{animation:none!important;opacity:1!important;width:auto}
+  .cover-bar{width:150px}}
+@media(max-width:680px){.cover-title{font-size:2.1rem}}
+
+.feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
+.lead-slot{margin-bottom:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(40,30,20,.10)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .thumb.noimg{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#f6efe6,#efe6da)}
+.card .thumb.noimg span{font-family:var(--serif);color:var(--faint);font-size:1.4rem;letter-spacing:.3em}
+.card-body{padding:1.1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card-body h2{font-family:var(--serif);font-weight:700;font-size:1.2rem;line-height:1.45;margin:.1rem 0}
+.card .excerpt{color:var(--soft);font-size:.9rem;line-height:1.7;flex:1}
+.kicker{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{font-size:.72rem;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);
+  border-radius:999px;padding:.12rem .6rem}
+.byline{color:var(--faint);font-size:.8rem;margin:.2rem 0 0;letter-spacing:.05em}
+.card.featured{flex-direction:row;align-items:stretch}
+.card.featured .thumb{flex:1.15;aspect-ratio:auto;min-height:300px}
+.card.featured .card-body{flex:1;justify-content:center;padding:2rem 2.2rem}
+.card.featured h2{font-size:1.85rem;line-height:1.4}
+.card.featured .excerpt{font-size:1rem;flex:none;margin-top:.4rem}
+@media(max-width:680px){.card.featured{flex-direction:column}.card.featured .thumb{min-height:200px}}
+
+.post{max-width:700px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
+.post-head{text-align:center;margin-bottom:2.4rem}
+.post-head .kicker{justify-content:center;margin-bottom:1rem}
+.post-head h1{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.45;margin:.3rem 0}
+.post-head .byline{margin-top:.9rem}
+.post p{margin:1.25rem 0;font-size:1.07rem;letter-spacing:.01em}
+.post p.lead{font-size:1.18rem;line-height:1.9;color:#2c2a26}
+.post p.lead::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:3.4rem;
+  line-height:.82;margin:.34rem .55rem 0 0;color:var(--accent)}
+.post h2{font-family:var(--serif);font-weight:700;font-size:1.45rem;margin:2.6rem 0 .8rem;
+  padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
+.post h2.refs-head{font-size:1.12rem;color:var(--soft);border-bottom:1px solid var(--line)}
+.post h3{font-family:var(--serif);font-size:1.18rem;margin:1.8rem 0 .5rem}
+.post .hero{margin:0 0 1.8rem}
+.post .hero img{width:100%;max-height:440px;object-fit:cover;border-radius:12px;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figure{margin:2.2rem 0}
+.post figure img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figcaption{color:var(--soft);font-size:.85rem;text-align:center;margin-top:.7rem;font-style:italic;line-height:1.6}
+.post .ref{font-size:.84rem;line-height:1.7;color:#56524a;margin:.4rem 0;padding-left:.9rem;
+  border-left:2px solid var(--line);word-break:break-all}
+.post .ref a{color:var(--accent)}
+.post hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+.onesent{font-family:var(--serif);font-size:1.15rem;color:var(--accent);border-left:3px solid var(--accent);
+  margin:1.5rem 0;padding:.4rem 0 .4rem 1rem;line-height:1.8}
+.rem3{padding-left:1.2rem}.rem3 li{margin:.6rem 0;line-height:1.8}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.paper h3{margin:.1rem 0 .3rem;font-size:1.18rem}
+.paper .role{color:var(--accent);font-size:.85rem;margin:.1rem 0 .7rem;letter-spacing:.05em}
+.paper p{margin:.4rem 0;font-size:.98rem;line-height:1.75}
+.also{margin:3rem 0 1rem;padding:1.1rem 1.3rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;color:var(--soft);font-size:.95rem}
+.also a{color:var(--accent);font-weight:500}
+.foot{max-width:900px;margin:3rem auto 0;padding:1.6rem 1.5rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:var(--faint);font-size:.85rem}
+.foot a{color:var(--accent)}
+@media(max-width:680px){.masthead h1{font-size:2rem}.post-head h1{font-size:1.7rem}.post p.lead{font-size:1.08rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "小便斗站上展台後", "description": "1917 年，一只原本屬於衛浴商店的男性小便斗，被轉向、簽上「R. Mutt 1917」，送進紐約獨立藝術家協會第一屆展覽。它沒有被掛出來，原件也很快消失；但一張 Alfred Stieglitz 拍下的照片，讓《噴泉》（Fountain）成為二十世紀藝術史裡最常被重提、也最常被反問的一件作品。¹³ 今天再…", "url": "https://polarbear0827.github.io/My-Way/p/2026-06-28-duchamp-fountain-readymade/", "datePublished": "2026-06-28", "inLanguage": "zh-Hant-TW", "author": {"@type": "Person", "name": "穗稻忠武的專欄"}, "publisher": {"@type": "Organization", "name": "穗稻忠武的專欄"}, "image": "https://content.presspage.com/uploads/1935/800_duchampimage2-stieglitz-fountain.jpg?10000"}</script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="https://polarbear0827.github.io/My-Way/">穗稻忠武的專欄</a><nav class="nav"><a href="https://polarbear0827.github.io/My-Way/">專欄</a><a href="https://polarbear0827.github.io/My-Way/radar/">AI Radar</a><a href="https://polarbear0827.github.io/My-Way/papers/">HF 速讀</a><a href="https://polarbear0827.github.io/My-Way/podcast/">Podcast</a><a href="https://polarbear0827.github.io/Daily-briefing/">早報 ↗</a></nav></header>
+<article class="post">
+<div class="post-head">
+<div class="kicker"><span class="tag">藝術</span><span class="tag">專欄</span></div>
+<h1>小便斗站上展台後</h1>
+<p class="byline"><time>2026-06-28</time></p>
+</div>
+
+<p class="lead">1917 年，一只原本屬於衛浴商店的男性小便斗，被轉向、簽上「R. Mutt 1917」，送進紐約獨立藝術家協會第一屆展覽。它沒有被掛出來，原件也很快消失；但一張 Alfred Stieglitz 拍下的照片，讓《噴泉》（Fountain）成為二十世紀藝術史裡最常被重提、也最常被反問的一件作品。¹³ 今天再談《噴泉》，不是為了把「這算不算藝術」的老問題重演一次。2026 年 MoMA 宣布舉辦逾半世紀以來北美首個 Marcel Duchamp 大型回顧展，Tate Modern 也把《噴泉》放進關於公共廁所、身體、可見性與物質結構的展示脈絡；這使得一件已成經典的現成物，又回到美術館如何命名、收藏、複製與維護作品的現場。⁷²</p>
+<figure><img src="https://content.presspage.com/uploads/1935/800_duchampimage2-stieglitz-fountain.jpg?10000" alt="《噴泉》1917 年 Stieglitz 攝影版本｜來源：Philadelphia Museum of Art Pressroom / Alfred Stieglitz" loading="lazy"><figcaption>這張照片幾乎是《噴泉》原件留給後世的主要視覺證據：作品、標籤、底座與背景畫面一起構成了後來的藝術史。</figcaption></figure>
+<h2>一只小便斗進入展覽制度</h2>
+<figure><img src="https://content.presspage.com/uploads/1935/800_duchampimage8-societyofindependents.jpg?10000" alt="1917 年獨立藝術家協會展覽資料｜來源：Philadelphia Museum of Art Pressroom" loading="lazy"><figcaption>「無評審」的制度承諾，是《噴泉》事件的核心背景：爭議不只在物件，而在誰有權說作品可以展出。</figcaption></figure>
+<p>Philadelphia Museum of Art 對事件的敘述是目前最清楚的博物館版時間線：1917 年春，Duchamp 從紐約 J. L. Mott Iron Works 展示間購買小便斗，簽上「R. Mutt」，匿名送交 Society of Independent Artists。該協會主張「無評審」，但作品仍被組織者拒絕；Duchamp 隨後辭去協會職務，Walter Arensberg 也抗議退出。³⁴ 這不是單純的惡作劇。 協會制度本身把問題推到檯面上：若任何繳費會員都可展出，組織者是否還能以「不雅」「不是藝術」為由把作品移走？PMA 新聞稿指出，展覽原本由一群包括 Duchamp 在內的成員於 1916 年底規劃，目標就是取消審查式的入選制度。當《噴泉》被拒絕，制度宣言和實際權力之間的縫隙被暴露出來。⁴ 因此，《噴泉》的第一層震動不是「小便斗好不好看」，而是展覽制度是否願意承擔自己的原則。若作品被接納，它逼迫觀眾接受一個非手工、非美感、非傳統材質的物；若作品被拒絕，它證明「無評審」仍有看不見的邊界。這也是為什麼它的失敗展出反而成為成功事件：美術館沒有展出它，卻無意間替它製造了更長的生命。</p>
+<h2>《盲人》雜誌替它辯護</h2>
+<figure><img src="https://content.presspage.com/uploads/1935/800_duchampimage4-theblindmanno1.jpg?10000" alt="《The Blind Man》第一期資料影像｜來源：Philadelphia Museum of Art Pressroom" loading="lazy"><figcaption>《The Blind Man》讓被拒的作品有了文字辯護；現成物理論不是先在教科書中成立，而是在爭議中被寫出來。</figcaption></figure>
+<p>被拒之後，《噴泉》被帶到 Alfred Stieglitz 的 291 畫廊攝影。PMA 展覽頁與新聞稿都指出，這張照片刊登於 Duchamp 與友人辦的前衛雜誌《The Blind Man》第二期，旁邊有捍衛「R. Mutt」的文字。那段後來被反覆引用的句子說：「Mutt 先生是否親手製作這個噴泉並不重要。他選擇了它。他拿一件普通生活物品，把它放到原本用途消失的新標題與新觀點之下，為那件物創造了新的思想。」³⁴ 這段話把藝術家的行為從「製作」轉移到「選擇」。 它沒有主張所有物都自動成為藝術；它主張在特定命名、轉向、提交、展示與辯護之後，物件的意義會改變。這也是 Tate 近期展示標籤所說的：小便斗被改變方向，簽上化名，並以 Fountain 命名，這些語言、姿態與角色扮演共同構成作品。² 這裡必須保持精確：Duchamp 沒有親手燒製瓷器，也沒有把工匠手藝作為作品價值。他把作品壓在制度、命名與觀看方式的交會點上。從這個角度說，Stieglitz 的照片不是單純記錄，而是事件的一部分；它讓一件已消失的物件，透過印刷與複製進入公共記憶。</p>
+<h2>現成物之前，Duchamp 已在練習撤退</h2>
+<figure><img src="https://content.presspage.com/uploads/1935/800_duchampimage5-manray-portraitofduchamp.jpg?10000" alt="Duchamp、Francis Picabia 與 Beatrice Wood，1917｜來源：Philadelphia Museum of Art Pressroom" loading="lazy"><figcaption>《噴泉》不是孤立奇想；它出現在紐約 Dada 圈、攝影、雜誌與朋友網絡之中。</figcaption></figure>
+<p>BBC Culture 的百年文章把《噴泉》放回 Duchamp 早期「現成物」實驗：自 1913 年起，他已試圖用日常商業物件挑戰原創性與藝術身分。⁹ MoMA 的 2010 年「The Original Copy」互動展也引用 Duchamp 1913 年的筆記：「能不能製作不是『藝術』的作品？」並把《Bicycle Wheel》視為改變藝術物定義的重要起點。⁸ 這種脈絡很重要，因為它避免把《噴泉》說成憑空出現的笑話。Duchamp 早已在測試手工、原件、複製、署名與觀看的關係。 他後來的《Box in a Valise》把自己的作品縮小、複製、裝進手提箱，像一座可攜式微型美術館；MoMA 指出，這種「授權的原件複本」模糊了唯一作品、現成物與多重複本的界線。⁸ 換言之，《噴泉》看似最粗暴，實際上非常精密。它把藝術家的身體從製作現場撤退，卻把藝術家的選擇、機智、制度意識與出版網絡推到前台。這種撤退不是消失，而是一種新的控制方式：不再雕塑瓷器，而是雕塑作品進入社會的路徑。</p>
+<h2>原件消失，複本成為作品的身體</h2>
+<figure><img src="https://press.moma.org/wp-content/uploads/2025/04/1951_Bicycle-Wheel.jpg" alt="Duchamp《Bicycle Wheel》1951 版本｜來源：MoMA Press / 作品圖片" loading="lazy"><figcaption>現成物的悖論在於：它反對傳統原創性，卻又必須靠授權、複製與館藏制度維持作品身分。</figcaption></figure>
+<p>《噴泉》原件很快遺失或遭毀，這一點在 PMA、Duchamp Research Portal 與 Cabinet 的版本清單中都被確認。³⁶¹⁶ 但作品沒有因此消失。Duchamp Research Portal 說，Duchamp 先在 1935 至 1941 年的《Box in a Valise》中做了微型版本；1950 年 Sidney Janis Gallery 展覽時，他授權 Janis 在巴黎買一只二手小便斗並加上原始銘文，這件版本後來進入 Philadelphia Museum of Art。⁶ Cabinet 2007 年整理「已知十七個版本」時，列出 1917 原件、1950 紐約複製、1953 巴黎版本、1963 斯德哥爾摩版本，以及 1964 年由 Arturo Schwarz 在米蘭製作的八件版次和館藏去向。 ¹⁶ Tate 收藏的是 1964 年複本；Tate 展示頁說它以釉陶製成、上色模仿原始瓷器。²</p>
+<p>這讓《噴泉》的問題再推進一層：若現成物的重點是「選擇」而非手作，後來的複本如何仍是同一件作品？答案不在瓷器本身，而在授權、銘文、展覽史、照片與美術館紀錄。換句話說，《噴泉》的身體不是單一物件；它是一串被制度確認的版本、照片與故事。</p>
+<h2>影響力不是沒有爭議的共識</h2>
+<figure><img src="https://press.moma.org/wp-content/uploads/2025/04/1935-45_Box-in-a-Valise.jpg" alt="Duchamp《Box in a Valise》｜來源：MoMA Press / 作品圖片" loading="lazy"><figcaption>可攜式作品箱把原作變成可重排的檔案，也預告了《噴泉》後來依靠複製與敘事流通的命運。</figcaption></figure>
+<p>2004 年，《噴泉》在一項由 500 名藝術家、策展人、評論人與經銷商參與的調查中，被選為最具影響力的現代藝術作品；BBC News、The Guardian、The Independent 與 Artforum 都報導了這項結果。¹⁰¹¹¹²¹³ The Guardian 引述藝術專家 Simon Wilson 的說法，認為 Duchamp 關於「任何東西都能成為藝術」的觀念終於真正發酵；BBC News 則指出，這個結果反映藝術中創作過程與概念的重要性。¹¹¹⁰ 但「影響力」不等於價值判決一致。有人把《噴泉》視為概念藝術、Pop Art、裝置藝術與後來挪用策略的源頭；BBC Culture 甚至把它連到 Warhol 的 Brillo Boxes、Campbell’s Soup Cans 與 Damien Hirst 的作品。 ⁹ 也有人認為，這套敘事使手藝、材料知識與視覺形式被過度貶低。</p>
+<p>本文能確認的是：二十世紀後半以來，許多藝術機構與評論確實把《噴泉》當成現代藝術轉折點。但它是否「開啟」所有後來的概念藝術，仍是分析性判斷，而非可用單一文件證明的事實。更穩妥的說法是：《噴泉》提供了一個高密度案例，讓藝術界反覆測試「作品」「作者」「原件」「展示」和「市場」的界線。</p>
+<h2>Elsa 爭議：誰是 R. Mutt？</h2>
+<figure><img src="https://press.moma.org/wp-content/uploads/2025/12/Duchamp_001_PRESS_2000px.jpg" alt="Duchamp 回顧展展場照｜來源：MoMA Press / Jonathan Dorado" loading="lazy"><figcaption>今日美術館展場仍以 Duchamp 為主名敘述《噴泉》，但作者爭議提醒讀者：標籤本身也是權力文件。</figcaption></figure>
+<p>《噴泉》最尖銳的近年爭議，是它是否可能不是 Duchamp 的作品。The Art Newspaper 2014 年刊出 Julian Spalding 與 Glyn Thompson 的文章，主張 Duchamp 可能把德裔 Dada 藝術家 Baroness Elsa von Freytag-Loringhoven 的小便斗據為己有。 文章援引 Duchamp 1917 年 4 月 11 日寫給妹妹 Suzanne 的信，信中提到「一位女性朋友以男性化名 Richard Mutt」送交一件瓷小便斗作為雕塑；作者並主張 J. L. Mott 未販售該型號。¹⁴ 2023 年 Artnet 報導指出，Thompson 後續又提出筆跡與型號來源等主張，並說 Baroness Elsa 當時在費城活動；同文也清楚列出反方意見：Dawn Adès 與 Bradley Bailey 在 2019 年《Burlington Magazine》文章中反駁，認為信件翻譯與推論有問題，且目前沒有直接證據把 Elsa 與《噴泉》連起來。¹⁵ Atlas Press 收錄 Adès 與 Alastair Brotchie 的反駁文字，核心問題很簡單：支持 Elsa 說的一方若要改寫標籤，必須提出能直接連結 Baroness 與《噴泉》的證據。¹⁶ 因此，本文不把 Elsa 說寫成定論；較準確的表述是：作者歸屬存在被反覆提出的爭議，但主流博物館標籤至今仍把作品歸於 Duchamp，反方學者認為 Elsa 說尚未達到足以改標的證據門檻。</p>
+<h2>被攻擊的複本：當反藝術成為財產</h2>
+<figure><img src="https://cdn.sanity.io/images/r7hgx2l2/production/03ebf16b4c3c7c7126a9ae2e89f2e41418700c75-900x700.jpg" alt="Philadelphia Museum of Art 收藏的 1950 年複本｜來源：Philadelphia Museum of Art / Sanity CDN" loading="lazy"><figcaption>一件曾以「普通物」挑戰藝術制度的作品，後來成為需由保險、修復與法律保護的館藏財產。</figcaption></figure>
+<p>《噴泉》的另一個悖論，是它曾挑戰藝術制度，卻在成名後被制度保護。</p>
+<p>2006 年，法國行為藝術家 Pierre Pinoncelli 在龐畢度中心以鐵鎚攻擊一件《噴泉》複本，BBC News 報導他被判罰 214,000 歐元並獲三個月緩刑；報導也指出，1993 年他曾在尼姆展覽中對同作品小便。¹⁷ New York Times 當時寫道，Pinoncelli 稱自己的行為是表演藝術、向 Duchamp 與 Dada 致敬；但作品受損後被撤下修復，龐畢度中心也面臨如何保護高價館藏的問題。¹⁸ NPR 訪問中，相關人士指出，即使 Duchamp 可能對物質作品相對超然，博物館仍是保存作品、讓公眾自由接觸藝術的場所；破壞不會因此自動成為可接受的藝術行為。¹⁹ 這件事揭示了《噴泉》被制度吸收後的新身份：它不再只是商店物件，而是有估值、保險、館藏編號、修復成本與公共責任的作品。若有人說「Duchamp 都把小便斗變成藝術了，我破壞它也可以是藝術」，博物館與法院給出的回答是：概念可以挑戰制度，但不代表可以免除對公共財產的責任。</p>
+<h2>今天的《噴泉》：不是答案，而是測試器</h2>
+<figure><img src="https://content.presspage.com/uploads/1935/800_duchampimage3-roche-duchampsstudio.jpg?10000" alt="Duchamp 工作室與現成物影像｜來源：Philadelphia Museum of Art Pressroom / Henri-Pierre Roché" loading="lazy"><figcaption>工作室影像中的現成物懸在日常空間裡，提醒我們：作品的力量常在物件、房間與敘事之間移動。</figcaption></figure>
+<p>2026 年 MoMA 的 Duchamp 回顧展新聞稿說，這是北美逾 50 年來首個 Duchamp 大型回顧，並將呈現繪畫、雕塑、電影、攝影、素描與印刷品等六十年創作。 ⁷ 這個安排本身也修正了一種過度簡化：Duchamp 不只是「小便斗藝術家」，而是用多種媒介持續測試藝術制度、觀看與複製的創作者。 Tate Modern 2025 年「Around the Fountain」展示則把《噴泉》放進更當代的身體政治脈絡，與 Miguel Ángel Rojas、Wolfgang Tillmans 關於公共廁所、酷兒可見性與物質表面的作品並置。² 這種策展方式不是只重述 1917 年笑話，而是問：公共廁所為何同時是私人身體、羞恥、監視、慾望與公共建築的交會點？ <strong>（以下為本文分析，非事實陳述）</strong>《噴泉》之所以仍有效，不是因為它提供「什麼都可以是藝術」的懶惰答案，而是因為它像一個測試器。它測試展覽制度是否遵守自己的開放承諾；測試美術館如何保存一件反原件的作品；測試作者標籤如何處理性別與證據；也測試觀眾是否願意把不舒服的物件放在思想裡停留久一點。若藝術史只把它收進教材，它就變成標本；若每一代策展與讀者都重新追問它製造的矛盾，它才仍然活著。</p>
+<h2>結語：被拒絕的作品如何留下來</h2>
+<p>《噴泉》的原件沒有留下，留下的是照片、雜誌、信件、複本、館藏紀錄、爭議與一次又一次展覽。 它的故事不是「天才把小便斗變成藝術」那麼單線；更接近一個關於制度的連鎖反應：一個開放展覽拒絕了它，一本小雜誌替它辯護，一張照片保存了它，一批複本讓它進入美術館，後來的市場、法院與學者又各自把它拉向不同問題。 如果要用一句話概括《噴泉》今天仍值得看的理由，或許不是「它改變了藝術」，而是「它讓藝術界不得不說明自己在做什麼」。誰有權選擇？誰有權命名？一件作品是否必須由藝術家親手製作？複本能否比原件更有歷史效力？被忽略的女性藝術家應如何被重新檢視，而證據又必須到什麼程度？這些問題至今沒有完全結束。也正因如此，一只被拒絕展出的小便斗，反而在一百多年後仍站在展台上，逼人重新看見展台本身。 在形式上，《噴泉》也不像它常被簡化成的「把小便斗拿進美術館」那麼簡單。它被轉向，原本朝向牆面的功能面變成可被凝視的輪廓；它被命名為 Fountain，把排泄器具轉成水景語彙；它被簽上 R. Mutt，既遮蔽 Duchamp，也製造一個可被報紙和觀眾追問的假作者。Tate 的展示標籤強調，化名、題名與方向改變，都指向 Duchamp 對雙關語、角色扮演與時機的興趣。² 這表示作品的「形式」並未消失，只是形式不再限於線條、色彩與手工，而擴張成位置、語言、制度與公共反應的組合。 這也是《噴泉》在哲學討論中反覆出現的原因。它一方面看起來像在說「我不是藝術」：沒有傳統美感、沒有手工痕跡、沒有高貴題材；另一方面，它又正是在藝術展覽、藝術雜誌、藝術攝影和藝術爭議中被保存下來。這種矛盾不是附帶效果，而是作品的發動機。 觀眾越想把它排除在藝術之外，就越需要說出排除的理由；而每一次說明，又都把藝術定義的規則攤開給大家看。 從市場角度看，《噴泉》還有另一個諷刺。 現成物原本似乎削弱了珍稀物件的價值：如果一件商店物品只因選擇和命名成為作品，是否代表任何人都能複製同樣動作？但後來的歷史恰好相反。Cabinet 列出的版本清單顯示，每一件授權複本都因版次、館藏、來源和展覽史而被區分；1950 年版本、1964 年八件版次、藝術家試作與展覽用版本，各有不同身分。¹⁷ 也就是說，現成物沒有摧毀藝術市場對稀缺性的需求；它只是把稀缺性從「親手製作的唯一原件」轉移到「被誰授權、何時製作、進入哪個館藏」這些文件與制度上。 對博物館而言，《噴泉》也不是容易展示的物。它的內容牽涉廁所、身體、性別與公共羞恥；它的原件不在；它的複本又有版權與修復問題。Tate 近年的展示把它和 Rojas、Tillmans 放在一起，等於承認小便斗不只是藝術史上的概念道具，也是一個關於身體在公共空間如何被看見或隱藏的物。² 這種重新佈置，使作品暫時離開「二十世紀最重要藝術品」的英雄敘事，進入更具體的社會場景：廁所如何規訓身體？哪些身體在公共空間被允許出現？哪些慾望只能躲在建築縫隙中？ 作者爭議同樣需要放在這個制度問題裡看。若未來出現更直接的檔案證據，證明 Elsa von Freytag-Loringhoven 與《噴泉》有更深關係，美術館標籤就可能被迫改寫；但若沒有這樣的證據，把作品簡單改歸 Elsa，也可能用另一個確定敘事取代一個仍未解決的檔案問題。 較負責的做法，是把現有證據的層級說清楚：Duchamp 信件確實留下「女性朋友」的語句；支持 Elsa 說的一方把它與費城、型號、筆跡和反戰情境相連；反方則指出這些推論仍缺少直接鏈結。¹⁴¹⁵¹⁶ 這種不確定性，不是文章的弱點，而是藝術史工作本身的現場。 《噴泉》因此逼迫我們把「作品」理解為一組關係：物與標題的關係、作者與化名的關係、展覽規則與拒絕行為的關係、攝影與消失原件的關係、複本與授權的關係、女性前衛藝術家與男性經典敘事的關係。若只說它是一個小便斗，就少看了制度；若只說它是思想，就少看了瓷器、廁所、羞恥與身體。它之所以難纏，正因為兩者同時存在。 對今日觀眾而言，最值得保留的或許不是「任何東西都可以是藝術」這句常見口號，而是另一個更嚴格的問題：當某件東西被放進藝術脈絡時，它要求我們重新檢查哪些規則？如果一件普通物只是被拿來當噱頭，它很快就會耗盡；但如果它讓機構、觀眾、法院、學者與市場都必須重新表態，它就會持續產生公共後果。《噴泉》已經不是一只小便斗能不能進美術館的問題，而是美術館、出版物、檔案與法律如何共同製造「藝術事實」的問題。 還有一個常被忽略的面向，是《噴泉》如何改變觀眾的位置。傳統繪畫或雕塑常要求觀眾判斷比例、筆觸、構圖、材質與題材；《噴泉》卻先讓觀眾感到尷尬，接著要求觀眾解釋自己的尷尬。為什麼在衛浴店裡可被忽略的物，進入展覽後就變得刺眼？為什麼男性廁所的器具被命名為 Fountain 後，會同時引發笑意、厭惡與理論興趣？這些反應本身，就是作品把日常規訓帶進美術館後產生的資料。</p>
+<p>從台灣讀者的角度看，《噴泉》也能反照本地公共藝術與展覽制度。當一件作品被放進美術館，它得到的不只是白牆與燈光，而是說明牌、保險、導覽、教育活動、評論、社群照片與市場估值。這些外圍條件往往被當成背景，卻實際決定作品如何被理解。《噴泉》把背景推到前景：若沒有拒展、沒有 Stieglitz 攝影、沒有《The Blind Man》、沒有後來的複本與館藏，它就只是一件遺失的衛浴用品。 因此，寫《噴泉》不能只稱讚它聰明，也不能只嘲笑它荒唐。 它的聰明之處，在於用最少的物質改動召喚最多的制度反應；它的荒唐之處，則在於這些制度反應後來又把它變成昂貴、脆弱、需要警衛保護的經典。當 Pinoncelli 以表演藝術之名攻擊複本時，法律判決等於提醒公眾：反藝術進入美術館後，仍可能被視為他人的財產與公共文化資產。這不是矛盾被解決，而是矛盾被正式管理。 最後，Elsa 爭議也提示我們，修正藝術史不是把所有舊名字直接換成新名字，而是建立更細密的證據倫理。女性藝術家、酷兒藝術家、移民與邊緣前衛社群確實長期被排除在經典敘事之外；但補寫歷史仍需區分可證明的事實、合理推論與政治願望。若把三者混成一團，反而會讓真正需要被看見的人再次被簡化。《噴泉》之所以適合放在今天重讀，正是因為它讓我們同時看見制度的開放、排除、記憶與失誤。 也因此，《噴泉》不是一件適合以勝負收場的作品。它不需要我們在「藝術」與「不是藝術」之間投票，也不需要我們在 Duchamp 與 Elsa 之間用不足證據做最後判決。 它更像一個持續工作的問題裝置：每當藝術界自以為已經知道什麼是作品、誰是作者、什麼是原件、什麼是公共性，它就重新把那只小便斗放回門口，要求所有人先說明自己的規則。 若把這篇文章的問題縮到最小，它其實不是「小便斗為何珍貴」，而是「一個社會如何決定什麼值得被保存」。1917 年的組織者不願保存它；Stieglitz 的照片暫時保存了它；PMA、Tate、MoMA、Pompidou 等機構後來用複本、展覽與檔案保存它；法院又在破壞事件中用財產法保存它。每一次保存都改變了作品的身份，也把原先挑釁制度的物件更深地嵌進制度。 這並不表示《噴泉》已失去批判力。相反地，它越是被制度珍藏，越能暴露制度的運作方式。觀眾在展場裡看到的不是一件孤立物，而是現代藝術如何依靠攝影、出版、授權、保險、研究、修復與市場共同維持權威。 這種權威不必被簡單否定，但必須被看見。對今日創作者而言，《噴泉》的真正遺產也許不是鼓勵大家把任何東西搬進展場，而是提醒每一次搬動都要承擔其語境、證據與後果。</p>
+<p>因此，本文選擇以「站上展台後」作為題目：重點不是小便斗本身，而是它站上展台之後，周圍的人與制度如何被迫移動。展台沒有變得中性；它被暴露成一個充滿規則、羞恥、權力、記憶與爭辯的位置。這也是為什麼《噴泉》至今仍比許多更美麗、更昂貴、更完整保存的作品更難處理：它要求我們不只觀看作品，也觀看自己觀看作品時所依賴的整套世界。 在這個意義上，《噴泉》也提醒我們，藝術史不是一份已經封存的排名表。2004 年的影響力投票、2017 年的百年展、2026 年的 MoMA 回顧展，以及 Elsa 作者爭議的反覆出現，都顯示同一件作品會隨著制度與社會關切而改變問題意識。昨天它可能被拿來說明概念藝術，今天它也被拿來討論性別、檔案、公共廁所、複本經濟與博物館治理。真正留下來的不是固定答案，而是能持續生產問題的能力。這也是一件作品在美術館之外仍有生命的條件。 若下一次站在《噴泉》前，值得看的不是瓷面是否漂亮，而是自己腦中立刻浮出的分類：髒或乾淨、藝術或垃圾、玩笑或思想、原作或複本、Duchamp 或 Elsa。這些分類不是自然產物，而是教育、制度、性別、博物館和市場共同訓練出來的反應。《噴泉》真正刺人的地方，正在於它讓這些反應變得可見。</p>
+<p>這份可見性，也是讀者離開展場後仍能帶走的東西：不是答案，而是一種檢查規則的習慣。</p>
+<p>作品仍在發光，因為它迫使觀看者自我審查。</p>
+<hr>
+<h2 class="refs-head">引用來源</h2>
+<p class="ref">¹ Tate（無日期）— “Fountain, Marcel Duchamp, 1917, replica 1964”
+<a href="https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573" rel="noopener" target="_blank">https://www.tate.org.uk/art/artworks/duchamp-fountain-t07573</a></p>
+<p class="ref">² Tate（2025）— “Around the Fountain – Display at Tate Modern”
+<a href="https://www.tate.org.uk/visit/tate-modern/display/materials-and-objects/around-the-fountain" rel="noopener" target="_blank">https://www.tate.org.uk/visit/tate-modern/display/materials-and-objects/around-the-fountain</a></p>
+<p class="ref">³ Philadelphia Museum of Art（2017）— “Marcel Duchamp and the Fountain Scandal”
+<a href="https://www.philamuseum.org/exhibitions/marcel-duchamp-and-the-fountain-scandal" rel="noopener" target="_blank">https://www.philamuseum.org/exhibitions/marcel-duchamp-and-the-fountain-scandal</a></p>
+<p class="ref">⁴ Philadelphia Museum of Art Pressroom（2017-03-27）— “Marcel Duchamp and the Fountain Scandal”
+<a href="https://press.philamuseum.org/marcel-duchamp-and-the-fountain-scandal/" rel="noopener" target="_blank">https://press.philamuseum.org/marcel-duchamp-and-the-fountain-scandal/</a></p>
+<p class="ref">⁵ Philadelphia Museum of Art（無日期）— “Marcel Duchamp, Fountain, 1950 (replica of 1917 original)”
+<a href="https://www.philamuseum.org/objects/92488" rel="noopener" target="_blank">https://www.philamuseum.org/objects/92488</a></p>
+<p class="ref">⁶ Duchamp Research Portal（無日期）— “Fountain”
+<a href="https://www.duchamparchives.org/pma/object/92488" rel="noopener" target="_blank">https://www.duchamparchives.org/pma/object/92488</a></p>
+<p class="ref">⁷ The Museum of Modern Art（2026）— “Marcel Duchamp”
+<a href="https://press.moma.org/exhibition/marcel-duchamp/" rel="noopener" target="_blank">https://press.moma.org/exhibition/marcel-duchamp/</a></p>
+<p class="ref">⁸ MoMA（2010）— “Marcel Duchamp: The Readymade as Reproduction”
+<a href="https://www.moma.org/interactives/exhibitions/2010/originalcopy/intro05.html" rel="noopener" target="_blank">https://www.moma.org/interactives/exhibitions/2010/originalcopy/intro05.html</a></p>
+<p class="ref">⁹ BBC Culture（2017-04-11）— “The urinal that changed how we think”
+<a href="https://www.bbc.com/culture/article/20170410-the-urinal-that-changed-how-we-think" rel="noopener" target="_blank">https://www.bbc.com/culture/article/20170410-the-urinal-that-changed-how-we-think</a></p>
+<p class="ref">¹⁰ BBC News（2004-12-01）— “Duchamp’s urinal tops art survey”</p>
+<p><a href="http://news.bbc.co.uk/2/hi/entertainment/4059997.stm" rel="noopener" target="_blank">http://news.bbc.co.uk/2/hi/entertainment/4059997.stm</a></p>
+<p class="ref">¹¹ The Guardian（2004-12-02）— “Work of art that inspired a movement ... a urinal”
+<a href="https://www.theguardian.com/uk/2004/dec/02/arts.artsnews1" rel="noopener" target="_blank">https://www.theguardian.com/uk/2004/dec/02/arts.artsnews1</a></p>
+<p class="ref">¹² The Independent（2004-12-02）— “‘Fountain’ most influential piece of modern art”
+<a href="https://www.independent.co.uk/news/uk/this-britain/fountain-most-influential-piece-of-modern-art-673625.html" rel="noopener" target="_blank">https://www.independent.co.uk/news/uk/this-britain/fountain-most-influential-piece-of-modern-art-673625.html</a></p>
+<p class="ref">¹³ Artforum（2004-12-02）— “Duchamp’s Fountain Voted Most Influential Artwork”
+<a href="https://www.artforum.com/news/duchamps-fountain-voted-most-influential-artwork-170391/" rel="noopener" target="_blank">https://www.artforum.com/news/duchamps-fountain-voted-most-influential-artwork-170391/</a></p>
+<p class="ref">¹⁴ The Art Newspaper（2014-11-01）— “Did Marcel Duchamp steal Elsa’s urinal?”
+<a href="https://www.theartnewspaper.com/2014/11/01/did-marcel-duchamp-steal-elsas-urinal" rel="noopener" target="_blank">https://www.theartnewspaper.com/2014/11/01/did-marcel-duchamp-steal-elsas-urinal</a></p>
+<p class="ref">¹⁵ Artnet News（2023-10-25）— “Did Duchamp Steal Credit for ‘The Fountain’ from a Woman Artist?”
+<a href="https://news.artnet.com/art-world/duchamp-fountain-dispute-2379304" rel="noopener" target="_blank">https://news.artnet.com/art-world/duchamp-fountain-dispute-2379304</a></p>
+<p class="ref">¹⁶ Atlas Press（無日期）— “Marcel Duchamp and the Baroness”
+<a href="https://atlaspress.co.uk/marcel-duchamp-and-the-baroness/" rel="noopener" target="_blank">https://atlaspress.co.uk/marcel-duchamp-and-the-baroness/</a></p>
+<p class="ref">¹⁷ Cabinet（2007）— “An Overview of the Seventeen Known Versions of Fountain”
+<a href="https://www.cabinetmagazine.org/issues/27/duchamp.php" rel="noopener" target="_blank">https://www.cabinetmagazine.org/issues/27/duchamp.php</a></p>
+<p class="ref">¹⁸ BBC News（2006-01-24）— “Attack on urinal work brings fine”
+<a href="http://news.bbc.co.uk/2/hi/europe/4644032.stm" rel="noopener" target="_blank">http://news.bbc.co.uk/2/hi/europe/4644032.stm</a></p>
+<p class="ref">¹⁹ The New York Times（2006-01-07）— “Conceptual Artist as Vandal: Walk Tall and Carry a Little Hammer (or Ax)”
+<a href="https://www.nytimes.com/2006/01/07/arts/design/conceptual-artist-as-vandal-walk-tall-and-carry-a-little-hammer.html" rel="noopener" target="_blank">https://www.nytimes.com/2006/01/07/arts/design/conceptual-artist-as-vandal-walk-tall-and-carry-a-little-hammer.html</a></p>
+<p class="ref">²⁰ NPR（2006-01-26）— “Attack on Duchamp Work: A Dada Act?”
+<a href="https://www.npr.org/2006/01/25/5172177/attack-on-duchamp-work-a-dada-act" rel="noopener" target="_blank">https://www.npr.org/2006/01/25/5172177/attack-on-duchamp-work-a-dada-act</a></p>
+<aside class="also">本文亦發表於 <a href="https://maruamru777.substack.com/p/c99" rel="noopener" target="_blank">Substack</a>。</aside>
+</article>
+<footer class="foot"><a href="https://polarbear0827.github.io/My-Way/">← 回首頁</a><span>© 穗稻忠武的專欄</span></footer>
+<script>
+(function(){
+  var stop=function(e){e.preventDefault();return false;};
+  document.addEventListener('contextmenu',stop);
+  document.addEventListener('selectstart',stop);
+  document.addEventListener('copy',stop);
+  document.addEventListener('cut',stop);
+  document.addEventListener('dragstart',stop);
+  document.addEventListener('keydown',function(e){
+    var k=(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['c','x','s','u','a','p'].indexOf(k)>-1){e.preventDefault();return false;}
+  });
+})();
+</script>
+</body>
+</html>
