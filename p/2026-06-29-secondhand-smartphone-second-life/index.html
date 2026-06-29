@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>舊手機的第二人生 · 穗稻忠武的專欄</title>
+<meta name="description" content="抽屜裡那支舊手機，常常停在一個尷尬的位置：還能開機，螢幕也許有裂痕，電池撐不到下午，但裡面可能仍有照片、聊天記錄、信用卡、健康資料與工作帳號。它不像舊衣服，可以直接送人；也不像紙箱，可以丟進回收桶。它是一個被電池、軟體鎖、個資、維修價格與回收制度綁在一起的小型社會問題。">
+<link rel="canonical" href="https://polarbear0827.github.io/My-Way/p/2026-06-29-secondhand-smartphone-second-life/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="舊手機的第二人生">
+<meta property="og:description" content="抽屜裡那支舊手機，常常停在一個尷尬的位置：還能開機，螢幕也許有裂痕，電池撐不到下午，但裡面可能仍有照片、聊天記錄、信用卡、健康資料與工作帳號。它不像舊衣服，可以直接送人；也不像紙箱，可以丟進回收桶。它是一個被電池、軟體鎖、個資、維修價格與回收制度綁在一起的小型社會問題。">
+<meta property="og:url" content="https://polarbear0827.github.io/My-Way/p/2026-06-29-secondhand-smartphone-second-life/">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/5/55/Smartphone_use_at_railway_station.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>:root{
+  --bg:#faf8f3; --surface:#fffdf8; --ink:#1c1b18; --soft:#6f6a60; --faint:#9a9388;
+  --line:#e9e3d7; --accent:#9c3024; --accent-soft:#f3e7e3;
+  --serif:"Noto Serif CJK TC","Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",Georgia,serif;
+  --sans:system-ui,-apple-system,"PingFang TC","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.85;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+a{color:inherit;text-decoration:none}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding:.9rem 1.5rem}
+.topbar .brand{font-family:var(--serif);font-weight:700;letter-spacing:.12em;font-size:1.02rem}
+.nav{display:flex;gap:1.3rem;font-size:.92rem}
+.nav a{color:var(--soft);padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+.masthead{text-align:center;padding:3.4rem 1.5rem 2.4rem;border-bottom:1px solid var(--line)}
+.masthead h1{font-family:var(--serif);font-weight:900;font-size:2.5rem;letter-spacing:.06em;margin:0}
+.masthead .tagline{color:var(--soft);max-width:560px;margin:1rem auto 0;font-size:1rem}
+.masthead .rss{display:inline-block;margin-top:1.2rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
+.masthead .rss:hover{background:var(--accent);color:#fff}
+
+/* 首頁動態封面(純 CSS 動畫) */
+.cover{border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% 0%,#fffdf8 0%,var(--bg) 58%,#f1e9db 100%)}
+.cover-inner{position:relative;max-width:900px;margin:0 auto;
+  padding:4.4rem 1.5rem 3.8rem;text-align:center}
+.cover .cc{position:absolute;width:22px;height:22px;border:3px solid var(--accent);
+  opacity:0;animation:cc-in .5s ease-out forwards}
+.cover .cc-tl{top:1.4rem;left:1.4rem;border-right:none;border-bottom:none;animation-delay:.1s}
+.cover .cc-tr{top:1.4rem;right:1.4rem;border-left:none;border-bottom:none;animation-delay:.18s}
+.cover .cc-bl{bottom:1.4rem;left:1.4rem;border-right:none;border-top:none;animation-delay:.26s}
+.cover .cc-br{bottom:1.4rem;right:1.4rem;border-left:none;border-top:none;animation-delay:.34s}
+.cover-kicker{font-family:var(--sans);letter-spacing:.55em;text-indent:.55em;color:var(--accent);
+  font-size:.82rem;font-weight:600;opacity:0;animation:fade-up .6s ease-out .3s forwards}
+.cover-bar{width:0;height:5px;background:var(--accent);margin:1rem auto 1.4rem;
+  animation:bar-in .6s ease-out .5s forwards}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:3rem;letter-spacing:.05em;
+  margin:0;color:var(--ink);opacity:0;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .7s forwards}
+.cover-sub{font-family:var(--sans);color:var(--soft);max-width:600px;margin:1.1rem auto 0;
+  font-size:1rem;opacity:0;animation:fade-up .75s ease-out 1.15s forwards}
+.cover .rss{display:inline-block;margin-top:1.6rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem;
+  opacity:0;animation:fade-up .7s ease-out 1.5s forwards}
+.cover .rss:hover{background:var(--accent);color:#fff}
+@keyframes cc-in{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes bar-in{from{width:0}to{width:150px}}
+@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cover *{animation:none!important;opacity:1!important;width:auto}
+  .cover-bar{width:150px}}
+@media(max-width:680px){.cover-title{font-size:2.1rem}}
+
+.feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
+.lead-slot{margin-bottom:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(40,30,20,.10)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .thumb.noimg{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#f6efe6,#efe6da)}
+.card .thumb.noimg span{font-family:var(--serif);color:var(--faint);font-size:1.4rem;letter-spacing:.3em}
+.card-body{padding:1.1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card-body h2{font-family:var(--serif);font-weight:700;font-size:1.2rem;line-height:1.45;margin:.1rem 0}
+.card .excerpt{color:var(--soft);font-size:.9rem;line-height:1.7;flex:1}
+.kicker{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{font-size:.72rem;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);
+  border-radius:999px;padding:.12rem .6rem}
+.byline{color:var(--faint);font-size:.8rem;margin:.2rem 0 0;letter-spacing:.05em}
+.card.featured{flex-direction:row;align-items:stretch}
+.card.featured .thumb{flex:1.15;aspect-ratio:auto;min-height:300px}
+.card.featured .card-body{flex:1;justify-content:center;padding:2rem 2.2rem}
+.card.featured h2{font-size:1.85rem;line-height:1.4}
+.card.featured .excerpt{font-size:1rem;flex:none;margin-top:.4rem}
+@media(max-width:680px){.card.featured{flex-direction:column}.card.featured .thumb{min-height:200px}}
+
+.post{max-width:700px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
+.post-head{text-align:center;margin-bottom:2.4rem}
+.post-head .kicker{justify-content:center;margin-bottom:1rem}
+.post-head h1{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.45;margin:.3rem 0}
+.post-head .byline{margin-top:.9rem}
+.post p{margin:1.25rem 0;font-size:1.07rem;letter-spacing:.01em}
+.post p.lead{font-size:1.18rem;line-height:1.9;color:#2c2a26}
+.post p.lead::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:3.4rem;
+  line-height:.82;margin:.34rem .55rem 0 0;color:var(--accent)}
+.post h2{font-family:var(--serif);font-weight:700;font-size:1.45rem;margin:2.6rem 0 .8rem;
+  padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
+.post h2.refs-head{font-size:1.12rem;color:var(--soft);border-bottom:1px solid var(--line)}
+.post h3{font-family:var(--serif);font-size:1.18rem;margin:1.8rem 0 .5rem}
+.post .hero{margin:0 0 1.8rem}
+.post .hero img{width:100%;max-height:440px;object-fit:cover;border-radius:12px;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figure{margin:2.2rem 0}
+.post figure img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figcaption{color:var(--soft);font-size:.85rem;text-align:center;margin-top:.7rem;font-style:italic;line-height:1.6}
+.post .ref{font-size:.84rem;line-height:1.7;color:#56524a;margin:.4rem 0;padding-left:.9rem;
+  border-left:2px solid var(--line);word-break:break-all}
+.post .ref a{color:var(--accent)}
+.post hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+.onesent{font-family:var(--serif);font-size:1.15rem;color:var(--accent);border-left:3px solid var(--accent);
+  margin:1.5rem 0;padding:.4rem 0 .4rem 1rem;line-height:1.8}
+.rem3{padding-left:1.2rem}.rem3 li{margin:.6rem 0;line-height:1.8}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.paper h3{margin:.1rem 0 .3rem;font-size:1.18rem}
+.paper .role{color:var(--accent);font-size:.85rem;margin:.1rem 0 .7rem;letter-spacing:.05em}
+.paper p{margin:.4rem 0;font-size:.98rem;line-height:1.75}
+.also{margin:3rem 0 1rem;padding:1.1rem 1.3rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;color:var(--soft);font-size:.95rem}
+.also a{color:var(--accent);font-weight:500}
+.foot{max-width:900px;margin:3rem auto 0;padding:1.6rem 1.5rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:var(--faint);font-size:.85rem}
+.foot a{color:var(--accent)}
+@media(max-width:680px){.masthead h1{font-size:2rem}.post-head h1{font-size:1.7rem}.post p.lead{font-size:1.08rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "舊手機的第二人生", "description": "抽屜裡那支舊手機，常常停在一個尷尬的位置：還能開機，螢幕也許有裂痕，電池撐不到下午，但裡面可能仍有照片、聊天記錄、信用卡、健康資料與工作帳號。它不像舊衣服，可以直接送人；也不像紙箱，可以丟進回收桶。它是一個被電池、軟體鎖、個資、維修價格與回收制度綁在一起的小型社會問題。", "url": "https://polarbear0827.github.io/My-Way/p/2026-06-29-secondhand-smartphone-second-life/", "datePublished": "2026-06-29", "inLanguage": "zh-Hant-TW", "author": {"@type": "Person", "name": "穗稻忠武的專欄"}, "publisher": {"@type": "Organization", "name": "穗稻忠武的專欄"}, "image": "https://upload.wikimedia.org/wikipedia/commons/5/55/Smartphone_use_at_railway_station.jpg"}</script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="https://polarbear0827.github.io/My-Way/">穗稻忠武的專欄</a><nav class="nav"><a href="https://polarbear0827.github.io/My-Way/">專欄</a><a href="https://polarbear0827.github.io/My-Way/radar/">AI Radar</a><a href="https://polarbear0827.github.io/My-Way/papers/">HF 速讀</a><a href="https://polarbear0827.github.io/My-Way/podcast/">Podcast</a><a href="https://polarbear0827.github.io/Daily-briefing/">早報 ↗</a></nav></header>
+<article class="post">
+<div class="post-head">
+<div class="kicker"><span class="tag">專欄</span></div>
+<h1>舊手機的第二人生</h1>
+<p class="byline"><time>2026-06-29</time></p>
+</div>
+
+<p class="lead">抽屜裡那支舊手機，常常停在一個尷尬的位置：還能開機，螢幕也許有裂痕，電池撐不到下午，但裡面可能仍有照片、聊天記錄、信用卡、健康資料與工作帳號。它不像舊衣服，可以直接送人；也不像紙箱，可以丟進回收桶。它是一個被電池、軟體鎖、個資、維修價格與回收制度綁在一起的小型社會問題。</p>
+<p>2025 年以後，這個問題正在被重新定義。歐盟的智慧型手機耐用、維修與能源標籤新規開始適用；台灣環境部也公告，自民國 115 年起，行動電話製造與輸入業者每年須達到回收及循環服務比率目標。市場端，二手機與整新機不再只是預算有限者的選項，而逐漸變成供應鏈、通路與家庭換機決策的一部分。¹²³</p>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Smartphone_use_at_railway_station.jpg" alt="車站裡使用智慧型手機的人群｜來源：Wikimedia Commons（CC授權）" loading="lazy"><figcaption>手機已是日常基礎設施；因此，一支手機離開第一位主人後如何被處理，也成為日常生活的一部分。</figcaption></figure>
+<h2>二手機不再只是「將就」</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Handy_schrott_mobile_phone_scrap.jpg" alt="廢棄與淘汰的手機堆｜來源：Wikimedia Commons（CC授權）" loading="lazy"><figcaption>二手機市場的成長，背後不是浪漫的懷舊，而是高價新機、延長換機週期與可用硬體之間的重新配置。</figcaption></figure>
+<p>二手機市場最重要的變化，是它逐漸從「朋友之間轉手」變成可追蹤、可分級、可保固的產業。IDC 在 2024 年透過 BusinessWire 發布資料稱，2023 年全球二手智慧型手機出貨超過 1.95 億支，年增 6.4%，出貨價值達 729 億美元；IDC 同時預測，2028 年可達 2.57 億支。這個數字與 2024 年初另一份 IDC 預測不同，顯示市場統計口徑與供給估算仍在調整，但兩者共同指向一件事：二手機已不是邊角市場。⁴⁵ IDC 的說法也點出限制：二手機供給依賴換機週期與回收通路。當新機愈來愈貴、使用者把手機拿得更久，進入整新市場的高階舊機反而可能短缺。這讓二手機同時具有兩種面貌：它讓更多人用較低價格取得仍可用的裝置，也讓通路更積極地設計舊機折抵、回收、分級與保固流程。 對家庭而言，二手機的判斷不只是價格。Apple 的二手機購買指南要求買家檢查外觀、是否能開機、電池健康度、零件與維修紀錄，並提醒如果畫面顯示「iPhone Locked to Owner」，不要購買，因為 Activation Lock 代表裝置仍被原擁有者帳號鎖住。Google 與 Samsung 的官方說明也都把備份、解除帳號、恢復原廠設定列為交易或維修前的必要步驟。這些指南看似細節，其實是在說：二手機的價值，取決於硬體、軟體與信任能否一起交接。⁶⁷⁸</p>
+<h2>電池健康，是第二人生的門檻</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Samsung_smartphone_battery%2C_Hillegersberg%2C_Rotterdam_%282022%29_01.jpg" alt="拆下的 Samsung 智慧型手機電池｜來源：Wikimedia Commons（CC授權）" loading="lazy"><figcaption>多數使用者感受到手機老化，往往不是處理器不夠快，而是電池無法撐過一天。</figcaption></figure>
+<p>如果說螢幕裂痕決定外觀，電池健康就決定二手機是否真正可用。Apple 在電池維修頁面說明，若符合 AppleCare 條件且電池容量低於 80%，可更換電池；一般維修則依保固與消費者法律而定。Apple 也在官方文件提醒，二手機買家應確認電池健康與重要電池訊息。⁹⁶ 歐盟新規把這件事制度化。2025 年 6 月 20 日起，歐盟對智慧型手機、無線電話與平板電腦施行 ecodesign 與能源標籤規則，要求在歐盟市場銷售的手機具備較高抗摔、抗刮、防塵防水能力，並要求電池至少經 800 次充放電後仍保有 80% 初始容量；製造商也須在型號停止銷售後至少 7 年供應關鍵零件，且在 5 至 10 個工作天內供應。¹ 這些規則的意義，不是保證每一支手機都能被使用者自己拆開，而是把「能不能維修」「電池能不能撐久一點」「零件多久買得到」變成上市條件的一部分。The Verge 對歐盟電池規範的分析指出，坊間常把 2027 年可更換電池規定理解成所有手機都要回到可自行掀蓋換電池的年代，但智慧型手機另有 ecodesign 規則與耐久電池例外；符合耐久與防水條件的手機，電池更換可能仍由專業維修者進行。這是規則細節，也是一個提醒：維修權不必然等於每個人都要在餐桌上拆電池。¹⁰</p>
+<h2>維修權從口號走進法規</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Apple_Store_-_Fifth_Avenue_%287181848534%29.jpg" alt="Apple Store 玻璃店面｜來源：Wikimedia Commons（CC授權）" loading="lazy"><figcaption>品牌門市、授權維修、獨立維修與自助維修之間，正在形成新的權力分配。</figcaption></figure>
+<p>修理權運動早期常被理解為玩家與品牌的對抗：一方要螺絲、手冊與零件，一方以安全、品質、智慧財產權與隱私為理由限制維修。但近年變化在於，法規把這場爭論推進了日常消費。Reuters 2024 年報導，歐盟就「修理而非替換」新規達成協議，消費者在兩年法定保證期內可選擇修理或替換；若修理比替換便宜，企業須免費修理，且在保證期外也需於產品售後 5 至 10 年提供可負擔維修。² BBC 早在 2021 年整理修理權運動時，已指出製造商常以安全、資安與智慧財產權為反對理由；支持者則主張，消費者既然購買裝置，就應有權維修與延長壽命。這種分歧並沒有消失。Apple 的 Self Service Repair 頁面明確說明，此服務給具備電子裝置維修知識與經驗者使用，提供原廠零件、工具與維修手冊；Google Pixel 也提供 iFixit 原廠零件、維修手冊、診斷與軟體工具；Samsung 則提供 Self-Repair 與授權維修選項，同時提醒使用原廠零件與備份資料。¹¹¹²¹³¹⁴ 因此，今天的修理權不是「所有人都自己修」的單一路線，而是要求市場至少存在選擇：官方維修、授權維修、獨立維修、自助維修與整新回收，各自有成本、安全與便利性的取捨。</p>
+<h2>個資清除，是舊手機最難被丟掉的原因</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Mobile_Phone_Repairs_-_International_Food_Shop_-_geograph.org.uk_-_1624351.jpg" alt="手機維修店招牌與店面｜來源：Wikimedia Commons（CC授權）" loading="lazy"><figcaption>修手機與賣舊手機不只是硬體交易；它同時涉及帳號、照片、金融資料與信任。</figcaption></figure>
+<p>很多舊手機之所以留在抽屜，不是因為沒有回收點，而是因為使用者不確定資料是否真的刪乾淨。</p>
+<p>AP 2026 年的電子廢棄物指南提醒，回收或轉售前應先恢復原廠設定，不只是刪掉檔案；不同品牌步驟不同，應依製造商指引操作。AP 也指出，即使恢復原廠設定，有些回收商仍會以更嚴格方式銷毀硬碟並驗證。²⁰ Apple 的出售、贈送或折抵前指南，要求使用者備份、移轉資料、登出 Apple Account，並在「Transfer or Reset」中選擇「Erase All Content and Settings」；Apple 也說，抹掉 iPhone 或 iPad 後，Find My 與 Activation Lock 會關閉。</p>
+<p>Google Pixel 的原廠重設說明則提醒，原廠重設會刪除手機資料；Samsung 折抵 FAQ 也要求使用者備份、移除個資與軟體鎖、執行 factory reset，並註明 Samsung 不對使用者留在裝置上的個人資訊負責。⁷¹⁵⁸ 資料清除與軟體鎖之間存在張力。防盜鎖可以降低失竊手機再流通，但若原主人忘記解除，整新商可能拿到一支硬體可用、軟體不可用的手機。iFixit 2026 年報導指出，修理權與消費者倡議團體向美國 FCC 反映，Activation Lock、Factory Reset Protection 等機制可能讓可再利用手機被迫拆解或粉碎； 文中引用 Wireless Alliance 的案例稱，2015 至 2019 年間曾收到超過 66,000 支可再利用但被 Activation Lock 鎖住的 iPhone。這是倡議者觀點，仍需監管機構與品牌回應，但它清楚指出二手機市場的核心矛盾：安全機制若沒有可驗證的善意解鎖流程，也可能成為浪費來源。¹⁶</p>
+<h2>台灣新制：抽屜裡的手機進入制度</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Electronic_junk_separation_in_view_of_recycling_2.jpg" alt="電子廢棄物分類與處理｜來源：Wikimedia Commons（CC授權）" loading="lazy"><figcaption>台灣的重點不只在「回收」，而是把買回、維修、租賃與服務化納入循環服務。</figcaption></figure>
+<p>台灣環境部 2024 年 12 月 26 日公告「應執行廢行動電話回收、循環服務與標示分類回收標誌之業者範圍及其他應遵行事項」。公告把「循環服務」定義為行動電話租賃、產品採服務計費模式、舊機買回或維修服務；要求行動電話製造與輸入業者標示分類回收標誌、執行廢行動電話回收、提供循環服務，且自民國 115 年起回收及循環服務比率每年達 15% 以上。¹⁷</p>
+<p>這份公告有兩個值得注意之處。第一，它要求營業場所設置回收設施，並標示回收服務；第二，它明文要求業者採取適當銷毀或防範措施，避免廢行動電話儲存的個人資料外洩。這表示台灣制度承認舊手機不是一般資源垃圾，而是一個帶有個資風險的循環物件。¹⁷ 電信業也已把這件事放入 ESG 與通路管理。中華電信英文 ESG 頁面說明，2024 年手機回收目標 100,000 支，實際回收 98,645 支，其中舊手機再使用 85,058 支、廢手機回收 13,587 支；頁面也說，中華電信與神腦國際使用 Lean One-Touch 等自動化軟體刪除資料，並提到 ADISA、NIST 等標準。這是公司自述，不能替代第三方稽核，但它提供了一個具體場景：未來手機回收不是單純把箱子放在門市，而是要能記錄分類、資料抹除與後端處理。¹⁸</p>
+<h2>回收不是終點，再使用才是上游問題</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Electronic_waste_2.jpg" alt="電子廢棄物堆疊｜來源：Wikimedia Commons（CC授權）" loading="lazy"><figcaption>如果可用裝置太早進入拆解流程，回收再漂亮，也已失去延長使用壽命的機會。</figcaption></figure>
+<p>聯合國 UNITAR 與 ITU 的《Global E-waste Monitor 2024》提供了全球背景：2022 年全球產生 6,200 萬噸電子廢棄物，比 2010 年增加 82%，預估 2030 年達 8,200 萬噸；2022 年只有 22.3% 被正式收集與回收，未被妥善回收的可回收自然資源價值估計達 620 億美元。報告也指出，電子廢棄物增長速度是正式回收增長速度的五倍。³ Reuters 對同一議題的報導引用 UN 專家 Ruediger Kuehr 的觀點指出，政府需要更多且可執行的法規，並應考慮產品完整生命週期，而不只是生命終點；報導也提到品牌長期以智慧財產與安全為由抗拒修理權，而 Fairphone 雖成為可維修性的標竿，銷量仍只是全球智慧型手機的一小部分。¹⁹ 這裡有一個容易被忽略的順序：再使用優先於回收。回收能取回金、銀、銅、鈀、鈷等材料，但製造一支新手機的能源、材料與供應鏈成本已經發生。若一支手機經換電池、螢幕、資料清除與軟體解鎖後還能安全使用，讓它進入第二位使用者手中，通常比立刻拆解更接近循環經濟的上游。這是本文分析，非單一來源可直接證明的結論；它來自 UN 對修理再使用的呼籲、EU 法規方向與台灣新制把「維修」「舊機買回」納入循環服務的共同趨勢。¹³¹⁷¹⁹</p>
+<h2>買二手手機前，先問七個問題</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/A_local_mobile_phone_repairer_in_northern_Ghana.jpg" alt="在地手機維修者｜來源：Wikimedia Commons（CC授權）" loading="lazy"><figcaption>二手機是否值得買，不只看外觀新舊，也看維修紀錄、電池、帳號鎖與賣家是否願意承擔責任。</figcaption></figure>
+<p>對一般使用者，二手機的判斷可以整理成七個問題。第一，來源是否可信，是否有退貨期與保固；Apple 官方指南也建議了解賣家是否認證二手機與認證流程。</p>
+<p>第二，手機是否能開機、充電、連網，是否有螢幕、機身、連接埠損傷。第三，電池健康度是否足以支撐日常使用，或是否已把換電池成本反映在價格中。第四，是否有 Activation Lock、Google Factory Reset Protection、Samsung Reactivation Lock 等帳號鎖。第五，是否完成原廠重設，而不是只刪除照片。第六，零件與維修紀錄是否透明；Apple 的零件與維修歷史、Samsung 的折抵條件、Google 的維修手冊，都反映二手機市場正在要求可追溯性。第七，如果不買，舊手機能否進入官方、電信商或合格回收通路，而不是繼續躺在抽屜。</p>
+<p>⁶⁷⁸¹²¹⁴ 這些問題看似麻煩，但它們其實是二手機從灰色交易走向日常用品的基礎。 如果把這七個問題放回生活場景，二手機交易其實有三種常見路徑。第一種是家庭內部移轉：父母把自己用過的手機交給孩子，或把較新的手機留給長輩。這種移轉看似最安全，卻也最容易忽略帳號與資料分離；若舊手機仍登入原使用者 Apple Account、Google 帳號、LINE 或銀行 app，下一位使用者拿到的不是一支乾淨裝置，而是一個還連著原主人生活的入口。Apple 與 Google 都把備份、登出與恢復原廠設定放在交接流程中，原因正在於此。 ⁷¹⁵ 第二種是通路折抵與整新。這條路徑對使用者最方便，因為估價、寄送、驗機與折抵通常被包成一次購物流程；但它也要求消費者理解條件。Samsung 折抵 FAQ 列出裝置需能開機、能充電、螢幕可用、沒有超出正常磨損的損傷、未被列入黑名單、停用防盜鎖、恢復原廠設定並移除個資等要求。換言之，折抵價不是單純由型號決定，而是由可再利用程度、資料風險與後端處理成本共同決定。⁸ 第三種是獨立維修與二手平台。它可能提供更高賣價或較便宜維修，但也更依賴透明資訊。買家若無法查驗電池健康、維修紀錄、是否有零件警示，或賣家不願現場解除帳號鎖，交易風險就會上升。</p>
+<p>這也是為什麼 Apple 在二手機指南中建議檢查 Parts and Service History，並把 Activation Lock 視為不要購買的訊號；這不是品牌話術而已，也是二手機交易最基本的風險控管。⁶ 在維修端，電池安全尤其需要被嚴肅看待。Apple、Google、Samsung 都把自助維修限定或建議給有經驗者，並提供手冊、工具、診斷或校準流程；Samsung 英國自助維修頁更提醒，若電池膨脹，不應自行維修。這些警語反映出修理權運動的一個現實：開放零件與手冊可以降低壟斷，但鋰電池、膠合結構、防水膠、指紋感測器校準與 Face ID / Touch ID 等安全功能，讓手機維修不等同於換一顆 AA 電池。</p>
+<p>¹²¹³¹⁴ 從政策角度看，台灣的新公告與歐盟規則也有不同焦點。歐盟把耐用度、能源標籤、維修分數、零件供應與作業系統更新納入產品上市條件；台灣則先把回收、循環服務、通路標示與個資防範納入業者義務。前者像是在產品設計端改變手機，後者像是在消費者把手機帶回門市時改變流向。兩者並不衝突：如果手機本身更耐用、零件更容易取得，回收與整新通路才有更多可再使用的產品；如果回收與資料清除可信，使用者才比較願意把手機交出抽屜。¹¹⁷ 此處也需要避免過度樂觀。二手機市場成長，不代表所有人都能買到便宜又可靠的整新機；IDC 反而提醒，高階舊機供給會受到換機週期拉長影響。 修理權法規通過，也不代表維修一定便宜；零件價格、人工、保固與責任仍會影響選擇。回收率目標存在，也不代表每支手機都會進入最佳路徑；一支裝置可能因帳號鎖、電池膨脹、螢幕損壞、無法取得零件或估價過低，而從「可用」滑向「拆解」。這些灰色地帶，才是未來幾年最值得觀察的地方。²⁴⁸¹⁶ 對台灣家庭來說，最務實的改變也許不是立刻去買二手機，而是重新整理抽屜。把每支舊手機分成三類：仍能使用者，先備份、登出、解除鎖定，再考慮家庭移轉、二手出售或官方折抵；有小故障但型號仍有價值者，估算換電池或螢幕是否划算；已膨脹、無法充電或無法解除帳號者，交給有資料銷毀與回收流程的通路。</p>
+<p>這樣做不會解決全球電子廢棄物問題，但能讓一個家庭的小抽屜，接上較大的循環制度。¹⁷¹⁸²⁰</p>
+<p>另一個必須放進判斷的是「誰承擔失敗」。新機交易中，責任通常由品牌、通路、保固與消費者保護制度共同承擔；二手機交易則比較破碎。若在朋友間轉手，壞掉後很難要求對方負責；若在平台上購買，平台規則、賣家評價與退貨期才是保護；若透過官方整新或電信通路，價格可能較高，但檢測、保固、資料清除與電池狀態通常更可追溯。這也是為什麼二手機不能只用「便宜多少」判斷，而要把交易後的責任也算進成本。⁶⁸¹⁸ 從教育與家庭場景看，二手機還有一個常被忽略的用途：它可能是孩子第一支手機、長輩第一支智慧型手機，或臨時備用機。這些用途未必需要最新相機與最快晶片，卻需要穩定電池、清楚帳號設定、足夠安全更新與可預期維修。歐盟要求作業系統更新至少在最後一台該型號售出後 5 年可用，正是把「軟體壽命」納入硬體壽命的一部分；若手機還能開機卻不能安全更新，它的第二人生也會被縮短。¹ 這也讓「舊手機要不要留著備用」變成一個可被管理的問題。保留一支備用機有其合理性：旅行時遺失主機、送修期間暫用、長輩或孩子臨時需要，都可能派上用場。但家中囤積五六支已忘記密碼、電池膨脹或無法更新的手機，就不再是備用，而是未處理的風險。AP 報導中提到，許多消費者把舊筆電、手機、穿戴裝置塞在抽屜或衣櫃，原因包含不知道去哪裡回收、覺得麻煩、擔心個資。這個描述很平凡，卻精準說明制度若不夠便利，個人理性會變成集體囤積。²⁰ 對維修店與整新商而言，未來競爭也不只是誰能修得便宜，而是誰能把信任說清楚：零件來自哪裡、是否有保固、資料如何清除、不能修的裝置如何回收、電池是否新換、測試項目是否透明。Google 與 Apple 讓原廠零件、手冊、診斷工具或修復助手進入更多維修流程，代表品牌已承認維修生態不可能只靠原廠櫃台承擔；但它們同時也把「有經驗者」「原廠零件」「校準」與「安全」放在顯眼位置，顯示開放仍有邊界。¹²¹³</p>
+<p>最後，這個題目不能被簡化成「買新不環保、買舊才正確」。有些人需要新機的相機、無障礙功能、長期更新、保固或工作安全要求；有些舊機則因電池膨脹、進水、帳號鎖或無法更新而不適合再流通。比較中立的說法是：當一支手機仍安全可用，制度應降低它進入第二人生的摩擦；當它不安全或不值得維修，制度應讓它進入可追溯的回收，而不是一般垃圾或抽屜深處。</p>
+<h2>結語：一支手機離開手掌之後</h2>
+<p>二手機的故事不是反消費，也不是要求每個人都成為維修工程師。它更像是一個日常選擇被制度化的過程：品牌必須讓零件與資訊更可取得，政府必須建立回收與個資保護要求，通路必須提供可信的檢測與保固，使用者則要在賣出、送修、回收前完成備份、登出與清除。 過去，舊手機被稱為「舊機」或「廢手機」，兩個詞都暗示它的故事已結束。但從 EU、UN、台灣環境部與品牌官方文件看，手機離開第一位使用者後，仍有多條路：維修、換電池、整新、轉售、捐贈、回收、拆解。真正的問題不是我們能不能買新手機，而是當每個人都需要手機生活時，社會能不能讓上一支手機更安全、更透明、更晚一點成為垃圾。</p>
+<p>如果把這件事拉回今天早上的生活，它可能只是三個很小的動作：打開抽屜，確認哪支手機還能開機；登入帳號，備份與登出；走到門市或回收點，問清楚資料怎麼刪、零件怎麼處理、還能不能再賣給下一個人。這些動作不會像新機發表會那樣熱鬧，卻是科技真正進入日常後必須補上的下半場。手機改變了我們拍照、付款、工作、求助與聯絡家人的方式；當它老去，社會也需要一套同樣成熟的方式，處理它留下的電池、帳號、記憶與金屬。</p>
+<p>本文最保守的結論是：不要把舊手機直接等同於垃圾，也不要把二手機直接等同於美德。它是一個需要查驗、維修、清除、保固與回收的物件。當制度讓這些步驟變得清楚，二手機才可能從「不確定的便宜貨」變成可信任的日常工具；當制度沒有跟上，它就會繼續躺在抽屜裡，既不像財產，也不像廢棄物，只是一個尚未被處理的風險。</p>
+<p>對讀者而言，最可操作的判準也許很簡單：如果一支手機仍能安全更新、電池可被合理更換、帳號能完整解除、資料能被清除並留下紀錄，它就不應太早被視為廢棄物；如果其中任何一項做不到，通路就應清楚告知它會被拆解、回收或拒收。把這些判準說清楚，比用「環保」「永續」這類大字眼更能改變行為。因為每一次換機，真正困住人的不是理念，而是擔心麻煩、擔心資料、擔心花錢修了也不好用。讓這些擔心有答案，才是舊手機第二人生能否成真的關鍵。</p>
+<p>換句話說，舊手機不是一個單純的個人物品，而是一個測試社會信任的小型節點：品牌能否承認維修權，通路能否負責資料風險，政府能否把回收與循環服務做成可查核制度，使用者能否在換機時多做幾個步驟。這些步驟越清楚，手機越可能被修好、轉手或妥善回收；步驟越模糊，它就越可能被忘在抽屜裡。這正是日常科技新聞最該持續追蹤的地方。</p>
+<h2 class="refs-head">引用來源</h2>
+<p class="ref">¹ European Commission（2025-06-20）— “New EU rules for durable, energy-efficient and repairable smartphones and tablets start applying”
+<a href="https://single-market-economy.ec.europa.eu/news/new-eu-rules-durable-energy-efficient-and-repairable-smartphones-and-tablets-start-applying-2025-06-20_en" rel="noopener" target="_blank">https://single-market-economy.ec.europa.eu/news/new-eu-rules-durable-energy-efficient-and-repairable-smartphones-and-tablets-start-applying-2025-06-20_en</a></p>
+<p class="ref">² Reuters（2024-02-02）— “EU agrees new push to repair, not replace, defective consumer goods”
+<a href="https://www.reuters.com/sustainability/eu-agrees-new-push-repair-not-replace-defective-consumer-goods-2024-02-02/" rel="noopener" target="_blank">https://www.reuters.com/sustainability/eu-agrees-new-push-repair-not-replace-defective-consumer-goods-2024-02-02/</a></p>
+<p class="ref">³ UNITAR / ITU（2024-03-20）— “Global e-Waste Monitor 2024: Electronic Waste Rising Five Times Faster than Documented E-waste Recycling”
+<a href="https://unitar.org/about/news-stories/press/global-e-waste-monitor-2024-electronic-waste-rising-five-times-faster-documented-e-waste-recycling" rel="noopener" target="_blank">https://unitar.org/about/news-stories/press/global-e-waste-monitor-2024-electronic-waste-rising-five-times-faster-documented-e-waste-recycling</a></p>
+<p class="ref">⁴ BusinessWire / IDC（2024-09-25）— “New IDC Tracker Finds Used Smartphone Shipments Grew 6.4% in 2023”
+<a href="https://www.businesswire.com/news/home/20240925875510/en/New-IDC-Tracker-Finds-Used-Smartphone-Shipments-Grew-6.4-in-2023-as-Secondary-Market-Continues-to-Flourish-Across-Emerging-and-Developed-Markets" rel="noopener" target="_blank">https://www.businesswire.com/news/home/20240925875510/en/New-IDC-Tracker-Finds-Used-Smartphone-Shipments-Grew-6.4-in-2023-as-Secondary-Market-Continues-to-Flourish-Across-Emerging-and-Developed-Markets</a></p>
+<p class="ref">⁵ BusinessWire / IDC（2024-01-22）— “Worldwide Market for Used Smartphones Is Forecast to Surpass 430 Million Units with a Market Value of $109.7 Billion in 2027”
+<a href="https://www.businesswire.com/news/home/20240122277827/en/Worldwide-Market-for-Used-Smartphones-Is-Forecast-to-Surpass-430-Million-Units-with-a-Market-Value-of-%24109.7-Billion-in-2027-According-to-IDC" rel="noopener" target="_blank">https://www.businesswire.com/news/home/20240122277827/en/Worldwide-Market-for-Used-Smartphones-Is-Forecast-to-Surpass-430-Million-Units-with-a-Market-Value-of-%24109.7-Billion-in-2027-According-to-IDC</a></p>
+<p class="ref">⁶ Apple Support（n.d.）— “If you want to buy a preowned iPhone”
+<a href="https://support.apple.com/en-us/104999" rel="noopener" target="_blank">https://support.apple.com/en-us/104999</a></p>
+<p class="ref">⁷ Apple Support（2026-05-29）— “What to do before you sell, give away, or trade in your iPhone or iPad”
+<a href="https://support.apple.com/en-us/109511" rel="noopener" target="_blank">https://support.apple.com/en-us/109511</a></p>
+<p class="ref">⁸ Samsung US（n.d.）— “Samsung Device Trade-In Frequently Asked Questions”
+<a href="https://www.samsung.com/us/trade-in/device-trade-in-faq/" rel="noopener" target="_blank">https://www.samsung.com/us/trade-in/device-trade-in-faq/</a></p>
+<p class="ref">⁹ Apple Support（n.d.）— “Apple Service and Repair for iPhone Battery”
+<a href="https://support.apple.com/iphone/repair/battery-replacement" rel="noopener" target="_blank">https://support.apple.com/iphone/repair/battery-replacement</a></p>
+<p class="ref">¹⁰ The Verge（2026-05-31）— “User-replaceable batteries are coming back in a big way”
+<a href="https://www.theverge.com/column/939026/user-replaceable-batteries-eu-european-union-legislation" rel="noopener" target="_blank">https://www.theverge.com/column/939026/user-replaceable-batteries-eu-european-union-legislation</a></p>
+<p class="ref">¹¹ BBC News（2021-07-07）— “Right to repair movement gains power in US and Europe”
+<a href="https://www.bbc.com/news/technology-57744091" rel="noopener" target="_blank">https://www.bbc.com/news/technology-57744091</a></p>
+<p class="ref">¹² Apple Support（n.d.）— “Self Service Repair”
+<a href="https://support.apple.com/self-service-repair" rel="noopener" target="_blank">https://support.apple.com/self-service-repair</a></p>
+<p class="ref">¹³ Google Pixel Help（n.d.）— “Repair your own Pixel phone or Pixel Tablet”
+<a href="https://support.google.com/pixelphone/answer/14257407" rel="noopener" target="_blank">https://support.google.com/pixelphone/answer/14257407</a></p>
+<p class="ref">¹⁴ Samsung US Support（n.d.）— “Samsung Self-Repair”
+<a href="https://www.samsung.com/us/support/selfrepair/" rel="noopener" target="_blank">https://www.samsung.com/us/support/selfrepair/</a></p>
+<p class="ref">¹⁵ Google Pixel Help（n.d.）— “How to factory reset your Google Pixel phone”
+<a href="https://support.google.com/pixelphone/answer/4596836" rel="noopener" target="_blank">https://support.google.com/pixelphone/answer/4596836</a></p>
+<p class="ref">¹⁶ iFixit（2026-06-24）— “Activation Locks Are Trashing Millions of Usable Phones, Refurbishers Tell the FCC”
+<a href="https://www.ifixit.com/News/98249/activation-locks-are-trashing-millions-of-usable-phones-refurbishers-tell-the-fcc" rel="noopener" target="_blank">https://www.ifixit.com/News/98249/activation-locks-are-trashing-millions-of-usable-phones-refurbishers-tell-the-fcc</a></p>
+<p class="ref">¹⁷ 環境部（2024-12-26）— 「應執行廢行動電話回收、循環服務與標示分類回收標誌之業者範圍及其他應遵行事項」
+<a href="https://oaout.moenv.gov.tw/laW/LawContent.aspx?id=GL007926" rel="noopener" target="_blank">https://oaout.moenv.gov.tw/laW/LawContent.aspx?id=GL007926</a></p>
+<p class="ref">¹⁸ Chunghwa Telecom（n.d.）— “Resource Management”
+<a href="https://www.cht.com.tw/en/home/cht/esg/environmental-sustainability/resource/resource" rel="noopener" target="_blank">https://www.cht.com.tw/en/home/cht/esg/environmental-sustainability/resource/resource</a></p>
+<p class="ref">¹⁹ Reuters（2024-04-29）— “PolicyWatch: Billions of dollars of materials being squandered in e-waste mountain, says U.N.”
+<a href="https://www.reuters.com/sustainability/boards-policy-regulation/policywatch-billions-dollars-materials-being-squandered-e-waste-mountain-says-un-2024-04-29/" rel="noopener" target="_blank">https://www.reuters.com/sustainability/boards-policy-regulation/policywatch-billions-dollars-materials-being-squandered-e-waste-mountain-says-un-2024-04-29/</a></p>
+<p class="ref">²⁰ AP News（2026-03-24）— “Here’s how to recycle those old laptops, iPhones and earbuds lying around”
+<a href="https://apnews.com/article/climate-choices-electronics-waste-recycling-laptops-batteries-6a199810207062b56f75c77e6ec46851" rel="noopener" target="_blank">https://apnews.com/article/climate-choices-electronics-waste-recycling-laptops-batteries-6a199810207062b56f75c77e6ec46851</a></p>
+
+</article>
+<footer class="foot"><a href="https://polarbear0827.github.io/My-Way/">← 回首頁</a><span>© 穗稻忠武的專欄</span></footer>
+<script>
+(function(){
+  var stop=function(e){e.preventDefault();return false;};
+  document.addEventListener('contextmenu',stop);
+  document.addEventListener('selectstart',stop);
+  document.addEventListener('copy',stop);
+  document.addEventListener('cut',stop);
+  document.addEventListener('dragstart',stop);
+  document.addEventListener('keydown',function(e){
+    var k=(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['c','x','s','u','a','p'].indexOf(k)>-1){e.preventDefault();return false;}
+  });
+})();
+</script>
+</body>
+</html>
