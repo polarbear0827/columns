@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>洞窟裡的數位敦煌 · 穗稻忠武的專欄</title>
+<meta name="description" content="在戈壁邊緣，莫高窟的壁畫不是掛在白牆上的「作品」，而是貼著岩壁、泥層、鹽分、濕度與遊客呼吸一起存活的現場。當敦煌研究院把洞窟轉成高清全景、當 Getty Conservation Institute 把第 85 窟變成保存科學的長期案例，問題不再只是「能不能看見敦煌」，而是：我們如何在不消耗原作的情況…">
+<link rel="canonical" href="https://polarbear0827.github.io/My-Way/p/2026-06-29-dunhuang-mogao-digital-conservation/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="洞窟裡的數位敦煌">
+<meta property="og:description" content="在戈壁邊緣，莫高窟的壁畫不是掛在白牆上的「作品」，而是貼著岩壁、泥層、鹽分、濕度與遊客呼吸一起存活的現場。當敦煌研究院把洞窟轉成高清全景、當 Getty Conservation Institute 把第 85 窟變成保存科學的長期案例，問題不再只是「能不能看見敦煌」，而是：我們如何在不消耗原作的情況…">
+<meta property="og:url" content="https://polarbear0827.github.io/My-Way/p/2026-06-29-dunhuang-mogao-digital-conservation/">
+<meta property="og:image" content="https://media.getty.edu/iiif/image/885ef1bc-3455-4a3a-b461-dc63eb024686/0,414,4961,2791/1200,/0/default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>:root{
+  --bg:#faf8f3; --surface:#fffdf8; --ink:#1c1b18; --soft:#6f6a60; --faint:#9a9388;
+  --line:#e9e3d7; --accent:#9c3024; --accent-soft:#f3e7e3;
+  --serif:"Noto Serif CJK TC","Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",Georgia,serif;
+  --sans:system-ui,-apple-system,"PingFang TC","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.85;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+a{color:inherit;text-decoration:none}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding:.9rem 1.5rem}
+.topbar .brand{font-family:var(--serif);font-weight:700;letter-spacing:.12em;font-size:1.02rem}
+.nav{display:flex;gap:1.3rem;font-size:.92rem}
+.nav a{color:var(--soft);padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+.masthead{text-align:center;padding:3.4rem 1.5rem 2.4rem;border-bottom:1px solid var(--line)}
+.masthead h1{font-family:var(--serif);font-weight:900;font-size:2.5rem;letter-spacing:.06em;margin:0}
+.masthead .tagline{color:var(--soft);max-width:560px;margin:1rem auto 0;font-size:1rem}
+.masthead .rss{display:inline-block;margin-top:1.2rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
+.masthead .rss:hover{background:var(--accent);color:#fff}
+
+/* 首頁動態封面(純 CSS 動畫) */
+.cover{border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% 0%,#fffdf8 0%,var(--bg) 58%,#f1e9db 100%)}
+.cover-inner{position:relative;max-width:900px;margin:0 auto;
+  padding:4.4rem 1.5rem 3.8rem;text-align:center}
+.cover .cc{position:absolute;width:22px;height:22px;border:3px solid var(--accent);
+  opacity:0;animation:cc-in .5s ease-out forwards}
+.cover .cc-tl{top:1.4rem;left:1.4rem;border-right:none;border-bottom:none;animation-delay:.1s}
+.cover .cc-tr{top:1.4rem;right:1.4rem;border-left:none;border-bottom:none;animation-delay:.18s}
+.cover .cc-bl{bottom:1.4rem;left:1.4rem;border-right:none;border-top:none;animation-delay:.26s}
+.cover .cc-br{bottom:1.4rem;right:1.4rem;border-left:none;border-top:none;animation-delay:.34s}
+.cover-kicker{font-family:var(--sans);letter-spacing:.55em;text-indent:.55em;color:var(--accent);
+  font-size:.82rem;font-weight:600;opacity:0;animation:fade-up .6s ease-out .3s forwards}
+.cover-bar{width:0;height:5px;background:var(--accent);margin:1rem auto 1.4rem;
+  animation:bar-in .6s ease-out .5s forwards}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:3rem;letter-spacing:.05em;
+  margin:0;color:var(--ink);opacity:0;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .7s forwards}
+.cover-sub{font-family:var(--sans);color:var(--soft);max-width:600px;margin:1.1rem auto 0;
+  font-size:1rem;opacity:0;animation:fade-up .75s ease-out 1.15s forwards}
+.cover .rss{display:inline-block;margin-top:1.6rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem;
+  opacity:0;animation:fade-up .7s ease-out 1.5s forwards}
+.cover .rss:hover{background:var(--accent);color:#fff}
+@keyframes cc-in{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes bar-in{from{width:0}to{width:150px}}
+@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cover *{animation:none!important;opacity:1!important;width:auto}
+  .cover-bar{width:150px}}
+@media(max-width:680px){.cover-title{font-size:2.1rem}}
+
+.feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
+.lead-slot{margin-bottom:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(40,30,20,.10)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .thumb.noimg{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#f6efe6,#efe6da)}
+.card .thumb.noimg span{font-family:var(--serif);color:var(--faint);font-size:1.4rem;letter-spacing:.3em}
+.card-body{padding:1.1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card-body h2{font-family:var(--serif);font-weight:700;font-size:1.2rem;line-height:1.45;margin:.1rem 0}
+.card .excerpt{color:var(--soft);font-size:.9rem;line-height:1.7;flex:1}
+.kicker{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{font-size:.72rem;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);
+  border-radius:999px;padding:.12rem .6rem}
+.byline{color:var(--faint);font-size:.8rem;margin:.2rem 0 0;letter-spacing:.05em}
+.card.featured{flex-direction:row;align-items:stretch}
+.card.featured .thumb{flex:1.15;aspect-ratio:auto;min-height:300px}
+.card.featured .card-body{flex:1;justify-content:center;padding:2rem 2.2rem}
+.card.featured h2{font-size:1.85rem;line-height:1.4}
+.card.featured .excerpt{font-size:1rem;flex:none;margin-top:.4rem}
+@media(max-width:680px){.card.featured{flex-direction:column}.card.featured .thumb{min-height:200px}}
+
+.post{max-width:700px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
+.post-head{text-align:center;margin-bottom:2.4rem}
+.post-head .kicker{justify-content:center;margin-bottom:1rem}
+.post-head h1{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.45;margin:.3rem 0}
+.post-head .byline{margin-top:.9rem}
+.post p{margin:1.25rem 0;font-size:1.07rem;letter-spacing:.01em}
+.post p.lead{font-size:1.18rem;line-height:1.9;color:#2c2a26}
+.post p.lead::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:3.4rem;
+  line-height:.82;margin:.34rem .55rem 0 0;color:var(--accent)}
+.post h2{font-family:var(--serif);font-weight:700;font-size:1.45rem;margin:2.6rem 0 .8rem;
+  padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
+.post h2.refs-head{font-size:1.12rem;color:var(--soft);border-bottom:1px solid var(--line)}
+.post h3{font-family:var(--serif);font-size:1.18rem;margin:1.8rem 0 .5rem}
+.post .hero{margin:0 0 1.8rem}
+.post .hero img{width:100%;max-height:440px;object-fit:cover;border-radius:12px;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figure{margin:2.2rem 0}
+.post figure img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figcaption{color:var(--soft);font-size:.85rem;text-align:center;margin-top:.7rem;font-style:italic;line-height:1.6}
+.post .ref{font-size:.84rem;line-height:1.7;color:#56524a;margin:.4rem 0;padding-left:.9rem;
+  border-left:2px solid var(--line);word-break:break-all}
+.post .ref a{color:var(--accent)}
+.post hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+.onesent{font-family:var(--serif);font-size:1.15rem;color:var(--accent);border-left:3px solid var(--accent);
+  margin:1.5rem 0;padding:.4rem 0 .4rem 1rem;line-height:1.8}
+.rem3{padding-left:1.2rem}.rem3 li{margin:.6rem 0;line-height:1.8}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.paper h3{margin:.1rem 0 .3rem;font-size:1.18rem}
+.paper .role{color:var(--accent);font-size:.85rem;margin:.1rem 0 .7rem;letter-spacing:.05em}
+.paper p{margin:.4rem 0;font-size:.98rem;line-height:1.75}
+.also{margin:3rem 0 1rem;padding:1.1rem 1.3rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;color:var(--soft);font-size:.95rem}
+.also a{color:var(--accent);font-weight:500}
+.foot{max-width:900px;margin:3rem auto 0;padding:1.6rem 1.5rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:var(--faint);font-size:.85rem}
+.foot a{color:var(--accent)}
+@media(max-width:680px){.masthead h1{font-size:2rem}.post-head h1{font-size:1.7rem}.post p.lead{font-size:1.08rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "洞窟裡的數位敦煌", "description": "在戈壁邊緣，莫高窟的壁畫不是掛在白牆上的「作品」，而是貼著岩壁、泥層、鹽分、濕度與遊客呼吸一起存活的現場。當敦煌研究院把洞窟轉成高清全景、當 Getty Conservation Institute 把第 85 窟變成保存科學的長期案例，問題不再只是「能不能看見敦煌」，而是：我們如何在不消耗原作的情況…", "url": "https://polarbear0827.github.io/My-Way/p/2026-06-29-dunhuang-mogao-digital-conservation/", "datePublished": "2026-06-29", "inLanguage": "zh-Hant-TW", "author": {"@type": "Person", "name": "穗稻忠武的專欄"}, "publisher": {"@type": "Organization", "name": "穗稻忠武的專欄"}, "image": "https://media.getty.edu/iiif/image/885ef1bc-3455-4a3a-b461-dc63eb024686/0,414,4961,2791/1200,/0/default.jpg"}</script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="https://polarbear0827.github.io/My-Way/">穗稻忠武的專欄</a><nav class="nav"><a href="https://polarbear0827.github.io/My-Way/">專欄</a><a href="https://polarbear0827.github.io/My-Way/radar/">AI Radar</a><a href="https://polarbear0827.github.io/My-Way/papers/">HF 速讀</a><a href="https://polarbear0827.github.io/My-Way/podcast/">Podcast</a><a href="https://polarbear0827.github.io/Daily-briefing/">早報 ↗</a></nav></header>
+<article class="post">
+<div class="post-head">
+<div class="kicker"><span class="tag">台灣文化</span><span class="tag">藝術</span><span class="tag">台灣</span><span class="tag">科技與生活</span><span class="tag">專欄</span></div>
+<h1>洞窟裡的數位敦煌</h1>
+<p class="byline"><time>2026-06-29</time></p>
+</div>
+
+<p class="lead">導言：在戈壁邊緣，莫高窟的壁畫不是掛在白牆上的「作品」，而是貼著岩壁、泥層、鹽分、濕度與遊客呼吸一起存活的現場。當敦煌研究院把洞窟轉成高清全景、當 Getty Conservation Institute 把第 85 窟變成保存科學的長期案例，問題不再只是「能不能看見敦煌」，而是：我們如何在不消耗原作的情況下觀看它？¹²</p>
+<figure><img src="https://media.getty.edu/iiif/image/885ef1bc-3455-4a3a-b461-dc63eb024686/0,414,4961,2791/1200,/0/default.jpg" alt="莫高窟第 85 窟保存後主室｜來源：Getty Conservation Institute / Dunhuang Academy" loading="lazy"><figcaption>莫高窟的立面提醒讀者：這不是單件館藏，而是一段鑿進崖壁、跨越多朝代的宗教與藝術空間。</figcaption></figure>
+<h2>先把「敦煌」從旅遊名詞還原成一個脆弱現場</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/00_480_DUN-GRI_ExhibitionPage.jpg" alt="敦煌展覽視覺｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>壁畫、彩塑、窟室與岩壁彼此嵌合；保存一幅畫，往往也等於保存整個洞窟微環境。</figcaption></figure>
+<p>UNESCO 的世界遺產說明把莫高窟定位在絲路交會處：492 個洞窟與龕室、約 45,000 平方公尺壁畫、逾 2,000 尊彩塑，呈現從 4 世紀到 14 世紀約千年的佛教藝術。這些數字很容易讓人把它想成「很大的博物館」，但這其實是一個錯置的比喻。博物館可以調光、控溫、換展櫃；莫高窟的壁畫卻是畫在泥質地仗層上，再附著於礫岩與砂岩交錯的崖壁。¹² Getty 對第 85 窟的保存計畫說明更具體地描述了這種脆弱：壁畫先以紅、黑墨線起稿，再以礦物顏料與有機色料填彩；千年後，顏料層剝落、地仗層與岩壁分離，甚至整片彩繪泥層可能崩落。也就是說，敦煌不是「老了但還在」的圖像，而是一套仍在變化的物質系統。²³</p>
+<p>從藝術史角度看，莫高窟的重要性不只在於數量。UNESCO 指出，莫高窟壁畫把漢地傳統、印度與犍陀羅佛教藝術、吐蕃、回鶻、于闐、粟特等多重文化視覺語彙混合在一起。第 302 窟的駱駝車隊、第 61 窟五台山圖、第 23 與 156 窟的農作與武士場景，都讓壁畫成為研究中古政治、經濟、服飾、民族關係與宗教交流的資料。這也是本文選題的核心：莫高窟不是被時間封存的「古代美」，而是需要在觀看、修復、數位化與歸屬爭議之間被重新理解的藝術現場。¹</p>
+<h2>壁畫的觀看：從佛傳故事到絲路交通圖</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/10_480_Cave285_cr2.jpg" alt="第 285 窟複製洞窟｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>九色鹿本生把敘事分格、道德寓意與洞窟牆面連成一個觀看路徑，並非單幅孤立圖像。</figcaption></figure>
+<p>Digital Dunhuang 的公開資料把第 257 窟九色鹿本生描述為八段故事：溺水者被九色鹿救起、背叛者向國王告密、國王率人追捕，最後鹿向國王申訴。這類本生故事不是近代意義上的插圖，而是寺院空間裡的敘事裝置；觀者在洞內移動，故事也沿牆展開。第 254 窟的降魔變與屍毗王本生、第 323 窟的張騫出使圖，則把佛教倫理、王權想像與中亞交通記憶放進同一個視覺系統。⁴⁵ Smarthistory 與 Getty 的敦煌出版資料都提醒讀者，莫高窟的壁畫不能只用單一民族藝術史框架來看。它的圖像往往同時包含佛經敘事、供養人、商旅、樂舞、異域服飾與地方政治。換句話說，一面牆既是宗教圖像，也是社會檔案。這也是為什麼壁畫受損不只是「少了一張漂亮畫面」；它意味著一段被寫在牆上的文化接觸史變得更難被閱讀。⁶⁷</p>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/11_480_mogao_9story_temple.jpg" alt="莫高窟九層樓外觀｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>張騫圖像常被用來說明莫高窟如何把歷史敘事與佛教空間連接起來：絲路不是背景，而是圖像本身的題材。</figcaption></figure>
+<p>這種觀看也有今日的限制。洞窟內通常光線低、停留時間有限，許多壁畫不對一般遊客開放或只能輪替開放；2026 年莫高窟旅遊公告仍維持實名分時預約、常規參觀每日 6,000 張、應急參觀每日 12,000 張，並明列禁止攝影、觸摸、刻劃、倚靠屏風與直播等規範。這些限制不是服務業的麻煩，而是藝術形式本身的保護條件：壁畫要被看見，必須先不要被看壞。⁸</p>
+<h2>第 85 窟：保存科學如何從「修一面牆」變成「理解一個病因」</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/12_480_mudras_cr.jpg" alt="敦煌手印細節｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>同一面牆可能包含不同時期的重繪、修補與損傷；保存者面對的是疊層歷史，不只是表面圖像。</figcaption></figure>
+<p>Getty Conservation Institute 與敦煌研究院自 1989 年開始合作，1997 年後把重點放在壁畫保存、培訓與遊客管理。第 85 窟之所以被選為案例，是因為它具有代表性病害：彩繪泥層大範圍與岩壁分離，且濕度與可溶鹽反覆作用會造成剝落。Getty 的出版資料指出，這座晚唐洞窟完成於 867 年，主室有約 350 平方公尺壁畫與三尊彩塑，也經歷五代、元、清等時期增補或重繪。²³</p>
+<p>這個案例的關鍵不在「修復成功」四個字，而在方法轉向。Getty 說明，計畫在介入前先做病害調查、環境監測、鹽分分析與材料測試，再決定穩定措施；目標是理解病因，而非只把剝落處貼回去。第 85 窟的研究顯示，相對濕度與吸濕性鹽分是核心問題之一；當濕度越過特定臨界，鹽分溶解、遷移、再結晶，會推動地仗層破壞。這也是為什麼保存策略包含雨天或高濕時關閉洞門、長期監測與狀況追蹤。²⁹</p>
+<p>人民網 2024 年報導稱，敦煌研究院保存團隊花七年發展控制鹽分結晶的技術，並應用於第 85 窟；同篇報導也說，院方建立洞窟監測中心，追蹤溫度、濕度與二氧化碳，超標洞窟可暫時關閉。這是官方媒體資料，需標注其宣傳色彩；但它與 Getty、npj Heritage Science 對微環境風險的研究方向一致：敦煌保存不是一次性修補，而是把洞窟當成需要每日讀數、預警與維護的生命體。¹⁰¹¹</p>
+<h2>遊客的呼吸與雨季的濕氣：開放本身就是保存問題</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/13_480_musicians2.jpg" alt="敦煌壁畫樂舞圖像｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>複製、復原與展示中心的存在，正是為了讓觀眾理解原窟，卻不必把所有觀看壓力都放進原窟。</figcaption></figure>
+<p>莫高窟最大的矛盾之一，是它既是公共文化資產，也是脆弱洞窟。Getty 2014 年《Visitor Management and Carrying Capacity》說明，中國世界遺產面臨大量觀光壓力，莫高窟也是 Getty 與敦煌研究院進行承載量研究的案例；研究目的不是單純「少賣票」，而是找出在不傷害壁畫與不犧牲基本參觀品質下，洞窟能承受多少人。¹²</p>
+<p>近年的科學研究讓這個問題更具體。2025 年 npj Heritage Science 論文指出，莫高窟遊客數從 2013 年 78 萬增加到 2023 年 256 萬，十年增幅約 228%；83% 洞窟面積小於 25 平方公尺，單一入口造成通風有限，遊客進入會改變洞內微氣候。該文也整理前人研究：在部分研究洞窟中，遊客帶來的水氣只佔約 5%，更大的問題常是開門時外部潮濕空氣侵入，尤其雨季期間。¹¹</p>
+<p>PreventionWeb 轉載 China Dialogue 的報導則把氣候風險放進同一個框架：敦煌近年溫度上升、降雨型態改變，極端降雨會讓洞內濕度升高，鹽分病害加劇；2011 年強降雨曾造成九層樓木構建築簷部滲漏，修復歷時七個多月。這些資料提醒我們：遊客不是唯一風險，氣候變化、河道洪水、沙塵與岩體穩定也會共同決定壁畫壽命。¹³ 因此，今日的「看敦煌」已經被重新設計。遊客先到數字展示中心看影片，再進入少數開放洞窟；旺季與應急模式的洞窟數量不同，特窟另有限量。這套制度可能讓某些旅客覺得不自由，但從保存角度看，它把觀看拆成數位影像、複製洞窟與短時間原窟參觀三層：讓大眾仍有入口，也讓原作少承受一點呼吸與濕度。⁸¹²</p>
+<h2>數位敦煌：保存、共享，還是另一種替代物？</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/14_480_panorama.jpg" alt="敦煌沉浸式全景展示｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>高清影像能讓細節離開洞窟進入螢幕，但螢幕上的顏色、比例與觀看速度也會改變原本的洞窟經驗。</figcaption></figure>
+<p>Digital Dunhuang 的網站把自身定位為以文物保護理念為基礎，進行石窟與相關文物的採集、處理、存儲與網路共享。其公開頁列出 254、285、420、061、322 等經典洞窟，以及 23、57、112、217、249、257、320 等經典壁畫。這讓原本遠在戈壁、且多數人難以長時間細看的壁畫，變成可在螢幕上縮放、對照、學習的資料。⁴</p>
+<p>學術研究也把數位化視為保存策略。Library Trends 2023 年論文指出，敦煌數位保護面臨環境變化、長期保存數位資源等挑戰；文章回顧敦煌研究院與 Getty、Mellon Foundation、Northwestern University 等合作，將攝影測量、影像處理與資料庫建置納入文化遺產保存。Nature Scientific Data 2024 年的 MuralDH 資料集則以 5,000 多張高解析影像、1,000 張像素級破損標註與 500 張超解析資料，提供電腦視覺研究測試壁畫修復演算法。¹⁴¹⁵ 但數位化也需要被謹慎看待。第一，它不是原作：洞窟的尺度、低光、位置、牆面曲度與空間路徑，無法完全被平面影像取代。第二，它不是中立動作：誰拍攝、誰授權、誰保存高解析檔、誰能使用資料，會影響研究與再利用權力。第三，AI 修復或影像補全可以幫助模擬，但若沒有清楚標注，就可能讓觀眾混淆「現存痕跡」與「推測影像」。所以本文把數位敦煌視為一種必要的公共入口，也視為需要透明治理的保存工具。</p>
+<h2>藏經洞的流散：保存故事裡不能跳過的歸屬問題</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/1_480_sakyamuni_cr.jpg" alt="釋迦牟尼圖像｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>莫高窟不只有壁畫和彩塑，也包含藏經洞文書、絹畫與版畫；它們的流散構成今日敦煌研究的另一條主線。</figcaption></figure>
+<p>1900 年藏經洞被發現後，敦煌不再只是洞窟藝術史問題，也成為文物流散史問題。British Museum 的說明承認，Aurel Stein 1907 年到莫高窟時，以四錠銀換得五十捆漢文與五捆藏文文書，以及繪畫、紡織品、版畫與其他文物；這批來自藏經洞的物件今日分藏 British Museum、British Library、V&amp;A 與新德里國家博物館等機構。British Museum 同頁也明確說，Stein 的採集活動至今仍具爭議。¹⁶ International Dunhuang Programme 的 Mélodie Doumy 文章提供了較細的脈絡：王圓籙並非單純被動人物，他在 1900 年後曾把若干文書交給地方官員，也有自己的選擇與保管方式；但 1907 年與 Stein 的交易確實標誌藏經洞材料大規模流散。華盛頓大學敦煌展頁則整理時間線：1907 年 Stein、1908 年 Pelliot、1909 年清廷學部押運殘存文書入京，過程中又發生轉移與侵吞；1911 年日本大谷探險隊、1914 年俄國 Oldenburg 也取得文書。¹⁷¹⁸</p>
+<p>這裡有兩個不該被簡化的事實。其一，流散確實讓敦煌材料進入倫敦、巴黎、聖彼得堡、京都等研究網路，推動國際敦煌學與數位合作。其二，這種流散也發生在清末地方治理薄弱與帝國探險競逐的條件下，今日談保存與共享時，不能把「能被研究」當作唯一正當性。Silk Roads Archaeology and Heritage 2024 年論文指出，藏經洞原始堆放秩序沒有被完整記錄，現有研究需借助 Stein 標記與檔案重建部分文書束，這也反過來說明：取得與記錄的方式本身，會決定後世能如何理解一座中世紀圖書館。¹⁹</p>
+<h2>國際合作的雙面性：共享資料，也重寫敘事主導權</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/2_480_buddha_preaching_cr.jpg" alt="佛陀說法圖像｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>本生故事常把犧牲、救度與倫理放在畫面中央；今日敦煌合作也需要回答倫理問題：誰保存、誰解釋、誰受益。</figcaption></figure>
+<p>International Dunhuang Programme（IDP）成立於 1994 年，目標是讓分散在多國圖書館、博物館與研究機構的絲路材料能被編目、數位化與研究。IDP 官方網站列出 British Library、National Library of China、Institute for Oriental Manuscripts、Ryukoku University、Berlin-Brandenburg Academy、Dunhuang Academy、Bibliothèque nationale de France 等創始夥伴；其館藏搜尋頁顯示多個機構的大量影像與 metadata 被整合到同一入口。²⁰</p>
+<p>從保存實務看，這類合作有明確價值。IDP London 說明，數位替身應優先被使用，以便保護實體材料；British Library 的 Lotus Sutra Manuscripts Digitisation Project 也在 2017 至 2022 年間保存與數位化近 800 件 Stein Collection 中的《法華經》漢文寫本，新增近 17,000 張影像。²¹²²</p>
+<p>但合作不是沒有政治性。人民網 2024 年報導稱，敦煌研究院正推動流失海外文物數位化，並與英、法、匈牙利等機構合作；這種說法把數位化放進「講好敦煌故事」與文化主體性的框架。官方立場值得標注，但也指出一個現實：當實物難以返還或歸屬無共識，數位化常被放到中間位置，既像共享，也像延後解決歸屬爭議的折衷方案。¹⁰</p>
+<h2>科技能修復影像，不能替我們決定真實</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/3_480_guiding_bodhisattva_cr.jpg" alt="引路菩薩圖像｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>同一張壁畫在不同媒介上會呈現不同清晰度；越清晰的影像，越需要說明它是拍攝、修復、臨摹或演算法補全。</figcaption></figure>
+<p>MuralDH 這類資料集讓敦煌進入電腦視覺研究：破損分割、影像補全、超解析、擴散模型與生成式方法，都可能用於輔助研究者辨識缺損、模擬原貌或規劃人工修復。它的優點很清楚：非接觸、可重複測試、可讓更多研究者在不進洞窟的情況下分析影像。¹⁵</p>
+<p>風險也同樣清楚。數位修復的輸出可能很有說服力，卻不等於歷史事實。若模型根據其他壁畫樣本補出一片雲、一段衣紋或一尊菩薩臉部，那是「推測的可視化」，不是被找回的原作。保存倫理要求我們把這條線畫清楚：原始影像、病害標註、人工修復記錄、演算法補全結果應各自標注，不應混成一張沒有來源層次的漂亮圖。</p>
+<p><strong>（以下為本文分析，非事實陳述）</strong> 敦煌給今日藝術科技最重要的提醒，可能不是「AI 可以修復古畫」，而是「修復」這個詞本身需要被拆開。物理修復要面對材料可逆性與最小介入；數位修復要面對資料來源、標注透明與觀眾辨識；公共展示要面對原作保護與觀看權利。三者都叫修復，但倫理負擔並不相同。</p>
+<h2>我們今天為什麼還要看洞窟，而不是只看螢幕？</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/4_480_vajrapani.jpg" alt="金剛力士圖像｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>數位化能讓更多人抵達敦煌，但崖面、沙漠、距離與身體移動仍是莫高窟藝術經驗的一部分。</figcaption></figure>
+<p>如果數位影像可以讓 30 個洞窟被全球瀏覽，為什麼還需要在旅程中搭車、排隊、限時進洞？答案不只是「現場比較震撼」。更準確地說，洞窟讓人理解壁畫不是純圖像，而是由地理、宗教、供養、建造、光線與身體尺度共同構成。當我們站在洞內，低光限制了細節，短暫停留限制了佔有欲；這些限制本身，就是保護制度的一部分。 Digital Dunhuang 與藏經洞網站讓遠方讀者能先建立知識，複製洞窟與展覽讓觀眾在不傷害原窟的情況下接近尺度，原窟參觀則保留了不可替代的空間經驗。三者不是互相取代，而是分擔觀看壓力。從這個角度看，敦煌的未來不會是「全部開放」或「全部封存」二選一，而是一套動態調節：何時開、開哪些窟、讓誰看、看多久、看完後如何理解，都是保存的一部分。</p>
+<h2>結語：敦煌不是被救回來的古代，而是正在被協商的現在</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/5_480_horse-and-camel.jpg" alt="馬與駱駝圖像｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>洞窟的入口像一個問題：我們進去觀看時，也把自己的制度、科技與倫理帶了進去。</figcaption></figure>
+<p>莫高窟常被描述為「千年藝術寶庫」，這句話沒有錯，卻容易讓它變得太安靜。實際上，敦煌今天仍在被修復、監測、拍攝、限制、轉譯、展出、爭論與重新分配。Getty 與敦煌研究院的第 85 窟計畫，把保存從工匠修補推向科學診斷；Digital Dunhuang 把洞窟從戈壁推向全球螢幕；IDP 把流散文書放進跨國資料庫；而藏經洞的採集史，仍提醒我們：知識共享不能替代對取得條件與歸屬倫理的追問。 讀者今天看見的敦煌，可能是一張 Commons 圖、一個 720 度全景、一篇學術論文、一座限制攝影的洞窟，或一件遠在倫敦的絹畫。每一種觀看都不完整，也都真實地構成了今日敦煌。真正重要的不是選一個版本當作全部，而是在每一次觀看時問清楚：這張圖從哪裡來？它保護了什麼？遮蔽了什麼？又把誰排除在解釋權之外？</p>
+<h2>補充觀察：複製洞窟、展覽與公共教育的界線</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/6_480_traveling_monk_cr.jpg" alt="行旅僧圖像｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>複製洞窟與高清影像不是原作替身，而是讓大眾學會如何觀看原作的教育介面。</figcaption></figure>
+<p>Getty 2016 年「Cave Temples of Dunhuang」展覽把敦煌搬到洛杉磯，形式包括圖錄、館藏物件、影片、三座一比一手繪複製洞窟與虛擬沉浸體驗；展覽頁明列第 275、285、320 窟複製品與第 45 窟 3D 體驗。這類展覽容易被批評為「把洞窟搬進白盒子」，但它也回答了保存的現實困境：如果原窟不應承受無限觀眾，複製與數位展示就成了公共教育的一部分，而不是單純的仿品。²³²³</p>
+<p>關鍵在於標示。複製洞窟必須明確讓觀眾知道它是複製、由誰製作、依據哪些影像與測量資料；數位全景也應標出拍攝年代、色彩校正與是否經過後製。當標示清楚，複製品可以訓練觀看：讓觀眾先理解洞窟結構、故事位置與保存脈絡，再把有限的原窟時間用在觀察，而不是在黑暗中匆忙尋找「名作」。當標示模糊，複製品就可能把保存問題包裝成消費體驗，讓觀眾以為自己已經完整擁有敦煌。</p>
+<h2>補充觀察：把敦煌放回台灣讀者的日常尺度</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/7_480_diamond_sutra.jpg" alt="金剛經圖像｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>本生故事中的倫理選擇，讓敦煌不只屬於佛教美術史，也可被當作今日公共文化治理的寓言。</figcaption></figure>
+<p>對台灣讀者而言，敦煌或許遙遠，但它提出的問題並不陌生：古蹟如何在觀光、宗教、地方經濟與保存之間分配權重？文化資產的數位化應該開放到什麼程度？當文物散在多國機構時，數位資料庫能否補足原物不在場的缺口？這些問題同樣出現在台灣廟宇剪黏、交趾陶、老照片、原住民族文物與地方檔案的保存現場。敦煌的規模很大，但它的治理問題其實很日常。 因此，本文不把敦煌寫成遙遠的奇觀，而把它看成一面鏡子。它提醒我們：文化資產不是被列名、拍照、上網後就安全；每一次開放、每一次複製、每一次修復與每一次引用，都在重寫它的生命。若保存只剩技術，容易忘記人與制度；若保存只剩民族情緒，又容易忽略跨國合作與學術共享的必要。敦煌真正困難的地方，正是在這兩者之間尋找可被檢驗的平衡。</p>
+<h2>補充觀察：時間線裡的幾個轉折</h2>
+<figure><img src="https://www.getty.edu/research/exhibitions_events/exhibitions/cave_temples_dunhuang/images/9_480_cave85_interior.jpg" alt="第 85 窟內部｜來源：Getty Research Institute / Dunhuang Academy" loading="lazy"><figcaption>絲路圖像讓莫高窟的時間感不只停在宗教史，也連到交通、帝國與知識流動。</figcaption></figure>
+<p>若把莫高窟放成一條時間線，幾個年份特別重要。366 年常被視為開鑿起點；4 到 14 世紀間，洞窟持續營建、重修與重繪，讓不同朝代的審美與政治痕跡重疊在同一崖面。1900 年藏經洞被發現，使莫高窟突然成為國際學術與探險競逐的焦點；1907 年 Stein、1908 年 Pelliot 的到來，讓文書、絹畫與版畫開始大規模流向海外。1944 年敦煌藝術研究所成立，是制度化保存的重要起點；1987 年列入 UNESCO 世界遺產，則把它放進全球文化資產治理語言。¹¹⁶¹⁸</p>
+<p>1989 年 Getty 與敦煌研究院開始合作，是另一個轉折。此後敦煌保存逐漸從「修補受損處」走向環境監測、病害機制、遊客承載量與預防性保存。2014 年數字展示中心投入使用，代表開放策略的轉型：讓更多觀眾先透過影片與數位影像理解洞窟，再以較短、較受控的方式進入原窟。2020 年代以後，MuralDH、Digital Dunhuang、數字藏經洞與 IDP 等平台，則把敦煌推向資料庫、演算法與跨國 metadata 的時代。這條時間線顯示：敦煌不是一個被一次發現、一次保存、一次展示的遺址；它的每個階段都改變了「誰能看見」與「誰能解釋」。</p>
+<h2>補充觀察：哪些說法仍需要保留不確定性</h2>
+<figure><img src="https://en.people.cn/NMediaFile/2024/1017/FOREIGN1729135087293UPV3M61QMH.jpg" alt="敦煌研究院數位採集工作｜來源：People’s Daily / Dunhuang Academy" loading="lazy"><figcaption>保存報導最容易把複雜歷史說成單線故事；重繪與疊層正提醒我們，敦煌常常沒有單一答案。</figcaption></figure>
+<p>本文可以較確定地說：莫高窟具有 492 個保存洞窟、約 45,000 平方公尺壁畫與逾 2,000 尊彩塑；第 85 窟保存研究確實把濕度、鹽分與地仗層分離列為核心問題；數位敦煌與 IDP 確實提高了遠端可及性。這些事實有 UNESCO、Getty、敦煌研究院與學術來源互相支持。¹²³⁴²⁰ 但有些說法必須保留不確定性。例如藏經洞為何封存，學界仍有多種假說；早期文物流散過程中，王圓籙、地方官員、外國探險者與清廷之間的責任分配，也不能用單一善惡敘事完全解釋。再如氣候變化對敦煌的影響，有報導指出整體暖乾趨勢某些面向可能有利保存，但極端降雨與短時高濕仍是風險。這些不確定性不是文章的缺口，而是報導必須誠實保留的邊界。¹³¹⁹</p>
+<h2>尾聲補記：慢一點的觀看</h2>
+<figure><img src="https://en.people.cn/NMediaFile/2024/1017/FOREIGN17291351071794P6VARH3JB.jpg" alt="莫高窟數位中心觀影｜來源：People’s Daily / Dunhuang Academy" loading="lazy"><figcaption>慢一點看，才會注意到故事如何沿著牆面前進，也才會理解保存為何必須限制我們的觀看速度。</figcaption></figure>
+<p>敦煌最終要求的，也許是一種慢一點的觀看。它拒絕把藝術簡化成一張可以立刻分享的圖片，也拒絕把保存簡化成「修好就好」的工程。它要觀眾承認：有些東西不能近距離拍照，有些洞窟不能每天開，有些文書雖然已被數位化，仍然背著一百多年前的取得爭議。這些限制讓觀看變得不那麼方便，卻也讓觀看比較誠實。當我們接受不能完全擁有敦煌時，或許才開始真正看見它。</p>
+<hr>
+<h2 class="refs-head">引用來源</h2>
+<p class="ref">¹ UNESCO World Heritage Centre（未標日期）— "Mogao Caves"
+<a href="https://whc.unesco.org/en/list/440/" rel="noopener" target="_blank">https://whc.unesco.org/en/list/440/</a></p>
+<p class="ref">² Getty Conservation Institute（2023-01-26）— "Project Background and Objectives"
+<a href="https://www.getty.edu/projects/wall-paintings-conservation-mogao-grottoes/project-background-objectives" rel="noopener" target="_blank">https://www.getty.edu/projects/wall-paintings-conservation-mogao-grottoes/project-background-objectives</a></p>
+<p class="ref">³ Getty Conservation Institute（2013）— "The Conservation of Cave 85 at the Mogao Grottoes, Dunhuang"
+<a href="https://www.getty.edu/conservation/publications_resources/books/conserv_cave85.html" rel="noopener" target="_blank">https://www.getty.edu/conservation/publications_resources/books/conserv_cave85.html</a></p>
+<p class="ref">⁴ Digital Dunhuang / 敦煌研究院（未標日期）— "Digital Dunhuang"
+<a href="https://www.e-dunhuang.com/index.htm?isappinstalled=0&amp;jid=1" rel="noopener" target="_blank">https://www.e-dunhuang.com/index.htm?isappinstalled=0&amp;jid=1</a></p>
+<p class="ref">⁵ Smarthistory / The Dunhuang Foundation（未標日期）— "Jataka tales at Dunhuang"
+<a href="https://smarthistory.org/jataka-tales-dunhuang/" rel="noopener" target="_blank">https://smarthistory.org/jataka-tales-dunhuang/</a></p>
+<p class="ref">⁶ Smarthistory / Dr. Jennifer N. McIntire（未標日期）— "Mogao caves at Dunhuang"
+<a href="https://smarthistory.org/mogao-caves-at-dunhuang/" rel="noopener" target="_blank">https://smarthistory.org/mogao-caves-at-dunhuang/</a></p>
+<p class="ref">⁷ Getty Conservation Institute（2015）— "Cave Temples of Mogao at Dunhuang: Art and History on the Silk Road"
+<a href="https://www.getty.edu/conservation/publications_resources/books/cave_temples_2nd_ed.html" rel="noopener" target="_blank">https://www.getty.edu/conservation/publications_resources/books/cave_temples_2nd_ed.html</a></p>
+<p class="ref">⁸ 中國敦煌石窟保護研究基金會（2026-04-02）— "2026年莫高窟旅游开放公告"
+<a href="https://dhafund.cn/cms/dhkx/484.html" rel="noopener" target="_blank">https://dhafund.cn/cms/dhkx/484.html</a></p>
+<p class="ref">⁹ Getty Conservation Institute（2010）— "Conservation of Ancient Sites on the Silk Road" PDF, Cave 85 conservation discussion
+<a href="https://www.getty.edu/conservation/publications_resources/pdf_publications/pdf/2nd_silkroad9.pdf" rel="noopener" target="_blank">https://www.getty.edu/conservation/publications_resources/pdf_publications/pdf/2nd_silkroad9.pdf</a></p>
+<p class="ref">¹⁰ People’s Daily Online（2024-10-17）— "Dunhuang Academy achieves remarkable results in spreading fine traditional Chinese culture"
+<a href="https://en.people.cn/n3/2024/1017/c90000-20230566.html" rel="noopener" target="_blank">https://en.people.cn/n3/2024/1017/c90000-20230566.html</a></p>
+<p class="ref">¹¹ npj Heritage Science（2025-05-15）— "Impact of open visits on the indoor climate of Mogao Caves"
+<a href="https://doi.org/10.1038/s40494-025-01740-9" rel="noopener" target="_blank">https://doi.org/10.1038/s40494-025-01740-9</a></p>
+<p class="ref">¹² Getty Conservation Institute（2014）— "Visitor Management and Carrying Capacity at World Heritage Sites in China"
+<a href="https://www.getty.edu/conservation/publications_resources/pdf_publications/visitor_management.html" rel="noopener" target="_blank">https://www.getty.edu/conservation/publications_resources/pdf_publications/visitor_management.html</a></p>
+<p class="ref">¹³ PreventionWeb / China Dialogue（2023-11-01）— "The Mogao caves: Preserving cultural heritage in a changing climate"
+<a href="https://www.preventionweb.net/news/mogao-caves-preserving-cultural-heritage-changing-climate" rel="noopener" target="_blank">https://www.preventionweb.net/news/mogao-caves-preserving-cultural-heritage-changing-climate</a></p>
+<p class="ref">¹⁴ Library Trends（2023）— "International Cooperation in the Digital Preservation of the Cultural Heritage of the Dunhuang Mogao Grottoes"
+<a href="https://www.ideals.illinois.edu/items/130359/bitstreams/434651/data.pdf" rel="noopener" target="_blank">https://www.ideals.illinois.edu/items/130359/bitstreams/434651/data.pdf</a></p>
+<p class="ref">¹⁵ Scientific Data（2024-09-02）— "A comprehensive dataset for digital restoration of Dunhuang murals"
+<a href="https://preview-www.nature.com/articles/s41597-024-03785-0" rel="noopener" target="_blank">https://preview-www.nature.com/articles/s41597-024-03785-0</a></p>
+<p class="ref">¹⁶ British Museum（未標日期）— "Exploring the Silk Roads"
+<a href="https://www.britishmuseum.org/collection/china/exploring-silk-roads" rel="noopener" target="_blank">https://www.britishmuseum.org/collection/china/exploring-silk-roads</a></p>
+<p class="ref">¹⁷ International Dunhuang Programme / Mélodie Doumy（2023-06-22）— "Shaping the Stein collection’s Dunhuang corpus (1) Wang Yuanlu: the first ‘curator’"
+<a href="https://idp.bl.uk/blog/shaping-the-stein-collections-dunhuang-corpus-1-wang-yuanlu-the-first-curator/" rel="noopener" target="_blank">https://idp.bl.uk/blog/shaping-the-stein-collections-dunhuang-corpus-1-wang-yuanlu-the-first-curator/</a></p>
+<p class="ref">¹⁸ University of Washington Dunhuang Project（未標日期）— "Dunhuang Manuscripts - Discovery and Dispersal"
+<a href="https://dunhuang.ds.lib.uw.edu/Dunhuang-Exhibitions/exhibits/show/library-cave-manuscripts/manuscripts-dispersal" rel="noopener" target="_blank">https://dunhuang.ds.lib.uw.edu/Dunhuang-Exhibitions/exhibits/show/library-cave-manuscripts/manuscripts-dispersal</a></p>
+<p class="ref">¹⁹ Silk Roads Archaeology and Heritage（2024-04-12）— "Reconstructing a Medieval Library?"
+<a href="https://silkroadsarchaeoheritage.org/articles/10.5334/srah.8" rel="noopener" target="_blank">https://silkroadsarchaeoheritage.org/articles/10.5334/srah.8</a></p>
+<p class="ref">²⁰ International Dunhuang Programme（未標日期）— "Welcome to the International Dunhuang Programme"
+<a href="https://idp.bl.uk/" rel="noopener" target="_blank">https://idp.bl.uk/</a></p>
+<p class="ref">²¹ International Dunhuang Programme（未標日期）— "IDP London"
+<a href="https://idp.bl.uk/about/partner-british-library/" rel="noopener" target="_blank">https://idp.bl.uk/about/partner-british-library/</a></p>
+<p class="ref">²² International Dunhuang Programme（未標日期）— "Lotus Sutra Manuscripts Digitisation Project"
+<a href="https://idp.bl.uk/about/projects/lotus-sutra-manuscripts-digitisation-project/" rel="noopener" target="_blank">https://idp.bl.uk/about/projects/lotus-sutra-manuscripts-digitisation-project/</a></p>
+<aside class="also">本文亦發表於 <a href="https://maruamru777.substack.com/p/2b8" rel="noopener" target="_blank">Substack</a>。</aside>
+</article>
+<footer class="foot"><a href="https://polarbear0827.github.io/My-Way/">← 回首頁</a><span>© 穗稻忠武的專欄</span></footer>
+<script>
+(function(){
+  var stop=function(e){e.preventDefault();return false;};
+  document.addEventListener('contextmenu',stop);
+  document.addEventListener('selectstart',stop);
+  document.addEventListener('copy',stop);
+  document.addEventListener('cut',stop);
+  document.addEventListener('dragstart',stop);
+  document.addEventListener('keydown',function(e){
+    var k=(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['c','x','s','u','a','p'].indexOf(k)>-1){e.preventDefault();return false;}
+  });
+})();
+</script>
+</body>
+</html>
