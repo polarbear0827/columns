@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>嘉義街外的光 · 穗稻忠武的專欄</title>
+<meta name="description" content="一條街道可以只是街道，也可以是一個時代的入口。1926 年，陳澄波把嘉義住家附近國華街一帶畫成〈嘉義街外〉，送進日本帝國美術院展覽會；近百年後，我們再看這幅已佚失、只剩黑白圖像與後續系列版本的作品，看到的不只是台灣油畫史的第一個高峰，也是一座城市如何被殖民現代化、地方記憶與政治暴力反覆改寫。¹²³">
+<link rel="canonical" href="https://polarbear0827.github.io/My-Way/p/2026-07-01-chen-cheng-po-chiayi-street/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="嘉義街外的光">
+<meta property="og:description" content="一條街道可以只是街道，也可以是一個時代的入口。1926 年，陳澄波把嘉義住家附近國華街一帶畫成〈嘉義街外〉，送進日本帝國美術院展覽會；近百年後，我們再看這幅已佚失、只剩黑白圖像與後續系列版本的作品，看到的不只是台灣油畫史的第一個高峰，也是一座城市如何被殖民現代化、地方記憶與政治暴力反覆改寫。¹²³">
+<meta property="og:url" content="https://polarbear0827.github.io/My-Way/p/2026-07-01-chen-cheng-po-chiayi-street/">
+<meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/d/d3/Chen_1927b_Chiayi.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>:root{
+  --bg:#faf8f3; --surface:#fffdf8; --ink:#1c1b18; --soft:#6f6a60; --faint:#9a9388;
+  --line:#e9e3d7; --accent:#9c3024; --accent-soft:#f3e7e3;
+  --serif:"Noto Serif CJK TC","Noto Serif TC","Source Han Serif TC","Songti TC","PMingLiU",Georgia,serif;
+  --sans:system-ui,-apple-system,"PingFang TC","Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.85;
+  -webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;
+  -webkit-touch-callout:none}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+a{color:inherit;text-decoration:none}
+
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+  border-bottom:1px solid var(--line);padding:.9rem 1.5rem}
+.topbar .brand{font-family:var(--serif);font-weight:700;letter-spacing:.12em;font-size:1.02rem}
+.nav{display:flex;gap:1.3rem;font-size:.92rem}
+.nav a{color:var(--soft);padding:.2rem 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
+.masthead{text-align:center;padding:3.4rem 1.5rem 2.4rem;border-bottom:1px solid var(--line)}
+.masthead h1{font-family:var(--serif);font-weight:900;font-size:2.5rem;letter-spacing:.06em;margin:0}
+.masthead .tagline{color:var(--soft);max-width:560px;margin:1rem auto 0;font-size:1rem}
+.masthead .rss{display:inline-block;margin-top:1.2rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem}
+.masthead .rss:hover{background:var(--accent);color:#fff}
+
+/* 首頁動態封面(純 CSS 動畫) */
+.cover{border-bottom:1px solid var(--line);
+  background:radial-gradient(120% 130% at 50% 0%,#fffdf8 0%,var(--bg) 58%,#f1e9db 100%)}
+.cover-inner{position:relative;max-width:900px;margin:0 auto;
+  padding:4.4rem 1.5rem 3.8rem;text-align:center}
+.cover .cc{position:absolute;width:22px;height:22px;border:3px solid var(--accent);
+  opacity:0;animation:cc-in .5s ease-out forwards}
+.cover .cc-tl{top:1.4rem;left:1.4rem;border-right:none;border-bottom:none;animation-delay:.1s}
+.cover .cc-tr{top:1.4rem;right:1.4rem;border-left:none;border-bottom:none;animation-delay:.18s}
+.cover .cc-bl{bottom:1.4rem;left:1.4rem;border-right:none;border-top:none;animation-delay:.26s}
+.cover .cc-br{bottom:1.4rem;right:1.4rem;border-left:none;border-top:none;animation-delay:.34s}
+.cover-kicker{font-family:var(--sans);letter-spacing:.55em;text-indent:.55em;color:var(--accent);
+  font-size:.82rem;font-weight:600;opacity:0;animation:fade-up .6s ease-out .3s forwards}
+.cover-bar{width:0;height:5px;background:var(--accent);margin:1rem auto 1.4rem;
+  animation:bar-in .6s ease-out .5s forwards}
+.cover-title{font-family:var(--serif);font-weight:900;font-size:3rem;letter-spacing:.05em;
+  margin:0;color:var(--ink);opacity:0;animation:fade-up .9s cubic-bezier(.2,.7,.2,1) .7s forwards}
+.cover-sub{font-family:var(--sans);color:var(--soft);max-width:600px;margin:1.1rem auto 0;
+  font-size:1rem;opacity:0;animation:fade-up .75s ease-out 1.15s forwards}
+.cover .rss{display:inline-block;margin-top:1.6rem;font-size:.82rem;letter-spacing:.12em;
+  color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:.35rem 1.1rem;
+  opacity:0;animation:fade-up .7s ease-out 1.5s forwards}
+.cover .rss:hover{background:var(--accent);color:#fff}
+@keyframes cc-in{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+@keyframes bar-in{from{width:0}to{width:150px}}
+@keyframes fade-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cover *{animation:none!important;opacity:1!important;width:auto}
+  .cover-bar{width:150px}}
+@media(max-width:680px){.cover-title{font-size:2.1rem}}
+
+.feed{max-width:1080px;margin:0 auto;padding:2.2rem 1.4rem 1rem}
+.lead-slot{margin-bottom:2.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.8rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(40,30,20,.10)}
+.card .thumb{aspect-ratio:16/10;overflow:hidden;background:var(--accent-soft)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.card .thumb.noimg{display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#f6efe6,#efe6da)}
+.card .thumb.noimg span{font-family:var(--serif);color:var(--faint);font-size:1.4rem;letter-spacing:.3em}
+.card-body{padding:1.1rem 1.25rem 1.3rem;display:flex;flex-direction:column;gap:.35rem;flex:1}
+.card-body h2{font-family:var(--serif);font-weight:700;font-size:1.2rem;line-height:1.45;margin:.1rem 0}
+.card .excerpt{color:var(--soft);font-size:.9rem;line-height:1.7;flex:1}
+.kicker{display:flex;gap:.4rem;flex-wrap:wrap}
+.tag{font-size:.72rem;letter-spacing:.06em;color:var(--accent);background:var(--accent-soft);
+  border-radius:999px;padding:.12rem .6rem}
+.byline{color:var(--faint);font-size:.8rem;margin:.2rem 0 0;letter-spacing:.05em}
+.card.featured{flex-direction:row;align-items:stretch}
+.card.featured .thumb{flex:1.15;aspect-ratio:auto;min-height:300px}
+.card.featured .card-body{flex:1;justify-content:center;padding:2rem 2.2rem}
+.card.featured h2{font-size:1.85rem;line-height:1.4}
+.card.featured .excerpt{font-size:1rem;flex:none;margin-top:.4rem}
+@media(max-width:680px){.card.featured{flex-direction:column}.card.featured .thumb{min-height:200px}}
+
+.post{max-width:700px;margin:0 auto;padding:2.6rem 1.5rem 1rem}
+.post-head{text-align:center;margin-bottom:2.4rem}
+.post-head .kicker{justify-content:center;margin-bottom:1rem}
+.post-head h1{font-family:var(--serif);font-weight:900;font-size:2.2rem;line-height:1.45;margin:.3rem 0}
+.post-head .byline{margin-top:.9rem}
+.post p{margin:1.25rem 0;font-size:1.07rem;letter-spacing:.01em}
+.post p.lead{font-size:1.18rem;line-height:1.9;color:#2c2a26}
+.post p.lead::first-letter{font-family:var(--serif);font-weight:900;float:left;font-size:3.4rem;
+  line-height:.82;margin:.34rem .55rem 0 0;color:var(--accent)}
+.post h2{font-family:var(--serif);font-weight:700;font-size:1.45rem;margin:2.6rem 0 .8rem;
+  padding-bottom:.4rem;border-bottom:2px solid var(--accent)}
+.post h2.refs-head{font-size:1.12rem;color:var(--soft);border-bottom:1px solid var(--line)}
+.post h3{font-family:var(--serif);font-size:1.18rem;margin:1.8rem 0 .5rem}
+.post .hero{margin:0 0 1.8rem}
+.post .hero img{width:100%;max-height:440px;object-fit:cover;border-radius:12px;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figure{margin:2.2rem 0}
+.post figure img{width:100%;border-radius:12px;display:block;box-shadow:0 8px 26px rgba(40,30,20,.10)}
+.post figcaption{color:var(--soft);font-size:.85rem;text-align:center;margin-top:.7rem;font-style:italic;line-height:1.6}
+.post .ref{font-size:.84rem;line-height:1.7;color:#56524a;margin:.4rem 0;padding-left:.9rem;
+  border-left:2px solid var(--line);word-break:break-all}
+.post .ref a{color:var(--accent)}
+.post hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+.onesent{font-family:var(--serif);font-size:1.15rem;color:var(--accent);border-left:3px solid var(--accent);
+  margin:1.5rem 0;padding:.4rem 0 .4rem 1rem;line-height:1.8}
+.rem3{padding-left:1.2rem}.rem3 li{margin:.6rem 0;line-height:1.8}
+.paper{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+.paper h3{margin:.1rem 0 .3rem;font-size:1.18rem}
+.paper .role{color:var(--accent);font-size:.85rem;margin:.1rem 0 .7rem;letter-spacing:.05em}
+.paper p{margin:.4rem 0;font-size:.98rem;line-height:1.75}
+.also{margin:3rem 0 1rem;padding:1.1rem 1.3rem;background:var(--surface);border:1px solid var(--line);
+  border-radius:12px;color:var(--soft);font-size:.95rem}
+.also a{color:var(--accent);font-weight:500}
+.foot{max-width:900px;margin:3rem auto 0;padding:1.6rem 1.5rem;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;color:var(--faint);font-size:.85rem}
+.foot a{color:var(--accent)}
+@media(max-width:680px){.masthead h1{font-size:2rem}.post-head h1{font-size:1.7rem}.post p.lead{font-size:1.08rem}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "嘉義街外的光", "description": "一條街道可以只是街道，也可以是一個時代的入口。1926 年，陳澄波把嘉義住家附近國華街一帶畫成〈嘉義街外〉，送進日本帝國美術院展覽會；近百年後，我們再看這幅已佚失、只剩黑白圖像與後續系列版本的作品，看到的不只是台灣油畫史的第一個高峰，也是一座城市如何被殖民現代化、地方記憶與政治暴力反覆改寫。¹²³", "url": "https://polarbear0827.github.io/My-Way/p/2026-07-01-chen-cheng-po-chiayi-street/", "datePublished": "2026-07-01", "inLanguage": "zh-Hant-TW", "author": {"@type": "Person", "name": "穗稻忠武的專欄"}, "publisher": {"@type": "Organization", "name": "穗稻忠武的專欄"}, "image": "https://upload.wikimedia.org/wikipedia/commons/d/d3/Chen_1927b_Chiayi.jpg"}</script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="https://polarbear0827.github.io/My-Way/">穗稻忠武的專欄</a><nav class="nav"><a href="https://polarbear0827.github.io/My-Way/">專欄</a><a href="https://polarbear0827.github.io/My-Way/radar/">AI Radar</a><a href="https://polarbear0827.github.io/My-Way/papers/">HF 速讀</a><a href="https://polarbear0827.github.io/My-Way/podcast/">Podcast</a><a href="https://polarbear0827.github.io/Daily-briefing/">早報 ↗</a></nav></header>
+<article class="post">
+<div class="post-head">
+<div class="kicker"><span class="tag">台灣文化</span><span class="tag">歷史</span><span class="tag">藝術</span><span class="tag">台灣</span><span class="tag">社會觀察</span><span class="tag">專欄</span></div>
+<h1>嘉義街外的光</h1>
+<p class="byline"><time>2026-07-01</time></p>
+</div>
+
+<p class="lead">導言：一條街道可以只是街道，也可以是一個時代的入口。1926 年，陳澄波把嘉義住家附近國華街一帶畫成〈嘉義街外〉，送進日本帝國美術院展覽會；近百年後，我們再看這幅已佚失、只剩黑白圖像與後續系列版本的作品，看到的不只是台灣油畫史的第一個高峰，也是一座城市如何被殖民現代化、地方記憶與政治暴力反覆改寫。¹²³</p>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Chen_1927b_Chiayi.jpg" alt="陳澄波〈嘉義街外（二）〉1927｜來源：Wikimedia Commons（公有領域）" loading="lazy"><figcaption>1926 年入選帝展的〈嘉義街外（一）〉已佚失；今日常見的 1927 版本，讓讀者得以靠近那條被電線桿、街屋與烈日切開的嘉義街道。</figcaption></figure>
+<h2>先從一條街說起</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Chen_Chengpo_nd.jpg" alt="陳澄波個人照｜來源：李賢輝 / Wikimedia Commons（公有領域）" loading="lazy"><figcaption>陳澄波不是在遠方想像嘉義，他反覆以自己的出生地、街道與公園為畫題，把地方變成現代繪畫的主角。</figcaption></figure>
+<p>中央研究院數位文化中心與臺灣史研究所合作建置的「從北緯 23.5° 出發」說明，陳澄波 1895 年生於嘉義，1947 年卒；嘉義位於北回歸線附近，也是他反覆創作的主題。該網站把他定位為台灣近代美術發展不能忽略的人物：他留日期間以〈嘉義街外〉成為首位以油畫入選日本帝展的台灣畫家，一生也參與多個日治與戰後初期的美術團體。¹</p>
+<p>這個開場重要，因為〈嘉義街外〉常被簡化為「第一位入選帝展」的紀錄。但若只把它看成榮譽榜，就會漏掉畫面裡真正讓人停留的地方：不是東京的展覽廳，而是嘉義街邊的日光、屋舍、電線桿、排水溝與路上人影。中央研究院作品頁指出，1926 年版本以住家附近國華街為背景；1927 年再畫的版本呈現電線、下水道、整齊街廓與透視道路，反映都市改正後的嚴整格局。² 這條街因此同時有兩種時間。一種是藝術史時間：台灣人以油畫進入日本帝國官方美術制度。另一種是城市時間：殖民政府的都市計畫讓街道被拉直、設施被更新，而畫家把這些變化放進畫布。若說陳澄波是「畫地方」的人，他畫的並不是靜態鄉愁，而是正在被改造、被治理、也被居民日常使用的地方。</p>
+<h2>1926：帝展門檻與台灣人的名字</h2>
+<figure><img src="https://file.moc.gov.tw/001/Upload/OldFiles/AdminUploads/information/large/7d7412a3-0c8b-44d1-81e0-95563e32b316.jpg" alt="陳澄波文化部專題圖像｜來源：文化部（官方頁面）" loading="lazy"><figcaption>〈夏日街景〉隔年再度入選帝展；兩幅嘉義街道題材，使街景不只是背景，而是台灣現代繪畫的正式題目。</figcaption></figure>
+<p>陳澄波文化基金會整理〈嘉義街外〉系列時指出，第一張 1926 年入選第七回帝展，原名〈嘉義の町はづれ〉，約 40 號，還刊於當時官方出版圖錄。基金會也引用當年《臺灣新民報》與《臺灣日日新報》資料，說明這次入選引發媒體報導，因為這是台灣人第一次以油畫入選日本帝展。³</p>
+<p>這個「第一次」不是抽象的獎項。1920 年代，台灣仍在日本殖民統治下；一位嘉義出身、年近三十才赴東京美術學校深造的畫家，把殖民地地方街景送進帝國中心的美術審查制度。Taipei Times 回顧指出，陳澄波進入東京美術學校時已近 30 歲，兩年後以嘉義街景入選日本帝展，隔年另一件街景也入選，使他成為第一位有西洋畫入選該展的台灣人。¹¹</p>
+<p>但這裡不能只寫成功故事。帝展本身是日本帝國官方美術制度，能進入其中意味著被中心看見，也意味著殖民地創作者必須通過中心審美與制度門檻。陳澄波的突破，既顯示個人技術與意志，也暴露台灣藝術家在當時必須走向東京才能取得承認的結構。</p>
+<p>更複雜的是，1926 原作後來捐給嘉義市役所典藏，卻在陳澄波罹難後佚失；今日我們多半透過圖錄黑白影像與 1927、1928 年系列版本回望它。³ 一幅曾讓台灣名字進入帝國展覽的畫，最後反而成為遺失物。這個結局，使〈嘉義街外〉在藝術史之外，又帶上檔案學與政治史的陰影。</p>
+<h2>畫面裡的現代化，不只是風景</h2>
+<figure><img src="https://file.moc.gov.tw/001/Upload/529/relpic/13788/235201/a6b979f1-0c19-4b46-9a63-b4c49af755a4.jpg" alt="張捷與陳澄波特展圖像｜來源：國立臺灣歷史博物館（官方頁面）" loading="lazy"><figcaption>嘉義不是陳澄波的抽象故鄉，而是一個有藝術社群、街道生活與公共活動的地方場域。</figcaption></figure>
+<p>中央研究院〈嘉義街外〉作品頁對 1927 年版本的分析很具體：直路在固定視點透視中消失於地平線；電線桿與屋舍一排排縮小，呈現道路與街廓的深度；藍天、赭色地面與烈日感，讓空氣有南方熱度；前景雞群、行人與曬衣則讓畫面活起來。²</p>
+<p>這些描述提醒我們，陳澄波的街景不是單純「漂亮的地方」。畫中的電線、排水設施與街道格局，是殖民現代化的可見符號；雞群、衣物與行人，則是居民日常仍在其間流動。臺北雙年展 2025 的藝術家介紹同樣指出，〈夏日街景〉中的工廠、電線桿等現代化象徵，描繪日本統治下變遷中的台灣風貌；電線桿成為構圖的視覺「尺規」，也引導觀者目光。¹²</p>
+<p>因此，「現代」在陳澄波畫裡不是單純進步口號。它有混雜性：街道被治理、拉直、排水與電力進入畫面；同時，人的步行、雞的活動、衣服的顏色與日光的溫度，讓制度化空間重新變成地方生活。這也是他與純粹都市宣傳圖不同之處。</p>
+<p><strong>（以下為本文分析，非事實陳述）</strong>〈嘉義街外〉最動人的地方，或許就在它沒有把殖民現代化畫成整齊勝利。道路確實筆直，電線桿確實有秩序，但畫面並不冷；它仍有雞、衣物、熱氣與人的緩慢。陳澄波像是在說：現代設施來了，但地方不會只剩設施。地方會把新秩序吸進自己的日常，留下光、塵土與生活噪音。</p>
+<h2>系列、誤認與檔案：一幅畫如何變成四幅</h2>
+<figure><img src="https://file.moc.gov.tw/001/Upload/529/relpic/13788/235201/3e2c77a9-9b4f-40a6-94d7-e2dad4aa1ca6.jpg" alt="張捷與陳澄波特展圖像｜來源：國立臺灣歷史博物館（官方頁面）" loading="lazy"><figcaption>陳澄波反覆回到嘉義街道與公園；版本、藏處與命名的釐清，是理解作品的第一步。</figcaption></figure>
+<p>基金會文章特別提醒，「嘉義街外」目前已確認有四張，為避免名稱混淆，已依年代重新編號。第一張是 1926 年入選帝展的〈嘉義街外（一）〉，已佚失；第二張是 1927 年冬的直式構圖，尺寸 65×53.4 公分；第三張也是 1927 年冬完成；第四張是 1928 年 1 月完成、尺寸較小。³</p>
+<p>這種版本釐清看似考據細節，其實關係到公共記憶。基金會指出，1927 年的〈嘉義街外（二）〉曾被不少人誤認為入選帝展的第一版，甚至文化部國家文化資料庫相關圖說也曾混淆，後來才修正。³ 這代表「名作」不會自己保持清楚；它需要檔案、家屬、研究者與機構持續比對。</p>
+<p>中央研究院數位典藏計畫本身也說明，其內容來自臺灣史研究所、嘉義市文化局與陳澄波文化基金會合作建置的「陳澄波畫作與文書」，並透過作品、書信、照片、剪報與收藏建立立體時空脈絡。¹ 這讓我們看到，陳澄波並不是只靠幾張名畫被保存；他是靠一整組資料系統重新被看見。</p>
+<p>國立臺灣歷史博物館 2025 至 2026 年的「寫生・生命：張捷與陳澄波的故事與時代」也把這點推到展場中央。展覽文字指出，陳澄波遇害後，妻子張捷秘密保存他的畫作、物件、照片、信件與繪畫工具；這些物件既保存了被切短的生命，也見證台灣歷史。⁶ 若沒有家庭長期收藏，今日的陳澄波研究會少掉許多材料。</p>
+<h2>上海與臺陽：嘉義之外的路徑</h2>
+<figure><img src="https://file.moc.gov.tw/001/Upload/529/relpic/13788/235201/e541162a-8115-446c-bbf3-cdbc4530d4c6.jpg" alt="張捷與陳澄波特展圖像｜來源：國立臺灣歷史博物館（官方頁面）" loading="lazy"><figcaption>從嘉義到上海、再回淡水與臺陽美協，陳澄波的風景不是固定地點，而是一條跨地域的藝術路線。</figcaption></figure>
+<p>若只停在嘉義，仍會低估陳澄波。中央研究院臺史所檔案館指出，他早年受石川欽一郎啟蒙，1920 年代放棄穩定教職赴東京美術學校；1929 年研究科畢業後到上海新華藝專、昌明藝專、藝苑等校任教，並研究中國傳統繪畫與裸體畫，到各地寫生，嘗試融合中西藝術風格。⁷</p>
+<p>這段上海經驗，讓陳澄波不只是「台灣地方畫家」。他在帝國、日本、台灣、中國之間移動，也在西洋油畫與東方線條、山水構圖之間摸索。臺史所檔案館以〈清流〉為例，說明他把杭州西湖「斷橋殘雪」題材、傳統水墨「一河兩岸」配置，以及橋邊電線桿與遊人放在同一畫面中。⁷</p>
+<p>1933 年返台後，他又與廖繼春、顏水龍、李梅樹等人共同創組臺陽美術協會。臺史所另一篇檔案介紹指出，1934 年臺陽美協成立，並定期舉辦畫展；陳澄波也因籌辦會務多次北上，與畫友到淡水寫生，留下素描與至少十餘幅淡水系列油畫。⁸</p>
+<p>臺陽美術協會的成立，則把個人創作推向制度。臺史所「臺陽美術協會誕生」寫道，1934 年由陳澄波、顏水龍、楊三郎、廖繼春、李梅樹、陳清汾、李石樵、立石鐵臣等八人共同發起；其目的包括提供秋季臺展之外另一個自由發表園地。⁹ 臺陽美術協會自己的簡介也記載，1935 年第一屆臺陽展在臺灣教育會館舉行。¹⁵</p>
+<p>這些資料使〈嘉義街外〉不再孤立。它是一個起點：從嘉義街道進入帝展，從東京回到上海，再從上海回到台灣民間畫會。陳澄波的藝術生命，不是單線上升，而是不斷在不同制度、地理與媒材之間尋找可呼吸的位置。</p>
+<h2>1947：畫家成為和平代表</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Former_residence_of_Chen_Cheng-po_%28Taiwan%29.jpg" alt="陳澄波故居｜來源：Mk2010 / Wikimedia Commons（CC BY-SA 3.0）" loading="lazy"><figcaption>故居所在的嘉義街區，把藝術家的日常、家庭保存與二二八記憶連在一起。</figcaption></figure>
+<p>陳澄波的死亡不能被用來取代他的藝術，但也不能從他的藝術中切除。國家人權記憶庫記載，陳澄波曾任嘉義市議員，1947 年二二八事件期間被推為和平談判代表之一，3 月 11 日前往水上機場談判時遭扣押；3 月 25 日，陳澄波、潘木枝、柯麟、盧鈵欽等人在嘉義火車站前遭公開槍殺，且未經公開司法審判。⁵</p>
+<p>Taipei Times 以「Life and death on the streets of Chiayi」回顧這段歷史，描述陳澄波妻子張捷多年保存他的衣物與遺體照片；文章也指出，他在政治陰影下長期無法被公開充分討論，直到戒嚴解除後，社會才逐漸回到他的藝術與命運。¹¹ Taiwan Panorama 則報導，陳澄波故居後來成為店面與文化記憶場所，並提到嘉義市有「陳澄波藝術之路」複製畫架，讓人沿著城市重新遇見他的作品。¹⁰</p>
+<p>報導者 2017 年整理嘉義二二八故事時，也寫到 3 月 11 日陳澄波等人進入水上機場談判遭逮捕，3 月 25 日被槍決；其子陳重光與父親自畫像合影的影像，成為見證的一部分。¹⁶ 這些報導與官方人權資料在核心事實上相互呼應：陳澄波不是戰場上的武裝者，而是在衝突中被推向談判位置的地方公共人物。</p>
+<p><strong>（以下為本文分析，非事實陳述）</strong>把 1947 年放回〈嘉義街外〉，我們會感到一種殘酷對照：畫裡的街道原本是光與日常，歷史中的街道後來變成遊街與槍決路線。陳澄波一生畫嘉義，最後也在嘉義街道上被國家暴力奪去生命。這不是藝術形式本身能解釋的事，卻是觀看陳澄波時無法迴避的歷史背景。</p>
+<h2>保存者張捷，與遲來的公開</h2>
+<figure><img src="https://file.moc.gov.tw/001/Upload/529/relpic/13788/235201/fef7a13b-cd93-4fe1-b94e-938f596edbd5.jpg" alt="張捷與陳澄波特展圖像｜來源：國立臺灣歷史博物館（官方頁面）" loading="lazy"><figcaption>這件襯衫讓藝術史無法只談色彩與構圖；它把家庭保存、政治暴力與歷史證據放到同一個展櫃。</figcaption></figure>
+<p>國立臺灣歷史博物館展覽文字把張捷放在核心位置。它說，陳澄波遇害後，張捷把許多物件藏在住家閣樓，包括畫作、照片、信件、文件與繪畫工具；她過世後，長子陳重光接續保管，等待二二八受難者重新取得名譽。⁶ 這段保存史，使藝術作品不只是「收藏」，更像一種風險下的證詞。</p>
+<p>Taipei Times 提到，張捷保存的內衣有兩個彈孔，並把它稱為「proof」——陳澄波被政府軍殺害的證據。¹¹ 這樣的物件很難用一般美術館語言處理：它不是作品，卻深刻改變我們如何看作品；它不是畫布，卻把畫布背後的身體與歷史帶回來。</p>
+<p>文化部英文「Legacy Series VI」則以文化名人系列介紹陳澄波，稱他是油畫家、嘉義市議員與二二八事件受難者，也提到他曾任 1945 年歡迎國民政府籌備委員會副主任，後在二二八事件中成為地方與軍方之間的聯繫者。⁴ 文化部與國家人權記憶庫的敘述方向不同：前者較像文化人物介紹，後者則提供受難時間線與轉型正義資訊。兩者合起來，才能避免把陳澄波只寫成「殉難者」或只寫成「名畫家」。</p>
+<p>今日許多展覽試圖修正這種分裂。國史博展覽以「寫生・生命」為題，將畫作、家庭、街道、物件與死亡證詞放在一起。⁶ 它提醒觀眾：陳澄波的生命不是附屬於作品的註腳，而是作品如何被保存、如何能再次公開的重要條件。</p>
+<h2>今日再看：地方、展覽與市場之外</h2>
+<figure><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/%E9%99%B3%E6%BE%84%E6%B3%A2%E6%96%87%E5%8C%96%E9%A4%A8.jpg" alt="陳澄波文化館｜來源：Zywang114072 / Wikimedia Commons（CC BY-SA 3.0）" loading="lazy"><figcaption>從故居、文化館到城市中的複製畫架，陳澄波被重新帶回嘉義街頭，也被重新放進公共歷史。</figcaption></figure>
+<p>近年陳澄波重新進入展覽與公共討論。國立臺灣歷史博物館的特展從 2025 年 4 月展至 2026 年 3 月，以「寫生」為核心概念；臺北雙年展 2025 也將〈夏日街景〉置於策展脈絡中，指出其描繪工廠、電線桿與日本統治下變遷中的台灣風貌。⁶¹² 這些展覽顯示，陳澄波已不只是美術史課本中的「第一人」，而是可被重新提問的當代議題。</p>
+<p>文化資產面向同樣重要。Twinkle Hub 查詢文化部文化資產資料顯示，陳澄波〈嘉義遊園地（嘉義公園）〉為重要古物，登錄理由指出此作是描繪嘉義公園畫作中最具代表性且尺幅最大的經典之一；資料也說陳澄波是堅持反映生活現實、表現台灣風土之美的重要前輩畫家，其生命歷程見證台灣歷史變遷。¹³ 文化部國家文化資產網另列該案，提供個案導覽。¹⁴</p>
+<p>這些官方登錄語言有其制度功能：把作品放進國家文化資產架構，賦予保存、研究與展示的正當性。但藝術的活力不只在登錄。Taiwan Panorama 報導嘉義市 58 件複製作品與「陳澄波藝術之路」時，呈現另一種公共化方式：不是把畫只掛在白盒子裡，而是讓人回到街口、公園與噴水池附近，看作品與地點如何互相照亮。¹⁰</p>
+<p><strong>（以下為本文分析，非事實陳述）</strong>這或許是陳澄波今日最值得被讀的地方：他讓台灣現代藝術不只是一段「追上西方」的故事，而是一個地方如何學會用油畫看自己。電線桿、街屋、公園、淡水河、上海碼頭、家庭圓桌，都不是邊角材料；它們是現代性進入生活後留下的痕跡。</p>
+<h2>看畫時，該把哪些聲音留下來</h2>
+<figure><img src="https://file.moc.gov.tw/001/Upload/529/relpic/13788/235201/a6b979f1-0c19-4b46-9a63-b4c49af755a4@710x470.jpg" alt="張捷與陳澄波特展圖像｜來源：國立臺灣歷史博物館（官方頁面）" loading="lazy"><figcaption>複製畫架把美術館裡的觀看帶回城市；對陳澄波而言，街道從來不是作品外部，而是作品的起點。</figcaption></figure>
+<p>重讀陳澄波，還有一個方法問題：我們該讓誰說話？檔案機構提供作品、年表與文書；基金會釐清系列版本與家族記憶；人權資料庫建立受難時間線；展覽把物件重新放進空間；城市則用複製畫架、文化館與故居標示，把畫家帶回街頭。這些聲音不完全相同，也不應該被壓成單一敘事。¹³⁵⁶¹⁰</p>
+<p>若從藝術形式看，〈嘉義街外〉是一件關於透視、色彩、街道秩序與南方光線的作品。若從城市史看，它是嘉義都市改正、電線桿、排水與街廓變化的圖像證據。若從政治史看，它會通往 1947 年嘉義車站前的槍聲。若從家庭史看，它又離不開張捷與後代長期保存畫作、信件、衣物和照片的行動。這些層次彼此不互相取代；好的藝術報導必須讓它們相互照明，而不是讓其中一種解釋消滅其他解釋。</p>
+<p>這也是為什麼本文不把「陳澄波是台灣現代美術之父」當作結論。這類稱號容易把人變成雕像，卻遮住了他實際做過的事：赴日求學、在上海任教、帶著家庭移動、參與民間畫會、反覆寫生、參政、受託談判，最後被國家暴力殺害。Taiwan Panorama 報導故居與藝術之路時所呈現的，正是這種「人仍在城市裡」的狀態：冰店、文化館、複製畫架與街口標示，讓藝術家不只停在紀念文字中。¹⁰</p>
+<p><strong>（以下為本文分析，非事實陳述）</strong>陳澄波的作品之所以仍有力量，並不是因為它們能替台灣提供一張完整、無傷的自畫像。相反，它們讓人看見台灣自我觀看的困難：一方面要承認殖民現代化帶來的道路、學校、展覽制度與藝術訓練；另一方面也要承認這套制度下的地方主體如何努力說出自己，並在戰後政治暴力中遭受斷裂。〈嘉義街外〉的光，不是沒有陰影的光。</p>
+<h2>結語：把眼睛放回街上</h2>
+<figure><img src="https://file.moc.gov.tw/001/Upload/529/relpic/13788/235201/283a4416-0c0b-4148-9971-cfda76afa2ff.jpg" alt="張捷與陳澄波特展圖像｜來源：國立臺灣歷史博物館（官方頁面）" loading="lazy"><figcaption>從嘉義街道到淡水山坡，陳澄波始終把現代建築、地方地形與人的尺度放在同一個畫面裡。</figcaption></figure>
+<p>〈嘉義街外〉讓人難以忘記，是因為它把多個問題壓在一條路上：誰能進入帝國美術制度？殖民現代化如何改變台灣街景？地方日常如何抵抗被完全制度化？一位畫家如何在東京、上海、嘉義、淡水之間建立自己的眼睛？而當國家暴力降臨時，家庭、檔案與物件又如何替一個人保存見證？</p>
+<p>若只從「第一位入選帝展」讀陳澄波，故事會過於整齊；若只從二二八受難讀他，作品又會被死亡壓扁。較負責的看法，是把兩者放在同一張地圖上：1926 年的嘉義街道、1934 年的民間美術團體、1947 年的車站前、今日的展覽與文化資產登錄，都屬於同一個生命軌跡。</p>
+<p>因此，重看〈嘉義街外〉不是懷舊。它要求讀者把眼睛放回街上：看電線桿怎樣切開天空，看屋舍如何排成新秩序，看雞群與行人如何讓秩序變回生活，也看歷史如何讓一條街同時承載光與傷口。陳澄波畫的不是一個已經完成的台灣，而是一個正在成形、正在失去、也不斷被後人重新找回的台灣。</p>
+<p>這份重新找回的工作，仍在繼續。每一次展覽把張捷保存的物件攤開，每一次文化資產登錄把作品放進制度，每一次城市把複製畫架放回街角，都是對同一個問題的回答：我們是否願意把藝術家從單一句子中釋放出來，重新面對他的畫、他的家人、他的城市與他的時代？若答案是肯定的，〈嘉義街外〉就不只是台灣油畫史的里程碑；它也是一種觀看訓練，提醒我們在任何現代化敘事裡，都要問：這條路是誰走過的？誰被看見？誰又曾被迫沉默？</p>
+<p>陳澄波留下的難題，也關乎台灣如何書寫自己的現代藝術史。若現代性只被寫成展覽制度、留學經驗與技法移植，地方就會被降格為題材；若只強調政治創傷，作品內部的色彩、構圖、空間與觀看倫理又會被犧牲。〈嘉義街外〉迫使兩種讀法互相牽制：街道的筆直線條提醒我們殖民治理的力量，衣物與雞群提醒我們生活沒有完全被治理吞沒，佚失原作與保存物件提醒我們歷史不是自動留下，而是有人冒著風險保存。這也是它今日仍值得被放在讀者面前的原因。</p>
+<p>補充說明：這種讀法也能避免另一種常見誤區：把台灣美術史只寫成幾位男性大師的傳記。陳澄波固然是核心人物，但他的可見性來自許多人共同支撐：石川欽一郎的啟蒙、張捷的保存、子女與基金會的校訂、檔案館與博物館的整理、研究者對版本與地點的考證，以及嘉義市民在街道上重新指認作品位置的行動。換言之，〈嘉義街外〉不是一個孤獨天才的單向勝利，而是一張由家庭、地方、制度與歷史傷口編成的網。把這張網看清楚，才可能讓畫作從紀念碑回到人的生活，也回到讀者的眼睛與記憶裡。</p>
+<hr>
+<h2 class="refs-head">引用來源</h2>
+<p class="ref">¹ 中央研究院數位文化中心、中央研究院臺灣史研究所等（無日期）—「從北緯23.5°出發 陳澄波：關於本網站」
+<a href="https://chenchengpo.ascdc.sinica.edu.tw/about" rel="noopener" target="_blank">https://chenchengpo.ascdc.sinica.edu.tw/about</a></p>
+<p class="ref">² Academia Sinica Center for Digital Cultures（無日期）— “Outside Chiayi Street - The Artwork Chapter”
+<a href="https://chenchengpo.ascdc.sinica.edu.tw/treasures_en?id=A11&amp;pid=0201" rel="noopener" target="_blank">https://chenchengpo.ascdc.sinica.edu.tw/treasures_en?id=A11&amp;pid=0201</a></p>
+<p class="ref">³ 財團法人陳澄波文化基金會（2017-07-11）—「陳澄波『嘉義街外』系列畫作介紹」
+<a href="https://chengpo.org/%E3%80%90%E6%96%87%E7%AB%A0%E3%80%91%E9%99%B3%E6%BE%84%E6%B3%A2%E3%80%8C%E5%98%89%E7%BE%A9%E8%A1%97%E5%A4%96%E3%80%8D%E7%B3%BB%E5%88%97%E7%95%AB%E4%BD%9C%E4%BB%8B%E7%B4%B9/" rel="noopener" target="_blank">https://chengpo.org/%E3%80%90%E6%96%87%E7%AB%A0%E3%80%91%E9%99%B3%E6%BE%84%E6%B3%A2%E3%80%8C%E5%98%89%E7%BE%A9%E8%A1%97%E5%A4%96%E3%80%8D%E7%B3%BB%E5%88%97%E7%95%AB%E4%BD%9C%E4%BB%8B%E7%B4%B9/</a></p>
+<p class="ref">⁴ Ministry of Culture（2017-01-04）— “Legacy Series VI: Chen Cheng-po”
+<a href="https://www.moc.gov.tw/en/News_Content2.aspx?n=478&amp;s=17382" rel="noopener" target="_blank">https://www.moc.gov.tw/en/News_Content2.aspx?n=478&amp;s=17382</a></p>
+<p class="ref">⁵ 國家人權記憶庫（無日期）—「陳澄波」
+<a href="https://memory.nhrm.gov.tw/TopicExploration/Person/Detail/16211" rel="noopener" target="_blank">https://memory.nhrm.gov.tw/TopicExploration/Person/Detail/16211</a></p>
+<p class="ref">⁶ National Museum of Taiwan History（2025-04-29）— “Painting from Life: The Story and Times of Chang Chieh and Chen Cheng-po—A Special Exhibition”
+<a href="https://www.nmth.gov.tw/en/News_Content_Due.aspx?n=4315&amp;s=235201" rel="noopener" target="_blank">https://www.nmth.gov.tw/en/News_Content_Due.aspx?n=4315&amp;s=235201</a></p>
+<p class="ref">⁷ 中央研究院臺灣史研究所檔案館（2021-10-29）—「陳澄波的東方文化探索」
+<a href="https://archives.ith.sinica.edu.tw/collections_con.php?no=239" rel="noopener" target="_blank">https://archives.ith.sinica.edu.tw/collections_con.php?no=239</a></p>
+<p class="ref">⁸ 中央研究院臺灣史研究所檔案館（無日期）—「陳澄波的淡水系列畫與臺陽美協」
+<a href="https://archives.ith.sinica.edu.tw/collections_con.php?no=231" rel="noopener" target="_blank">https://archives.ith.sinica.edu.tw/collections_con.php?no=231</a></p>
+<p class="ref">⁹ 中央研究院臺灣史研究所檔案館（2014-02-20）—「臺陽美術協會誕生：一起妝點臺灣的春天吧！」
+<a href="https://archives.ith.sinica.edu.tw/collections_con.php?no=301" rel="noopener" target="_blank">https://archives.ith.sinica.edu.tw/collections_con.php?no=301</a></p>
+<p class="ref">¹⁰ Taiwan Panorama（2017-03）— “Bloodied Artist, Warrior of Life — Chen Cheng-po’s Former Residence and Museum”
+<a href="https://www.taiwan-panorama.com/en/Articles/Details?CatId=8&amp;Guid=73699cbe-0fac-44af-b5e9-07f25efa77f6&amp;postname=Bloodied+Artist%2C+Warrior+of+Life+%E2%80%94Chen+Cheng-po%E2%80%99s+Former+Residence+and+Museum" rel="noopener" target="_blank">https://www.taiwan-panorama.com/en/Articles/Details?CatId=8&amp;Guid=73699cbe-0fac-44af-b5e9-07f25efa77f6&amp;postname=Bloodied+Artist%2C+Warrior+of+Life+%E2%80%94Chen+Cheng-po%E2%80%99s+Former+Residence+and+Museum</a></p>
+<p class="ref">¹¹ Taipei Times（2016-01-31）— “Life and death on the streets of Chiayi”
+<a href="https://www.taipeitimes.com/News/feat/archives/2016/01/31/2003638461" rel="noopener" target="_blank">https://www.taipeitimes.com/News/feat/archives/2016/01/31/2003638461</a></p>
+<p class="ref">¹² 臺北雙年展（2025）—「陳澄波」
+<a href="https://www.taipeibiennial.org/2025/tw/content/Chen_Cheng_Po" rel="noopener" target="_blank">https://www.taipeibiennial.org/2025/tw/content/Chen_Cheng_Po</a></p>
+<p class="ref">¹³ Twinkle Hub / 文化部文化資產資料（查詢日期：2026-07-01）—「陳澄波 嘉義遊園地（嘉義公園）」摘要資料
+<a href="https://nchdb.boch.gov.tw/assets/overview/antiquity/20150507000003" rel="noopener" target="_blank">https://nchdb.boch.gov.tw/assets/overview/antiquity/20150507000003</a></p>
+<p class="ref">¹⁴ 國家文化資產網（2015-05-06）—「陳澄波嘉義遊園地（嘉義公園）」
+<a href="https://nchdb.boch.gov.tw/assets/overview/antiquity/20150507000003" rel="noopener" target="_blank">https://nchdb.boch.gov.tw/assets/overview/antiquity/20150507000003</a></p>
+<p class="ref">¹⁵ 臺陽美術協會（無日期）—「關於臺陽美術協會」
+<a href="https://www.taiyang.tw/about" rel="noopener" target="_blank">https://www.taiyang.tw/about</a></p>
+<p class="ref">¹⁶ 報導者（2017-02-26）—「嘉義的228故事：濫殺槍決，血染機場、火車站」
+<a href="https://www.twreporter.org/a/photos-228-chiayi" rel="noopener" target="_blank">https://www.twreporter.org/a/photos-228-chiayi</a></p>
+<p class="ref">¹⁷ 財團法人陳澄波文化基金會（無日期）—「年表」
+<a href="https://chengpo.org/%e5%b9%b4%e8%a1%a8/" rel="noopener" target="_blank">https://chengpo.org/%e5%b9%b4%e8%a1%a8/</a></p>
+<p class="ref">¹⁸ 新北市淡水區公所（無日期）—「畫作介紹：嘉義街景」
+<a href="https://www.tamsui.ntpc.gov.tw/home.jsp?act=be4f48068b2b0031&amp;dataserno=8d8a72da404f7a42a3ea4bcba97d9dc4&amp;id=cc9929cdc4ae58dc" rel="noopener" target="_blank">https://www.tamsui.ntpc.gov.tw/home.jsp?act=be4f48068b2b0031&amp;dataserno=8d8a72da404f7a42a3ea4bcba97d9dc4&amp;id=cc9929cdc4ae58dc</a></p>
+<aside class="also">本文亦發表於 <a href="https://maruamru777.substack.com/p/711" rel="noopener" target="_blank">Substack</a>。</aside>
+</article>
+<footer class="foot"><a href="https://polarbear0827.github.io/My-Way/">← 回首頁</a><span>© 穗稻忠武的專欄</span></footer>
+<script>
+(function(){
+  var stop=function(e){e.preventDefault();return false;};
+  document.addEventListener('contextmenu',stop);
+  document.addEventListener('selectstart',stop);
+  document.addEventListener('copy',stop);
+  document.addEventListener('cut',stop);
+  document.addEventListener('dragstart',stop);
+  document.addEventListener('keydown',function(e){
+    var k=(e.key||'').toLowerCase();
+    if((e.ctrlKey||e.metaKey)&&['c','x','s','u','a','p'].indexOf(k)>-1){e.preventDefault();return false;}
+  });
+})();
+</script>
+</body>
+</html>
